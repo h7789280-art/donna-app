@@ -304,8 +304,6 @@ export default function DonnaApp() {
         {tab==="home"&&<>
           {quote&&<div style={{background:"linear-gradient(135deg,#18150e,#11100e)",borderRadius:14,padding:14,marginBottom:10,border:"1px solid #25200f",fontStyle:"italic"}}><div style={{color:"#c8c0b0",fontSize:12,lineHeight:1.5}}>"{quote.text||quote.quote_text||""}"</div><div style={{color:c.gold,fontSize:10,marginTop:5,fontStyle:"normal"}}>— {quote.author||""}</div></div>}
 
-          <WalletStrip />
-
           <div style={S.g3}>
             <div style={{...S.crd,cursor:"pointer"}} onClick={()=>setTab("finance")}><div style={S.crdT}>💰 Сегодня</div><div style={S.big(c.gold)}>{fmt(totExp)}₺</div><div style={S.sm}>Нед: {fmt(weekTotal)}₺</div></div>
             <div style={S.crd}><div style={S.crdT}>⚡ Энергия</div><div style={S.big(c.green)}>{eL||"—"}/5</div><div style={S.sm}>Ср: {eAvg}</div></div>
