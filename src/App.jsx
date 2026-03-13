@@ -5,6 +5,8 @@ const SB = "https://daxuzttlpnyenveflhmg.supabase.co";
 const SK = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRheHV6dHRscG55ZW52ZWZsaG1nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMyMjYzNTcsImV4cCI6MjA4ODgwMjM1N30.V00arqOkmQiNe-IJcxr-PPqeLiCy06_H1YUo1syxMTM";
 const hd = { apikey: SK, Authorization: `Bearer ${SK}` };
 const q = async (t, s = "") => { try { const r = await fetch(`${SB}/rest/v1/${t}?${s}`, { headers: hd }); if (!r.ok) return []; const d = await r.json(); return Array.isArray(d) ? d : []; } catch { return []; } };
+const sbPatch = async (t, id, body) => { try { await fetch(`${SB}/rest/v1/${t}?id=eq.${id}`, { method: "PATCH", headers: { ...hd, "Content-Type": "application/json", Prefer: "return=representation" }, body: JSON.stringify(body) }); } catch {} };
+const sbPost = async (t, body) => { try { await fetch(`${SB}/rest/v1/${t}`, { method: "POST", headers: { ...hd, "Content-Type": "application/json", Prefer: "return=representation" }, body: JSON.stringify(body) }); } catch {} };
 
 const MO = ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
 const DA = ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"];
@@ -12,9 +14,12 @@ const DS = ["Вс","Пн","Вт","Ср","Чт","Пт","Сб"];
 const now = new Date();
 const td = now.toISOString().split("T")[0];
 const dow = now.getDay();
-const fmt = n => Number(n||0).toLocaleString("ru-RU");
+const fmt = n => Number(n||0).toLocaleString("ru-RU", { minimumFractionDigits: 0, maximumFractionDigits: 2 });
 const CI = {"Продукты":"🛒","Сладкое":"🍫","Кафе/рестораны":"☕","Транспорт":"🚕","Дом":"🏠","Злата":"🎓","Здоровье":"💊","Одежда":"👗","Подписки":"📱","Бизнес":"💼","Другое":"📦","продукты":"🛒","сладкое":"🍫","кафе":"☕","транспорт":"🚕","дом":"🏠","здоровье":"💊","одежда":"👗","другое":"📦","красота":"💅","развлечения":"🎭","образование":"📚","Без категории":"📋"};
 const CC = ["#d4a853","#5ba8d4","#4a9868","#da8a3a","#d45a5a","#9a6ad4","#5ad4b8","#d4d45a","#8a8070","#d45a9a"];
+const WE = { UAH: "🇺🇦", EUR: "🇪🇺", USD: "🇺🇸", TRY: "🇹🇷" };
+const WS = { UAH: "₴", EUR: "€", USD: "$", TRY: "₺" };
+const WC = { UAH: "#FFD700", EUR: "#5ba8d4", USD: "#4a9868", TRY: "#d45a5a" };
 
 function Ring({ pct, size=56, stroke=5, color="#d4a853", children }) {
   const r=(size-stroke)/2, ci=2*Math.PI*r, off=ci-(Math.min(pct||0,100)/100)*ci;
@@ -31,10 +36,19 @@ const c={gold:"#d4a853",bg:"#0a0a0f",card:"#111110",border:"#1c1a15",text:"#e8e4
 
 export default function DonnaApp() {
   const [tab, setTab] = useState("home");
-  const [D, setD] = useState({expenses:[],expWeek:[],expMonth:[],categories:[],waterToday:null,health:[],healthSched:[],energy:[],zlata:[],zlataTasks:[],ideas:[],quotes:[],menu:[],menuR:[],dates:[],content:[],reflections:[],gratitude:[],shopping:[],sleep:[],projects:[],tasks:[],income:[],events:[]});
+  const [D, setD] = useState({expenses:[],expWeek:[],expMonth:[],categories:[],waterToday:null,health:[],healthSched:[],energy:[],zlata:[],zlataTasks:[],ideas:[],quotes:[],menu:[],menuR:[],dates:[],content:[],reflections:[],gratitude:[],shopping:[],sleep:[],projects:[],tasks:[],income:[],events:[],wallets:[],transfers:[]});
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
   const [finView, setFinView] = useState("today");
+  const [showTf, setShowTf] = useState(false);
+  const [tfFrom, setTfFrom] = useState("");
+  const [tfTo, setTfTo] = useState("");
+  const [tfAmt, setTfAmt] = useState("");
+  const [tfRate, setTfRate] = useState("");
+  const [tfBusy, setTfBusy] = useState(false);
+  const [editW, setEditW] = useState(null);
+  const [editBal, setEditBal] = useState("");
+  const [editBusy, setEditBusy] = useState(false);
 
   const weekStart = new Date(now); weekStart.setDate(now.getDate()-now.getDay()+1);
   const weekStartStr = weekStart.toISOString().split("T")[0];
@@ -46,9 +60,7 @@ export default function DonnaApp() {
     const expWeek = await q("expenses",`select=*&date=gte.${weekStartStr}&order=date.asc`);
     const expMonth = await q("expenses",`select=*&date=gte.${monthStart}&order=date.asc`);
     const categories = await q("finance_categories","select=*&order=sort_order.asc");
-    // water_log uses glasses/goal, use view
     const waterToday = await q("v_water_today","select=*");
-    // health
     const health = await q("health_log",`select=*&date=eq.${td}&order=created_at.desc`);
     const healthSched = await q("health_schedule","select=*&is_active=eq.true&order=time_of_day.asc");
     const energy = await q("energy_log","select=*&order=date.desc&limit=7");
@@ -68,19 +80,41 @@ export default function DonnaApp() {
     const tasks = await q("project_tasks","select=*&order=due_date.asc");
     const income = await q("income",`select=*&date=gte.${monthStart}&order=date.desc`);
     const events = await q("daily_events",`select=*&date=eq.${td}&order=time_start.asc`);
-    setD({expenses,expWeek,expMonth,categories,waterToday:waterToday[0]||null,health,healthSched,energy,zlata,zlataTasks,ideas,quotes,menu,menuR,dates,content,reflections,gratitude,shopping,sleep,projects,tasks,income,events});
+    const wallets = await q("wallets","select=*&order=id.asc");
+    const transfers = await q("wallet_transfers","select=*&order=created_at.desc&limit=20");
+    setD({expenses,expWeek,expMonth,categories,waterToday:waterToday[0]||null,health,healthSched,energy,zlata,zlataTasks,ideas,quotes,menu,menuR,dates,content,reflections,gratitude,shopping,sleep,projects,tasks,income,events,wallets,transfers});
     try { const wr=await fetch("https://api.open-meteo.com/v1/forecast?latitude=36.55&longitude=32.00&current=temperature_2m,weathercode&timezone=Europe/Istanbul"); if(wr.ok) setWeather(await wr.json()); } catch{}
     setLoading(false);
   },[]);
 
   useEffect(()=>{load();},[load]);
 
-  // Calculations
+  const doTransfer = async () => {
+    if(!tfFrom||!tfTo||!tfAmt||tfFrom===tfTo) return;
+    setTfBusy(true);
+    const fw=D.wallets.find(w=>w.id===Number(tfFrom));
+    const tw=D.wallets.find(w=>w.id===Number(tfTo));
+    if(!fw||!tw){setTfBusy(false);return;}
+    const fa=Number(tfAmt),rate=Number(tfRate)||1,ta=fa*rate;
+    await sbPost("wallet_transfers",{date:td,from_wallet_id:fw.id,to_wallet_id:tw.id,from_amount:fa,to_amount:ta,exchange_rate:rate,description:`${fw.currency} → ${tw.currency}`});
+    await sbPatch("wallets",fw.id,{balance:Number(fw.balance)-fa});
+    await sbPatch("wallets",tw.id,{balance:Number(tw.balance)+ta});
+    setShowTf(false);setTfFrom("");setTfTo("");setTfAmt("");setTfRate("");setTfBusy(false);
+    load();
+  };
+
+  const doEditBal = async () => {
+    if(!editW||editBal==="") return;
+    setEditBusy(true);
+    await sbPatch("wallets",editW.id,{balance:Number(editBal)});
+    setEditW(null);setEditBal("");setEditBusy(false);
+    load();
+  };
+
   const totExp=D.expenses.reduce((s,e)=>s+(Number(e.amount)||0),0);
   const wGlasses=D.waterToday?Number(D.waterToday.glasses)||0:0;
   const wGoal=D.waterToday?Number(D.waterToday.goal)||8:8;
   const wPct=Math.min(100,Math.round((wGlasses/wGoal)*100));
-  // health: match schedule medicine with log
   const vitTaken=D.health.filter(h=>h.taken).length;
   const vitTot=D.healthSched.length||D.health.length||0;
   const vPct=vitTot>0?Math.round((vitTaken/vitTot)*100):0;
@@ -119,7 +153,6 @@ export default function DonnaApp() {
   const wTemp=weather?.current?.temperature_2m;
   const wIcon=wCode==null?"":wCode<=1?"☀️":wCode<=3?"⛅":wCode<=48?"🌫":wCode<=67?"🌧":wCode<=77?"❄️":"⛈";
 
-  // Timeline
   const timeline=useMemo(()=>{
     const items=[];
     todayZlata.forEach(z=>items.push({time:z.time_start,title:z.subject||z.activity,type:"zlata",icon:"🎓"}));
@@ -166,9 +199,83 @@ export default function DonnaApp() {
     subBtn:{padding:"12px 6px",borderRadius:12,border:`1px solid ${c.border}`,background:c.card,cursor:"pointer",textAlign:"center",color:c.dim,fontSize:10,fontFamily:"inherit"},
     back:{background:"none",border:"none",color:c.dim,cursor:"pointer",fontSize:11,fontFamily:"inherit",marginBottom:8,padding:0},
     pill:a=>({padding:"5px 12px",borderRadius:14,border:"none",cursor:"pointer",fontSize:11,fontFamily:"inherit",background:a?`${c.gold}20`:"transparent",color:a?c.gold:c.faint}),
+    wGrid:{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:10},
+    wCard:col=>({background:`linear-gradient(135deg,${col}12,${c.card} 70%)`,borderRadius:14,padding:"12px 14px",border:`1px solid ${col}25`,cursor:"pointer"}),
+    wBal:col=>({fontSize:20,fontWeight:700,color:col,letterSpacing:-0.5}),
+    overlay:{position:"fixed",top:0,left:0,right:0,bottom:0,background:"rgba(0,0,0,0.75)",zIndex:100,display:"flex",alignItems:"center",justifyContent:"center",padding:20},
+    modal:{background:c.card,borderRadius:16,padding:20,width:"100%",maxWidth:340,border:`1px solid ${c.border}`},
+    mTitle:{fontSize:15,fontWeight:700,color:c.gold,marginBottom:14},
+    mLabel:{fontSize:11,color:c.dim,marginBottom:3,display:"block"},
+    mInput:{width:"100%",padding:"9px 12px",borderRadius:10,border:`1px solid ${c.border}`,background:c.bg,color:c.text,fontSize:13,marginBottom:8,outline:"none",boxSizing:"border-box",fontFamily:"inherit"},
+    mSelect:{width:"100%",padding:"9px 12px",borderRadius:10,border:`1px solid ${c.border}`,background:c.bg,color:c.text,fontSize:13,marginBottom:8,outline:"none",boxSizing:"border-box",fontFamily:"inherit"},
+    mBtn:p=>({padding:"9px 18px",borderRadius:10,border:"none",fontSize:12,fontWeight:600,cursor:"pointer",fontFamily:"inherit",background:p?c.gold:`${c.border}44`,color:p?c.bg:c.dim}),
+    tfBtn:{width:"100%",padding:"10px",borderRadius:12,border:`1px dashed ${c.gold}44`,background:"transparent",color:c.gold,fontSize:12,fontWeight:600,cursor:"pointer",marginBottom:10,fontFamily:"inherit"},
   };
 
   if(loading) return <div style={{...S.app,display:"flex",alignItems:"center",justifyContent:"center"}}><div style={{textAlign:"center"}}><div style={{fontSize:36,marginBottom:10}}>✨</div><div style={{color:c.gold,fontSize:16}}>Donna загружается...</div></div></div>;
+
+  const WalletStrip = () => D.wallets.length > 0 ? (
+    <div style={{...S.crd, cursor:"pointer"}} onClick={()=>{setTab("finance");setFinView("today");}}>
+      <div style={S.crdT}>👛 Кошельки</div>
+      <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
+        {D.wallets.map(w=>{const col=WC[w.currency]||c.gold;return(
+          <div key={w.id} style={{display:"flex",alignItems:"center",gap:5,padding:"5px 10px",borderRadius:10,background:`${col}10`,border:`1px solid ${col}20`}}>
+            <span style={{fontSize:13}}>{WE[w.currency]||"💰"}</span>
+            <span style={{fontSize:12,fontWeight:600,color:col}}>{fmt(w.balance)} {WS[w.currency]}</span>
+          </div>
+        );})}
+      </div>
+    </div>
+  ) : null;
+
+  const WalletCards = () => D.wallets.length > 0 ? (
+    <>
+      <div style={S.wGrid}>
+        {D.wallets.map(w=>{const col=WC[w.currency]||c.gold;return(
+          <div key={w.id} style={S.wCard(col)} onClick={()=>{setEditW(w);setEditBal(String(w.balance||0));}}>
+            <div style={{fontSize:20,marginBottom:2}}>{WE[w.currency]||"💰"}</div>
+            <div style={{fontSize:10,color:c.dim}}>{w.name}</div>
+            <div style={S.wBal(col)}>{fmt(w.balance)} {WS[w.currency]}</div>
+            <div style={{fontSize:9,color:c.faint}}>{w.currency}</div>
+          </div>
+        );})}
+      </div>
+      <button style={S.tfBtn} onClick={()=>setShowTf(true)}>🔄 Обмен между кошельками</button>
+    </>
+  ) : null;
+
+  const CompactWallets = () => D.wallets.length > 0 ? (
+    <div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:10}}>
+      {D.wallets.map(w=>{const col=WC[w.currency]||c.gold;return(
+        <div key={w.id} style={{display:"flex",alignItems:"center",gap:4,padding:"4px 10px",borderRadius:10,background:`${col}10`,border:`1px solid ${col}20`,cursor:"pointer"}} onClick={()=>{setEditW(w);setEditBal(String(w.balance||0));}}>
+          <span style={{fontSize:12}}>{WE[w.currency]||"💰"}</span>
+          <span style={{fontSize:11,fontWeight:600,color:col}}>{fmt(w.balance)}{WS[w.currency]}</span>
+        </div>
+      );})}
+    </div>
+  ) : null;
+
+  const TransferHistory = () => D.transfers.length > 0 ? (
+    <div style={S.crd}>
+      <div style={S.crdT}>📜 Последние обмены</div>
+      {D.transfers.slice(0,5).map((t,i)=>{
+        const fw=D.wallets.find(w=>w.id===t.from_wallet_id);
+        const tw=D.wallets.find(w=>w.id===t.to_wallet_id);
+        return(
+          <div key={t.id||i} style={{display:"flex",alignItems:"center",gap:6,padding:"6px 0",borderBottom:`1px solid ${c.dark}`}}>
+            <div style={{flex:1}}>
+              <div style={{display:"flex",alignItems:"center",gap:5,flexWrap:"wrap"}}>
+                <span style={{fontSize:12,fontWeight:600,color:c.red}}>-{fmt(t.from_amount)}{WS[fw?.currency]||""}</span>
+                <span style={{color:c.gold,fontSize:13}}>→</span>
+                <span style={{fontSize:12,fontWeight:600,color:c.green}}>+{fmt(t.to_amount)}{WS[tw?.currency]||""}</span>
+              </div>
+              <div style={{fontSize:9,color:c.faint,marginTop:1}}>{fw?.name||"?"} → {tw?.name||"?"} • курс {t.exchange_rate||"—"} • {(t.date||"").slice(5)}</div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  ) : null;
 
   return (
     <div style={S.app}>
@@ -197,6 +304,8 @@ export default function DonnaApp() {
         {tab==="home"&&<>
           {quote&&<div style={{background:"linear-gradient(135deg,#18150e,#11100e)",borderRadius:14,padding:14,marginBottom:10,border:"1px solid #25200f",fontStyle:"italic"}}><div style={{color:"#c8c0b0",fontSize:12,lineHeight:1.5}}>"{quote.text||quote.quote_text||""}"</div><div style={{color:c.gold,fontSize:10,marginTop:5,fontStyle:"normal"}}>— {quote.author||""}</div></div>}
 
+          <WalletStrip />
+
           <div style={S.g3}>
             <div style={{...S.crd,cursor:"pointer"}} onClick={()=>setTab("finance")}><div style={S.crdT}>💰 Сегодня</div><div style={S.big(c.gold)}>{fmt(totExp)}₺</div><div style={S.sm}>Нед: {fmt(weekTotal)}₺</div></div>
             <div style={S.crd}><div style={S.crdT}>⚡ Энергия</div><div style={S.big(c.green)}>{eL||"—"}/5</div><div style={S.sm}>Ср: {eAvg}</div></div>
@@ -217,14 +326,20 @@ export default function DonnaApp() {
           <div style={{display:"flex",gap:4,marginBottom:10}}>{["today","week","month"].map(v=><button key={v} onClick={()=>setFinView(v)} style={S.pill(finView===v)}>{v==="today"?"Сегодня":v==="week"?"Неделя":"Месяц"}</button>)}</div>
 
           {finView==="today"&&<>
+            <WalletCards />
             <div style={S.crd}><div style={S.crdT}>💰 Сегодня</div><div style={S.big(c.gold)}>{fmt(totExp)} ₺</div></div>
             {catSort.length>0&&<div style={S.crd}><div style={S.crdT}>📊 Категории</div>{catSort.map(([k,v],i)=><div key={k}><div style={{display:"flex",justifyContent:"space-between",padding:"5px 0"}}><span style={{fontSize:12,color:"#c8c0b0"}}>{CI[k]||"📋"} {k}</span><span style={{fontSize:12,color:c.gold,fontWeight:600}}>{fmt(v)}₺</span></div><div style={S.bar}><div style={S.barF(totExp?v/totExp*100:0,CC[i%CC.length])}/></div></div>)}</div>}
             <div style={S.crd}><div style={S.crdT}>📝 Записи</div>{D.expenses.length===0?<div style={{color:c.faint,fontSize:11}}>Нет записей</div>:D.expenses.map((e,i)=><div key={e.id||i} style={S.row}><div><div style={{fontSize:12,color:"#c8c0b0"}}>{CI[e.category]||"📋"} {e.description||e.category||"—"}</div><div style={S.sm}>{e.category}•{(e.time||e.created_at||"").slice(0,5)}</div></div><div style={{fontSize:14,color:c.gold,fontWeight:600}}>{fmt(e.amount)}₺</div></div>)}</div>
+            <TransferHistory />
           </>}
 
-          {finView==="week"&&<div style={S.crd}><div style={S.crdT}>📊 Неделя: {fmt(weekTotal)} ₺</div><div style={{height:140}}><ResponsiveContainer><BarChart data={weekChart}><XAxis dataKey="day" tick={{fill:c.faint,fontSize:10}} axisLine={false} tickLine={false}/><YAxis hide/><Tooltip contentStyle={{background:c.card,border:`1px solid ${c.border}`,borderRadius:8,fontSize:11,color:c.text}} formatter={v=>[`${fmt(v)} ₺`]}/><Bar dataKey="amt" fill={c.gold} radius={[4,4,0,0]}/></BarChart></ResponsiveContainer></div></div>}
+          {finView==="week"&&<>
+            <CompactWallets />
+            <div style={S.crd}><div style={S.crdT}>📊 Неделя: {fmt(weekTotal)} ₺</div><div style={{height:140}}><ResponsiveContainer><BarChart data={weekChart}><XAxis dataKey="day" tick={{fill:c.faint,fontSize:10}} axisLine={false} tickLine={false}/><YAxis hide/><Tooltip contentStyle={{background:c.card,border:`1px solid ${c.border}`,borderRadius:8,fontSize:11,color:c.text}} formatter={v=>[`${fmt(v)} ₺`]}/><Bar dataKey="amt" fill={c.gold} radius={[4,4,0,0]}/></BarChart></ResponsiveContainer></div></div>
+          </>}
 
           {finView==="month"&&<>
+            <CompactWallets />
             <div style={S.crd}><div style={S.crdT}>📊 Месяц: {fmt(monthTotal)} ₺</div><div style={{height:140}}><ResponsiveContainer><LineChart data={monthChart}><XAxis dataKey="day" tick={{fill:c.faint,fontSize:9}} axisLine={false} tickLine={false}/><YAxis hide/><Tooltip contentStyle={{background:c.card,border:`1px solid ${c.border}`,borderRadius:8,fontSize:11}} formatter={v=>[`${fmt(v)} ₺`]}/><Line type="monotone" dataKey="amt" stroke={c.gold} strokeWidth={2} dot={{fill:c.gold,r:3}}/></LineChart></ResponsiveContainer></div></div>
 
             {D.categories.filter(ct=>ct.monthly_budget).length>0&&<div style={S.crd}><div style={S.crdT}>💳 Бюджет</div>{D.categories.filter(ct=>ct.monthly_budget).map((ct,i)=>{const spent=byCatMonth[ct.category]||0;const budget=Number(ct.monthly_budget);const pct=budget?Math.round(spent/budget*100):0;return <div key={i} style={{marginBottom:8}}><div style={{display:"flex",justifyContent:"space-between",fontSize:11}}><span style={{color:"#c8c0b0"}}>{ct.icon||"📋"} {ct.category}</span><span style={{color:pct>90?c.red:pct>70?c.orange:c.green}}>{fmt(spent)}/{fmt(budget)}₺</span></div><div style={S.bar}><div style={S.barF(pct,pct>90?c.red:pct>70?c.orange:c.green)}/></div></div>;})}</div>}
@@ -258,7 +373,6 @@ export default function DonnaApp() {
         {/* MORE */}
         {tab==="more"&&<div style={S.subG}>{subs.map(s=><button key={s.id} onClick={()=>setTab(s.id)} style={S.subBtn}><div style={{fontSize:22,marginBottom:3}}>{s.icon}</div>{s.l}</button>)}</div>}
 
-        {/* SUB PAGES */}
         {tab==="menu"&&<><button onClick={()=>setTab("more")} style={S.back}>← Назад</button><div style={S.crd}><div style={S.crdT}>🍽 Меню</div>{D.menu.length===0?<div style={{color:c.faint,fontSize:11}}>Пусто</div>:[1,2,3,4,5,6,0].map(d=>{const m=D.menu.filter(x=>x.day_of_week===d);if(!m.length)return null;return <div key={d} style={{marginBottom:8}}><div style={{fontSize:11,color:d===dow?c.gold:c.dim,fontWeight:600}}>{DA[d]}</div>{m.map((x,i)=><div key={i} style={{fontSize:11,color:"#c8c0b0",paddingLeft:10}}>{x.meal_type?`${x.meal_type}: `:""}{x.dish||x.description}</div>)}</div>;})}</div></>}
 
         {tab==="ideas"&&<><button onClick={()=>setTab("more")} style={S.back}>← Назад</button><div style={S.crd}><div style={S.crdT}>💡 Идеи ({D.ideas.length})</div>{D.ideas.length===0?<div style={{color:c.faint,fontSize:11}}>Напиши боту "идея: ..."</div>:D.ideas.map((x,i)=><div key={i} style={{padding:"6px 0",borderBottom:`1px solid ${c.dark}`}}><div style={{fontSize:12,color:"#c8c0b0"}}>{x.text||x.idea||x.title}</div><div style={{display:"flex",gap:4,marginTop:3}}>{x.category&&<span style={S.badge(c.gold)}>{x.category}</span>}<span style={S.sm}>{(x.created_at||"").slice(0,10)}</span></div></div>)}</div></>}
@@ -279,6 +393,7 @@ export default function DonnaApp() {
 
         {tab==="dashboard"&&<><button onClick={()=>setTab("more")} style={S.back}>← Назад</button>
           <div style={{fontSize:16,color:c.gold,fontWeight:700,marginBottom:10}}>📊 Дашборд</div>
+          <CompactWallets />
           <div style={S.g2}>
             <div style={S.crd}><div style={S.sm}>Неделя</div><div style={S.big(c.gold)}>{fmt(weekTotal)}₺</div></div>
             <div style={S.crd}><div style={S.sm}>Месяц</div><div style={S.big(c.orange)}>{fmt(monthTotal)}₺</div></div>
@@ -289,6 +404,41 @@ export default function DonnaApp() {
           <div style={S.crd}><div style={S.crdT}>📋 Итого</div><div style={{fontSize:11,color:"#c8c0b0",lineHeight:1.8}}>💰 Неделя: {fmt(weekTotal)} ₺ ({D.expWeek.length} зап.)<br/>💧 Вода: {wGlasses}/{wGoal} стаканов ({wPct}%)<br/>💊 Витамины: {vitTaken}/{vitTot} ({vPct}%)<br/>⚡ Энергия: {eL}/5 (ср. {eAvg})<br/>🎓 Злата: {todayZlata.length} занятий</div></div>
         </>}
       </div>
+
+      {/* TRANSFER MODAL */}
+      {showTf&&<div style={S.overlay} onClick={()=>setShowTf(false)}><div style={S.modal} onClick={e=>e.stopPropagation()}>
+        <div style={S.mTitle}>🔄 Обмен валюты</div>
+        <label style={S.mLabel}>Из кошелька</label>
+        <select style={S.mSelect} value={tfFrom} onChange={e=>setTfFrom(e.target.value)}>
+          <option value="">Выбери...</option>
+          {D.wallets.map(w=><option key={w.id} value={w.id}>{WE[w.currency]} {w.name} ({fmt(w.balance)} {WS[w.currency]})</option>)}
+        </select>
+        <label style={S.mLabel}>В кошелёк</label>
+        <select style={S.mSelect} value={tfTo} onChange={e=>setTfTo(e.target.value)}>
+          <option value="">Выбери...</option>
+          {D.wallets.filter(w=>String(w.id)!==tfFrom).map(w=><option key={w.id} value={w.id}>{WE[w.currency]} {w.name} ({fmt(w.balance)} {WS[w.currency]})</option>)}
+        </select>
+        <label style={S.mLabel}>Сумма</label>
+        <input style={S.mInput} type="number" placeholder="100" value={tfAmt} onChange={e=>setTfAmt(e.target.value)}/>
+        <label style={S.mLabel}>Курс (за 1 ед.)</label>
+        <input style={S.mInput} type="number" step="0.01" placeholder="38.5" value={tfRate} onChange={e=>setTfRate(e.target.value)}/>
+        {tfAmt&&tfRate&&<div style={{background:c.bg,padding:"8px 12px",borderRadius:10,marginBottom:10,fontSize:12,color:c.green}}>Получишь: <strong>{fmt(Number(tfAmt)*Number(tfRate))}</strong> {(()=>{const tw=D.wallets.find(w=>w.id===Number(tfTo));return tw?WS[tw.currency]:"";})()}</div>}
+        <div style={{display:"flex",gap:8,justifyContent:"flex-end",marginTop:4}}>
+          <button style={S.mBtn(false)} onClick={()=>setShowTf(false)}>Отмена</button>
+          <button style={S.mBtn(true)} onClick={doTransfer} disabled={tfBusy}>{tfBusy?"...":"Обменять"}</button>
+        </div>
+      </div></div>}
+
+      {/* EDIT BALANCE MODAL */}
+      {editW&&<div style={S.overlay} onClick={()=>setEditW(null)}><div style={S.modal} onClick={e=>e.stopPropagation()}>
+        <div style={S.mTitle}>{WE[editW.currency]} {editW.name}</div>
+        <label style={S.mLabel}>Баланс ({WS[editW.currency]})</label>
+        <input style={S.mInput} type="number" step="0.01" value={editBal} onChange={e=>setEditBal(e.target.value)} autoFocus/>
+        <div style={{display:"flex",gap:8,justifyContent:"flex-end",marginTop:4}}>
+          <button style={S.mBtn(false)} onClick={()=>setEditW(null)}>Отмена</button>
+          <button style={S.mBtn(true)} onClick={doEditBal} disabled={editBusy}>{editBusy?"...":"Сохранить"}</button>
+        </div>
+      </div></div>}
 
       <div style={S.nav}>{tabs.map(t=><button key={t.id} onClick={()=>setTab(t.id)} style={S.nBtn(tab===t.id||(t.id==="more"&&subs.some(s=>s.id===tab)))}><span style={{fontSize:18}}>{t.icon}</span>{t.l}</button>)}</div>
     </div>
