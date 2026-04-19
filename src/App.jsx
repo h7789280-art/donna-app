@@ -1,47 +1,33 @@
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
-import ProtectedRoute from './components/layout/ProtectedRoute'
-import BottomNav from './components/layout/BottomNav'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import ProtectedRoute from './components/ProtectedRoute'
 import LoginPage from './pages/auth/LoginPage'
-import OnboardingPage from './pages/auth/OnboardingPage'
-import Dashboard from './pages/dashboard/Dashboard'
-
-function AppShell() {
-  return (
-    <>
-      <Outlet />
-      <BottomNav />
-    </>
-  )
-}
-
-function Placeholder({ title }) {
-  return (
-    <div className="p-6 pb-24">
-      <h1 className="text-xl text-gold">{title}</h1>
-      <p className="mt-2 text-sm text-white/60">Будет реализовано позже.</p>
-    </div>
-  )
-}
+import AuthCallback from './pages/auth/AuthCallback'
+import OnboardingPage from './pages/onboarding/OnboardingPage'
+import DashboardPage from './pages/dashboard/DashboardPage'
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/onboarding" element={<OnboardingPage />} />
+        <Route path="/auth/callback" element={<AuthCallback />} />
         <Route
+          path="/onboarding"
           element={
             <ProtectedRoute>
-              <AppShell />
+              <OnboardingPage />
             </ProtectedRoute>
           }
-        >
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/finance" element={<Placeholder title="Финансы" />} />
-          <Route path="/children" element={<Placeholder title="Дети" />} />
-          <Route path="/health" element={<Placeholder title="Здоровье" />} />
-          <Route path="/more" element={<Placeholder title="Ещё" />} />
-        </Route>
+        />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   )
