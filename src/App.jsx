@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
-import { AuthProvider } from './contexts/AuthContext'
 import ProtectedRoute from './components/layout/ProtectedRoute'
 import BottomNav from './components/layout/BottomNav'
 import LoginPage from './pages/auth/LoginPage'
@@ -26,26 +25,24 @@ function Placeholder({ title }) {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/onboarding" element={<OnboardingPage />} />
-          <Route
-            element={
-              <ProtectedRoute>
-                <AppShell />
-              </ProtectedRoute>
-            }
-          >
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/finance" element={<Placeholder title="Финансы" />} />
-            <Route path="/children" element={<Placeholder title="Дети" />} />
-            <Route path="/health" element={<Placeholder title="Здоровье" />} />
-            <Route path="/more" element={<Placeholder title="Ещё" />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/onboarding" element={<OnboardingPage />} />
+        <Route
+          element={
+            <ProtectedRoute>
+              <AppShell />
+            </ProtectedRoute>
+          }
+        >
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/finance" element={<Placeholder title="Финансы" />} />
+          <Route path="/children" element={<Placeholder title="Дети" />} />
+          <Route path="/health" element={<Placeholder title="Здоровье" />} />
+          <Route path="/more" element={<Placeholder title="Ещё" />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
