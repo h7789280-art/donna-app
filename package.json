@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.103.3",
+    "flag-icons": "^7.5.0",
     "framer-motion": "^12.38.0",
     "i18next": "^26.0.6",
     "react": "^19.1.0",

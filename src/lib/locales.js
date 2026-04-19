@@ -1,15 +1,15 @@
 export const LOCALES = [
-  { code: 'ru', name: 'Русский', welcome: 'Добро пожаловать', flag: '🇷🇺' },
-  { code: 'uk', name: 'Українська', welcome: 'Ласкаво просимо', flag: '🇺🇦' },
-  { code: 'be', name: 'Беларуская', welcome: 'Сардэчна запрашаем', flag: '🇧🇾' },
-  { code: 'kk', name: 'Қазақша', welcome: 'Қош келдіңіз', flag: '🇰🇿' },
-  { code: 'en', name: 'English', welcome: 'Welcome', flag: '🇬🇧' },
-  { code: 'tr', name: 'Türkçe', welcome: 'Hoş geldiniz', flag: '🇹🇷' },
-  { code: 'de', name: 'Deutsch', welcome: 'Willkommen', flag: '🇩🇪' },
-  { code: 'fr', name: 'Français', welcome: 'Bienvenue', flag: '🇫🇷' },
-  { code: 'es', name: 'Español', welcome: 'Bienvenido', flag: '🇪🇸' },
-  { code: 'it', name: 'Italiano', welcome: 'Benvenuto', flag: '🇮🇹' },
-  { code: 'pt', name: 'Português', welcome: 'Bem-vindo', flag: '🇵🇹' },
+  { code: 'ru', name: 'Русский', welcome: 'Добро пожаловать', country: 'ru' },
+  { code: 'uk', name: 'Українська', welcome: 'Ласкаво просимо', country: 'ua' },
+  { code: 'be', name: 'Беларуская', welcome: 'Сардэчна запрашаем', country: 'by' },
+  { code: 'kk', name: 'Қазақша', welcome: 'Қош келдіңіз', country: 'kz' },
+  { code: 'en', name: 'English', welcome: 'Welcome', country: 'gb' },
+  { code: 'tr', name: 'Türkçe', welcome: 'Hoş geldiniz', country: 'tr' },
+  { code: 'de', name: 'Deutsch', welcome: 'Willkommen', country: 'de' },
+  { code: 'fr', name: 'Français', welcome: 'Bienvenue', country: 'fr' },
+  { code: 'es', name: 'Español', welcome: 'Bienvenido', country: 'es' },
+  { code: 'it', name: 'Italiano', welcome: 'Benvenuto', country: 'it' },
+  { code: 'pt', name: 'Português', welcome: 'Bem-vindo', country: 'pt' },
 ]
 
 export const DEFAULT_LOCALE = 'ru'

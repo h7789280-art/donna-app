@@ -51,7 +51,10 @@ export default function WelcomePage() {
             className="w-full flex items-center justify-between bg-card border border-line rounded-xl px-4 py-3 font-sans text-ink hover:border-accent transition"
           >
             <span className="flex items-center gap-3">
-              <span className="text-xl">{active.flag}</span>
+              <span
+                className={`fi fi-${active.country}`}
+                style={{ width: '1.5em', height: '1em', display: 'inline-block' }}
+              />
               <span>{active.name}</span>
             </span>
             <span className="text-ink-muted">▾</span>
@@ -72,7 +75,10 @@ export default function WelcomePage() {
                       : 'text-ink'
                   }`}
                 >
-                  <span className="text-xl">{locale.flag}</span>
+                  <span
+                    className={`fi fi-${locale.country}`}
+                    style={{ width: '1.5em', height: '1em', display: 'inline-block' }}
+                  />
                   <span>{locale.name}</span>
                 </button>
               ))}
