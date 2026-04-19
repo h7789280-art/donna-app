@@ -12,7 +12,7 @@ Donna — AI-powered life manager SaaS. PWA-приложение.
 - ~50 модулей, ~1334 пункта в чек-листе
 - Целевая аудитория: женщины 25-45, мамы, предпринимательницы, экспаты
 - Монетизация: **Free / Pro $4.99 / Family $7.99**
-- Язык интерфейса: 8 языков (ru, en, tr, es, de, fr, it, pt)
+- Язык интерфейса: 11 языков (ru, uk, be, kk, en, tr, de, fr, es, it, pt)
 
 ---
 
@@ -225,7 +225,7 @@ donna-life/
 2. Supabase использует `auth.uid()` автоматически через RLS — **не нужно вручную добавлять `user_id` в запросы `SELECT`** (только в `INSERT`)
 3. **RLS включён** — anon key безопасен для клиента
 4. **Mobile-first** — сначала мобильный, потом десктоп
-5. **i18n с первого дня** — все строки через `t('key')`, 8 языков
+5. **i18n с первого дня** — все строки через `t('key')`, 11 языков
 6. **Компоненты переиспользуемые** — Card, Badge, StatCard, ProgressRing
 7. **Каждый `npm run build`** должен проходить без ошибок
 8. **PIN только на финансы** — хэш в `profiles.finance_pin_hash`, обычные модули без PIN
@@ -330,7 +330,7 @@ VITE_SUPABASE_ANON_KEY=твой_publishable_key
 9. **Push-уведомления** (n8n + Web Push API)
 10. **Чат с Донной** (голос + текст через Gemini Edge Function)
 11. **Геймификация** (XP, уровни, бейджи)
-12. **i18n** — перевод на 8 языков
+12. **i18n** — перевод на 11 языков
 13. **Stripe подписка** (Free/Pro/Family, paywall)
 14. **PWA** (manifest, service worker, install prompt)
 15. **Деплой на Vercel**

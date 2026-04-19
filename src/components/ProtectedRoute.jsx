@@ -1,5 +1,6 @@
 import { Navigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import { getStoredLocale } from '../lib/locales'
 
 export default function ProtectedRoute({ children }) {
   const { user, profile, loading } = useAuth()
@@ -12,6 +13,8 @@ export default function ProtectedRoute({ children }) {
       </div>
     )
   }
+
+  if (!getStoredLocale()) return <Navigate to="/welcome" replace />
 
   if (!user) return <Navigate to="/login" replace />
 
