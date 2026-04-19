@@ -33,7 +33,7 @@ export function AuthProvider({ children }) {
     supabase
       .from('profiles')
       .select('*')
-      .eq('id', user.id)
+      .eq('user_id', user.id)
       .single()
       .then(({ data, error }) => {
         if (cancelled) return
@@ -62,7 +62,7 @@ export function AuthProvider({ children }) {
     const { data, error } = await supabase
       .from('profiles')
       .select('*')
-      .eq('id', user.id)
+      .eq('user_id', user.id)
       .single()
     if (!error) setProfile(data)
     return { data, error }
