@@ -24,12 +24,35 @@ export default function OnboardingPage() {
   }
 
   const handleNext = async () => {
-    if (step === 1 && user) {
-      const { error } = await supabase
+    if (step === 1) {
+      console.log('[Onboarding Step 1] User:', user)
+      console.log('[Onboarding Step 1] Name to save:', data.name.trim())
+
+      if (!user?.id) {
+        console.error('[Onboarding Step 1] No user.id — cannot update profile')
+        alert('Ошибка: не найден пользователь. Перезайди, пожалуйста.')
+        return
+      }
+
+      const { data: updateData, error } = await supabase
         .from('profiles')
         .update({ name: data.name.trim() })
         .eq('user_id', user.id)
-      if (error) console.error('Failed to save name:', error)
+        .select()
+
+      if (error) {
+        console.error('[Onboarding Step 1] Supabase error:', error)
+        alert('Не удалось сохранить имя: ' + error.message)
+        return
+      }
+
+      console.log('[Onboarding Step 1] Update success:', updateData)
+
+      if (!updateData || updateData.length === 0) {
+        console.error('[Onboarding Step 1] Update returned 0 rows — check RLS or user_id mismatch')
+        alert('Имя не было сохранено (0 строк обновлено). Проверь консоль.')
+        return
+      }
     }
 
     if (step === TOTAL_STEPS) {
