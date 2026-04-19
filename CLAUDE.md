@@ -186,13 +186,16 @@ donna-life/
 
 ## ДИЗАЙН-СИСТЕМА
 
-- **Тема:** тёмная (основная), золотые акценты
-- **Цвета:** bg `#0C0C0C`, card `#161616`, gold `#D4A843`
-- **Шрифты:** DM Sans + Playfair Display
-- **НЕ использовать:** Inter, Roboto, Arial, фиолетовые градиенты
-- **Анимации:** framer-motion, staggered reveals
-- **Mobile-first** — сначала мобильный, потом десктоп
-- **Дашборд настраиваемый** — конфиг в `profiles.dashboard_config` (JSONB)
+- **Темы:** Light (warm cream, основная) + Dark (ночная бархатная). Переключение — атрибут `data-theme` на `<html>`.
+- **Палитра (семантические токены):** Light — `canvas #F5EFE7`, `card #FBF7F1`, `ink #2A211C`, `accent #5C1F2C` (бордо). Dark — `canvas #161210`, `card #221B18`, `ink #F2ECE2`, `accent #B85A6E`. Полный справочник: [`src/styles/tokens.md`](src/styles/tokens.md).
+- **Источник правды:** [`src/styles/globals.css`](src/styles/globals.css) (CSS-переменные `:root` / `[data-theme="dark"]`) + [`tailwind.config.js`](tailwind.config.js) (утилиты `bg-canvas`, `text-ink`, `bg-accent`…).
+- **Шрифты:** Cormorant Garamond (заголовки, italic serif, wordmark) + Geist (body sans) + JetBrains Mono (метки в uppercase). Все три — Google Fonts, подключены в [`index.html`](index.html).
+- **НЕ использовать:** DM Sans / Playfair / Inter / Roboto / Arial как primary (только как fallback), золотые акценты, фиолетовые градиенты, хардкодный hex в компонентах.
+- **Decor-токены:** `decor-rose`, `decor-rose-soft`, `decor-taupe` — ТОЛЬКО для градиентов, аватаров, иллюстраций (не для фонов/текста).
+- **Future tweaks** (не реализовано): переключение акцента между bordeaux / emerald / ink — см. раздел "Future tweaks" в [`tokens.md`](src/styles/tokens.md).
+- **Анимации:** framer-motion, staggered reveals.
+- **Mobile-first** — сначала мобильный, потом десктоп.
+- **Дашборд настраиваемый** — конфиг в `profiles.dashboard_config` (JSONB).
 
 ---
 

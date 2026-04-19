@@ -1,20 +1,57 @@
 @import "tailwindcss";
+@config "../../tailwind.config.js";
 
-@theme {
-  --color-bg: #0C0C0C;
-  --color-card: #161616;
-  --color-gold: #D4A843;
-  --font-sans: "DM Sans", system-ui, sans-serif;
-  --font-display: "Playfair Display", serif;
+/* ── Light theme (default) ─────────────────────────────── */
+:root {
+  --canvas: #F5EFE7;
+  --canvas-soft: #EDE5D8;
+  --card: #FBF7F1;
+  --card-alt: #F0E8DC;
+  --ink: #2A211C;
+  --ink-soft: #5E5148;
+  --ink-muted: #9A8A7C;
+  --line: rgba(42, 33, 28, 0.08);
+  --line-strong: rgba(42, 33, 28, 0.14);
+  --accent: #5C1F2C;
+  --accent-ink: #F5EFE7;
+  --decor-rose: #C9A19A;
+  --decor-rose-soft: #E9D3CE;
+  --decor-taupe: #B8A99A;
+  --shadow-card: 0 1px 2px rgba(42, 33, 28, 0.04), 0 8px 24px rgba(42, 33, 28, 0.06);
+  color-scheme: light;
 }
 
+/* ── Dark theme ────────────────────────────────────────── */
+[data-theme="dark"] {
+  --canvas: #161210;
+  --canvas-soft: #1E1815;
+  --card: #221B18;
+  --card-alt: #2B221E;
+  --ink: #F2ECE2;
+  --ink-soft: #B9AEA0;
+  --ink-muted: #807365;
+  --line: rgba(242, 236, 226, 0.08);
+  --line-strong: rgba(242, 236, 226, 0.16);
+  --accent: #B85A6E;
+  --accent-ink: #161210;
+  --decor-rose: #C9A19A;
+  --decor-rose-soft: #3A2A2A;
+  --decor-taupe: #857668;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+/* ── Base ──────────────────────────────────────────────── */
 html, body, #root {
   height: 100%;
 }
 
 body {
-  background: var(--color-bg);
-  color: #e8e4dc;
-  font-family: var(--font-sans);
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: "Geist", "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "cv11";
 }
