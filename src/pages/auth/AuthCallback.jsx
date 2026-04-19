@@ -1,47 +1,109 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { useAuth } from '../../contexts/AuthContext'
+import { supabase } from '../../lib/supabase'
 
 export default function AuthCallback() {
   const navigate = useNavigate()
-  const { user, profile, loading } = useAuth()
   const [status, setStatus] = useState('loading')
   const [errorMessage, setErrorMessage] = useState('')
 
   useEffect(() => {
-    const hash = window.location.hash
-    if (hash.includes('error=')) {
-      const params = new URLSearchParams(hash.substring(1))
-      const errorDesc =
-        params.get('error_description') || 'Ссылка недействительна или истекла'
-      setStatus('error')
-      setErrorMessage(decodeURIComponent(errorDesc.replace(/\+/g, ' ')))
-    }
-  }, [])
+    let cancelled = false
 
-  useEffect(() => {
-    if (status === 'error') return
-    if (loading) return
-    if (!user) return
-    if (profile === null) return
+    const run = async () => {
+      try {
+        console.log('[AuthCallback] start, url =', window.location.href)
 
-    if (profile.onboarding_completed) {
-      navigate('/', { replace: true })
-    } else {
-      navigate('/onboarding', { replace: true })
-    }
-  }, [user, profile, loading, status, navigate])
+        const hash = window.location.hash
+        if (hash.includes('error=')) {
+          const params = new URLSearchParams(hash.substring(1))
+          const errorDesc =
+            params.get('error_description') || 'Ссылка недействительна или истекла'
+          console.warn('[AuthCallback] hash error:', errorDesc)
+          if (!cancelled) {
+            setStatus('error')
+            setErrorMessage(decodeURIComponent(errorDesc.replace(/\+/g, ' ')))
+          }
+          return
+        }
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (status === 'loading' && !user) {
+        console.log('[AuthCallback] waiting for session...')
+        let session = null
+        for (let i = 0; i < 20; i++) {
+          const { data, error } = await supabase.auth.getSession()
+          if (error) throw error
+          if (data.session) {
+            session = data.session
+            break
+          }
+          await new Promise((r) => setTimeout(r, 150))
+        }
+
+        if (!session) {
+          console.error('[AuthCallback] no session after wait')
+          throw new Error('Сессия не получена. Попробуй ещё раз.')
+        }
+
+        const user = session.user
+        console.log('[AuthCallback] session ok, user.id =', user.id)
+
+        console.log('[AuthCallback] fetching profile...')
+        const { data: profile, error: fetchErr } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('user_id', user.id)
+          .maybeSingle()
+
+        if (fetchErr) {
+          console.error('[AuthCallback] profile fetch error:', fetchErr)
+          throw fetchErr
+        }
+
+        if (!profile) {
+          console.log('[AuthCallback] profile not found, inserting...')
+          const { error: insertErr } = await supabase.from('profiles').insert({
+            user_id: user.id,
+            email: user.email,
+            onboarding_completed: false,
+          })
+          if (insertErr) {
+            console.error('[AuthCallback] profile insert error:', insertErr)
+            throw insertErr
+          }
+          console.log('[AuthCallback] profile inserted, → /onboarding')
+          if (!cancelled) navigate('/onboarding', { replace: true })
+          return
+        }
+
+        console.log(
+          '[AuthCallback] profile found, onboarding_completed =',
+          profile.onboarding_completed
+        )
+
+        if (profile.onboarding_completed) {
+          console.log('[AuthCallback] → /')
+          if (!cancelled) navigate('/', { replace: true })
+        } else {
+          console.log('[AuthCallback] → /onboarding')
+          if (!cancelled) navigate('/onboarding', { replace: true })
+        }
+      } catch (err) {
+        console.error('[AuthCallback] fatal error:', err)
+        if (cancelled) return
         setStatus('error')
-        setErrorMessage('Не удалось войти. Попробуй ещё раз.')
+        setErrorMessage(err?.message || 'Не удалось войти. Попробуй ещё раз.')
+        setTimeout(() => {
+          if (!cancelled) navigate('/login', { replace: true })
+        }, 2500)
       }
-    }, 8000)
-    return () => clearTimeout(timer)
-  }, [user, status])
+    }
+
+    run()
+    return () => {
+      cancelled = true
+    }
+  }, [navigate])
 
   return (
     <div className="min-h-screen bg-canvas flex items-center justify-center px-4">
