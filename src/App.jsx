@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import ProtectedRoute from './components/ProtectedRoute'
 import LocaleGate from './components/LocaleGate'
@@ -7,6 +8,10 @@ import OnboardingPage from './pages/onboarding/OnboardingPage'
 import DashboardPage from './pages/dashboard/DashboardPage'
 
 export default function App() {
+  useEffect(() => {
+    console.log('[Donna] build:', import.meta.env.VITE_BUILD_TIME || 'dev')
+  }, [])
+
   return (
     <BrowserRouter>
       <Routes>
