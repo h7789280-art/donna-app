@@ -1,7 +1,17 @@
 import { createContext, useContext, useEffect, useState } from 'react'
+import i18n from 'i18next'
 import { supabase } from '../lib/supabase'
+import {
+  LOCALE_CODES,
+  getStoredLocale,
+  setStoredLocale,
+} from '../lib/locales'
 
 const AuthContext = createContext(null)
+
+function isValidLocale(code) {
+  return typeof code === 'string' && LOCALE_CODES.includes(code)
+}
 
 export function AuthProvider({ children }) {
   const [session, setSession] = useState(null)
@@ -40,8 +50,26 @@ export function AuthProvider({ children }) {
         if (error) {
           console.error('Failed to load profile:', error)
           setProfile(null)
-        } else {
-          setProfile(data)
+          return
+        }
+        setProfile(data)
+
+        const localLocale = getStoredLocale()
+        const profileLocale = isValidLocale(data?.language) ? data.language : null
+
+        if (profileLocale) {
+          if (localLocale !== profileLocale) {
+            setStoredLocale(profileLocale)
+            i18n.changeLanguage(profileLocale)
+          }
+        } else if (isValidLocale(localLocale)) {
+          supabase
+            .from('profiles')
+            .update({ language: localLocale })
+            .eq('user_id', user.id)
+            .then(({ error: upErr }) => {
+              if (upErr) console.error('Failed to sync profile language:', upErr)
+            })
         }
       })
     return () => {

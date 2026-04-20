@@ -1,30 +1,33 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { TONES } from '../../config/tones'
 
 export default function Step4Assistant({ value, onChange }) {
-  const { name = 'Донна', tone = 'warm', morningTime = '07:30', eveningTime = '21:00' } = value || {}
+  const { t } = useTranslation()
+  const defaultName = t('onboarding.step4_name_placeholder')
+  const { name = defaultName, tone = 'warm', morningTime = '07:30', eveningTime = '21:00' } = value || {}
 
   const update = (patch) => onChange({ ...value, ...patch })
 
   return (
     <div className="w-full max-w-md mx-auto">
       <div className="text-center">
-        <h1 className="font-serif italic text-4xl text-accent mb-3">Познакомимся</h1>
+        <h1 className="font-serif italic text-4xl text-accent mb-3">{t('onboarding.step4_title')}</h1>
         <p className="font-sans text-sm text-ink-muted mb-8">
-          Настрой свою Донну под себя — всё можно изменить потом в настройках
+          {t('onboarding.step4_subtitle')}
         </p>
       </div>
 
       <div className="flex flex-col gap-6">
         <div>
           <label className="font-mono text-xs uppercase tracking-label text-ink-muted block mb-2">
-            Как будем её звать?
+            {t('onboarding.step4_name_label')}
           </label>
           <input
             type="text"
             value={name}
             onChange={(e) => update({ name: e.target.value })}
-            placeholder="Донна"
+            placeholder={defaultName}
             maxLength={30}
             className="w-full bg-card border border-line rounded-xl px-4 py-3 text-ink font-sans text-md placeholder:text-ink-muted focus:outline-none focus:border-accent transition-colors"
           />
@@ -32,16 +35,16 @@ export default function Step4Assistant({ value, onChange }) {
 
         <div>
           <label className="font-mono text-xs uppercase tracking-label text-ink-muted block mb-2">
-            Какой тон тебе ближе?
+            {t('onboarding.step4_tone_label')}
           </label>
           <div className="flex flex-col gap-2.5">
-            {TONES.map((t) => {
-              const selected = tone === t.key
+            {TONES.map((tn) => {
+              const selected = tone === tn.key
               return (
                 <motion.button
-                  key={t.key}
+                  key={tn.key}
                   type="button"
-                  onClick={() => update({ tone: t.key })}
+                  onClick={() => update({ tone: tn.key })}
                   whileTap={{ scale: 0.98 }}
                   className={`relative text-left rounded-2xl px-4 py-3 shadow-card transition-colors flex items-center gap-3 ${
                     selected
@@ -50,11 +53,11 @@ export default function Step4Assistant({ value, onChange }) {
                   }`}
                 >
                   <div className="text-2xl leading-none select-none shrink-0" aria-hidden>
-                    {t.icon}
+                    {tn.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="font-sans text-ink text-md font-medium leading-tight">{t.title}</div>
-                    <div className="font-sans text-xs text-ink-muted mt-0.5 leading-snug">{t.description}</div>
+                    <div className="font-sans text-ink text-md font-medium leading-tight">{t(tn.titleKey)}</div>
+                    <div className="font-sans text-xs text-ink-muted mt-0.5 leading-snug">{t(tn.descKey)}</div>
                   </div>
                   {selected && (
                     <motion.div
@@ -77,12 +80,12 @@ export default function Step4Assistant({ value, onChange }) {
 
         <div>
           <label className="font-mono text-xs uppercase tracking-label text-ink-muted block mb-2">
-            Когда присылать дайджесты?
+            {t('onboarding.step4_digest_label')}
           </label>
           <div className="flex flex-col gap-2.5">
             <div className="bg-card border border-line rounded-xl px-4 py-3 flex items-center gap-3 shadow-card">
               <div className="text-xl leading-none select-none shrink-0" aria-hidden>🌅</div>
-              <div className="flex-1 font-sans text-ink text-md">Утром</div>
+              <div className="flex-1 font-sans text-ink text-md">{t('onboarding.step4_morning')}</div>
               <input
                 type="time"
                 value={morningTime}
@@ -92,7 +95,7 @@ export default function Step4Assistant({ value, onChange }) {
             </div>
             <div className="bg-card border border-line rounded-xl px-4 py-3 flex items-center gap-3 shadow-card">
               <div className="text-xl leading-none select-none shrink-0" aria-hidden>🌙</div>
-              <div className="flex-1 font-sans text-ink text-md">Вечером</div>
+              <div className="flex-1 font-sans text-ink text-md">{t('onboarding.step4_evening')}</div>
               <input
                 type="time"
                 value={eveningTime}

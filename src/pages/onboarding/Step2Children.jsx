@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 function calcAge(birthDate) {
   if (!birthDate) return null
@@ -13,16 +14,8 @@ function calcAge(birthDate) {
   return years
 }
 
-function ageLabel(years) {
-  if (years == null) return ''
-  const mod10 = years % 10
-  const mod100 = years % 100
-  if (mod10 === 1 && mod100 !== 11) return `${years} год`
-  if ([2, 3, 4].includes(mod10) && ![12, 13, 14].includes(mod100)) return `${years} года`
-  return `${years} лет`
-}
-
 export default function Step2Children({ value = [], onChange }) {
+  const { t } = useTranslation()
   const [adding, setAdding] = useState(false)
   const [name, setName] = useState('')
   const [birth, setBirth] = useState('')
@@ -50,9 +43,9 @@ export default function Step2Children({ value = [], onChange }) {
   return (
     <div className="w-full max-w-md mx-auto">
       <div className="text-center">
-        <h1 className="font-serif italic text-4xl text-accent mb-3">Расскажи про детей</h1>
+        <h1 className="font-serif italic text-4xl text-accent mb-3">{t('onboarding.step2_title')}</h1>
         <p className="font-sans text-sm text-ink-muted mb-8">
-          По желанию — можешь пропустить этот шаг
+          {t('onboarding.step2_subtitle')}
         </p>
       </div>
 
@@ -76,13 +69,15 @@ export default function Step2Children({ value = [], onChange }) {
                 <div className="flex-1 min-w-0">
                   <div className="font-sans text-ink text-md truncate">{child.name}</div>
                   {years != null && (
-                    <div className="font-sans text-xs text-ink-muted mt-0.5">{ageLabel(years)}</div>
+                    <div className="font-sans text-xs text-ink-muted mt-0.5">
+                      {t('onboarding.step2_years', { count: years })}
+                    </div>
                   )}
                 </div>
                 <button
                   type="button"
                   onClick={() => handleRemove(idx)}
-                  aria-label="Удалить"
+                  aria-label={t('common.delete')}
                   className="w-8 h-8 rounded-full flex items-center justify-center text-ink-muted hover:text-accent hover:bg-canvas-soft transition-colors"
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -108,13 +103,13 @@ export default function Step2Children({ value = [], onChange }) {
               <div className="bg-card border border-line rounded-2xl p-4 flex flex-col gap-3 shadow-card">
                 <div>
                   <label className="font-mono text-xs uppercase tracking-label text-ink-muted block mb-2">
-                    Имя
+                    {t('onboarding.step2_child_name_label')}
                   </label>
                   <input
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="Имя ребёнка"
+                    placeholder={t('onboarding.step2_child_name_placeholder')}
                     autoFocus
                     maxLength={50}
                     className="w-full bg-canvas border border-line rounded-xl px-4 py-3 text-ink font-sans text-md placeholder:text-ink-muted focus:outline-none focus:border-accent transition-colors"
@@ -122,7 +117,7 @@ export default function Step2Children({ value = [], onChange }) {
                 </div>
                 <div>
                   <label className="font-mono text-xs uppercase tracking-label text-ink-muted block mb-2">
-                    Дата рождения
+                    {t('onboarding.step2_child_birthdate_label')}
                   </label>
                   <input
                     type="date"
@@ -138,7 +133,7 @@ export default function Step2Children({ value = [], onChange }) {
                     onClick={resetForm}
                     className="flex-1 py-2.5 rounded-full border border-line text-ink-soft font-sans text-sm hover:bg-canvas-soft transition-colors"
                   >
-                    Отмена
+                    {t('common.cancel')}
                   </button>
                   <button
                     type="button"
@@ -148,7 +143,7 @@ export default function Step2Children({ value = [], onChange }) {
                       !canSave ? 'opacity-50' : ''
                     }`}
                   >
-                    Сохранить
+                    {t('common.save')}
                   </button>
                 </div>
               </div>
@@ -167,7 +162,7 @@ export default function Step2Children({ value = [], onChange }) {
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M8 3v10M3 8h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
               </svg>
-              Добавить ребёнка
+              {t('onboarding.step2_add_child')}
             </motion.button>
           )}
         </AnimatePresence>

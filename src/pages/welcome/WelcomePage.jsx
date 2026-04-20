@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { LOCALES, DEFAULT_LOCALE, setStoredLocale } from '../../lib/locales'
 
 export default function WelcomePage() {
   const navigate = useNavigate()
+  const { i18n } = useTranslation()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedLocale, setSelectedLocale] = useState(DEFAULT_LOCALE)
+  const [userPicked, setUserPicked] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
 
   useEffect(() => {
@@ -17,12 +20,26 @@ export default function WelcomePage() {
     return () => clearInterval(id)
   }, [])
 
+  useEffect(() => {
+    if (!userPicked) {
+      setSelectedLocale(LOCALES[currentIndex].code)
+    }
+  }, [currentIndex, userPicked])
+
   const active = LOCALES.find((l) => l.code === selectedLocale) ?? LOCALES[0]
   const current = LOCALES[currentIndex]
+  const continueLabel = active.continueLabel || 'Continue'
 
   const handleContinue = () => {
     setStoredLocale(selectedLocale)
+    i18n.changeLanguage(selectedLocale)
     navigate('/login')
+  }
+
+  const handlePick = (code) => {
+    setSelectedLocale(code)
+    setUserPicked(true)
+    setDropdownOpen(false)
   }
 
   return (
@@ -65,10 +82,7 @@ export default function WelcomePage() {
               {LOCALES.map((locale) => (
                 <button
                   key={locale.code}
-                  onClick={() => {
-                    setSelectedLocale(locale.code)
-                    setDropdownOpen(false)
-                  }}
+                  onClick={() => handlePick(locale.code)}
                   className={`w-full flex items-center gap-3 px-4 py-3 text-left font-sans hover:bg-canvas-soft transition ${
                     selectedLocale === locale.code
                       ? 'bg-canvas-soft text-accent'
@@ -90,7 +104,7 @@ export default function WelcomePage() {
           onClick={handleContinue}
           className="w-full bg-accent text-accent-ink rounded-xl py-3 font-sans font-medium hover:opacity-90 transition"
         >
-          Продолжить
+          {continueLabel}
         </button>
       </div>
     </div>

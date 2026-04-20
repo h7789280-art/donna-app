@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '../../contexts/AuthContext'
 import { supabase } from '../../lib/supabase'
 
 export default function LoginPage() {
+  const { t } = useTranslation()
   const { user, signInWithOtp, verifyOtp } = useAuth()
   const navigate = useNavigate()
 
@@ -32,7 +34,7 @@ export default function LoginPage() {
     e.preventDefault()
     setError(null)
     if (!email || !email.includes('@')) {
-      setError('Введи корректный email')
+      setError(t('auth.email_invalid'))
       return
     }
     setLoading(true)
@@ -40,7 +42,7 @@ export default function LoginPage() {
       await sendCode(email)
       setStage('code')
     } catch (err) {
-      setError(err?.message || 'Не удалось отправить код')
+      setError(err?.message || t('auth.code_send_failed'))
     } finally {
       setLoading(false)
     }
@@ -51,7 +53,7 @@ export default function LoginPage() {
     setError(null)
     const clean = code.replace(/\D/g, '')
     if (clean.length !== 6) {
-      setError('Введи 6 цифр из письма')
+      setError(t('auth.code_digits_required'))
       return
     }
     setLoading(true)
@@ -59,7 +61,7 @@ export default function LoginPage() {
       const { data, error: verifyErr } = await verifyOtp(email, clean)
       if (verifyErr) throw verifyErr
       const authedUser = data?.user
-      if (!authedUser) throw new Error('Не удалось получить сессию')
+      if (!authedUser) throw new Error(t('auth.session_failed'))
 
       const { data: profile, error: profileErr } = await supabase
         .from('profiles')
@@ -76,9 +78,9 @@ export default function LoginPage() {
     } catch (err) {
       const msg = err?.message || ''
       if (/expired|invalid/i.test(msg)) {
-        setError('Код неверный или устарел. Попробуй ещё раз или запроси новый.')
+        setError(t('auth.code_invalid'))
       } else {
-        setError(msg || 'Не удалось войти')
+        setError(msg || t('auth.login_failed'))
       }
       setLoading(false)
     }
@@ -94,7 +96,7 @@ export default function LoginPage() {
       setCode('')
       codeInputRef.current?.focus()
     } catch (err) {
-      setError(err?.message || 'Не удалось отправить код')
+      setError(err?.message || t('auth.code_send_failed'))
     } finally {
       setLoading(false)
     }
@@ -112,22 +114,22 @@ export default function LoginPage() {
         {stage === 'email' ? (
           <>
             <div className="text-center mb-8">
-              <h1 className="font-serif italic text-4xl text-accent">Donna</h1>
+              <h1 className="font-serif italic text-4xl text-accent">{t('auth.login_title')}</h1>
               <p className="font-sans text-ink-soft text-sm mt-2">
-                AI-менеджер твоей жизни
+                {t('auth.login_subtitle')}
               </p>
             </div>
 
             <form onSubmit={handleEmailSubmit} className="space-y-4">
               <div>
                 <label className="block font-sans text-xs text-ink-muted mb-2 tracking-label uppercase">
-                  Email
+                  {t('auth.email_label')}
                 </label>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
+                  placeholder={t('auth.email_placeholder')}
                   disabled={loading}
                   autoComplete="email"
                   inputMode="email"
@@ -145,22 +147,22 @@ export default function LoginPage() {
                 disabled={loading || !email}
                 className="w-full bg-accent text-accent-ink rounded-xl py-3 font-sans font-medium hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {loading ? 'Отправляем...' : 'Получить код'}
+                {loading ? t('auth.sending') : t('auth.send_code')}
               </button>
             </form>
 
             <p className="text-center text-xs text-ink-muted font-sans mt-6">
-              Без паролей. Код придёт на почту.
+              {t('auth.no_password_hint')}
             </p>
           </>
         ) : (
           <>
             <div className="text-center mb-8">
               <h2 className="font-serif italic text-3xl text-accent mb-2">
-                Проверь почту
+                {t('auth.code_sent_title')}
               </h2>
               <p className="font-sans text-ink-soft text-sm">
-                Мы отправили 6-значный код на
+                {t('auth.code_sent_subtitle')}
                 <br />
                 <span className="text-ink font-medium">{email}</span>
               </p>
@@ -169,7 +171,7 @@ export default function LoginPage() {
             <form onSubmit={handleCodeSubmit} className="space-y-4">
               <div>
                 <label className="block font-sans text-xs text-ink-muted mb-2 tracking-label uppercase text-center">
-                  Код из письма
+                  {t('auth.code_label')}
                 </label>
                 <input
                   ref={codeInputRef}
@@ -202,7 +204,7 @@ export default function LoginPage() {
 
               {!error && resentAt > 0 && (
                 <div className="text-sm text-ink-soft font-sans text-center">
-                  Код отправлен повторно
+                  {t('auth.resent_ok')}
                 </div>
               )}
 
@@ -211,7 +213,7 @@ export default function LoginPage() {
                 disabled={loading || code.length !== 6}
                 className="w-full bg-accent text-accent-ink rounded-xl py-3 font-sans font-medium hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {loading ? 'Проверяем...' : 'Войти'}
+                {loading ? t('auth.verifying') : t('auth.verify_code')}
               </button>
             </form>
 
@@ -222,7 +224,7 @@ export default function LoginPage() {
                 disabled={loading}
                 className="text-ink-muted underline hover:text-ink disabled:opacity-50"
               >
-                Отправить код ещё раз
+                {t('auth.resend_code')}
               </button>
               <button
                 type="button"
@@ -230,7 +232,7 @@ export default function LoginPage() {
                 disabled={loading}
                 className="text-ink-muted underline hover:text-ink disabled:opacity-50"
               >
-                Ввести другой email
+                {t('auth.change_email')}
               </button>
             </div>
           </>

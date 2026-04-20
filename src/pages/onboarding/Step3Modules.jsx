@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { MODULES } from '../../config/modules'
 
 export default function Step3Modules({ value = [], onChange, error }) {
+  const { t } = useTranslation()
   const toggle = (key) => {
     if (value.includes(key)) {
       onChange(value.filter((k) => k !== key))
@@ -13,9 +15,9 @@ export default function Step3Modules({ value = [], onChange, error }) {
   return (
     <div className="w-full max-w-md mx-auto">
       <div className="text-center">
-        <h1 className="font-serif italic text-4xl text-accent mb-3">Что тебе важно?</h1>
+        <h1 className="font-serif italic text-4xl text-accent mb-3">{t('onboarding.step3_title')}</h1>
         <p className="font-sans text-sm text-ink-muted mb-8">
-          Выбери сферы, с которыми Донна будет помогать. Позже можно изменить в настройках
+          {t('onboarding.step3_subtitle')}
         </p>
       </div>
 
@@ -48,8 +50,8 @@ export default function Step3Modules({ value = [], onChange, error }) {
                 </motion.div>
               )}
               <div className="text-2xl mb-2 leading-none select-none" aria-hidden>{m.icon}</div>
-              <div className="font-sans text-ink text-sm font-medium leading-tight">{m.title}</div>
-              <div className="font-sans text-xs text-ink-muted mt-1 leading-snug">{m.description}</div>
+              <div className="font-sans text-ink text-sm font-medium leading-tight">{t(m.titleKey)}</div>
+              <div className="font-sans text-xs text-ink-muted mt-1 leading-snug">{t(m.descKey)}</div>
             </motion.button>
           )
         })}

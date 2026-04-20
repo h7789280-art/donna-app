@@ -1,22 +1,18 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import OnboardingLayout from './OnboardingLayout'
 import Step1Name from './Step1Name'
 import Step2Children from './Step2Children'
 import Step3Modules from './Step3Modules'
 import Step4Assistant from './Step4Assistant'
+import Step5Preparing from './Step5Preparing'
+import Step6Finish from './Step6Finish'
 import { TONE_KEYS, DEFAULT_TONE } from '../../config/tones'
 import { useAuth } from '../../contexts/AuthContext'
 import { supabase } from '../../lib/supabase'
 
 const TOTAL_STEPS = 6
-
-const DEFAULT_ASSISTANT = {
-  name: 'Донна',
-  tone: DEFAULT_TONE,
-  morningTime: '07:30',
-  eveningTime: '21:00',
-}
 
 const TIME_RE = /^\d{2}:\d{2}$/
 
@@ -28,17 +24,28 @@ const normalizeTime = (raw, fallback) => {
 
 export default function OnboardingPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const { user } = useAuth()
   const [step, setStep] = useState(1)
   const [saving, setSaving] = useState(false)
+  const [finishing, setFinishing] = useState(false)
   const [step3Error, setStep3Error] = useState('')
   const [step4Error, setStep4Error] = useState('')
+  const [step6Error, setStep6Error] = useState('')
   const [assistantLoaded, setAssistantLoaded] = useState(false)
+
+  const defaultAssistant = {
+    name: t('onboarding.step4_name_placeholder'),
+    tone: DEFAULT_TONE,
+    morningTime: '07:30',
+    eveningTime: '21:00',
+  }
+
   const [data, setData] = useState({
     name: '',
     children: [],
     modules: [],
-    assistant: { ...DEFAULT_ASSISTANT },
+    assistant: { ...defaultAssistant },
   })
 
   useEffect(() => {
@@ -56,14 +63,14 @@ export default function OnboardingPage() {
         setAssistantLoaded(true)
         return
       }
-      const tone = TONE_KEYS.includes(row?.assistant_tone) ? row.assistant_tone : DEFAULT_ASSISTANT.tone
+      const tone = TONE_KEYS.includes(row?.assistant_tone) ? row.assistant_tone : defaultAssistant.tone
       setData((prev) => ({
         ...prev,
         assistant: {
-          name: row?.assistant_name?.trim() || DEFAULT_ASSISTANT.name,
+          name: row?.assistant_name?.trim() || defaultAssistant.name,
           tone,
-          morningTime: normalizeTime(row?.morning_digest_time, DEFAULT_ASSISTANT.morningTime),
-          eveningTime: normalizeTime(row?.evening_digest_time, DEFAULT_ASSISTANT.eveningTime),
+          morningTime: normalizeTime(row?.morning_digest_time, defaultAssistant.morningTime),
+          eveningTime: normalizeTime(row?.evening_digest_time, defaultAssistant.eveningTime),
         },
       }))
       setAssistantLoaded(true)
@@ -73,15 +80,30 @@ export default function OnboardingPage() {
     }
   }, [step, assistantLoaded, user?.id])
 
-  const handleFinish = () => {
-    console.log('Finish:', data)
-    navigate('/')
+  const handleFinish = async () => {
+    if (finishing) return
+    if (!user?.id) {
+      setStep6Error(t('onboarding.error_no_user'))
+      return
+    }
+    setFinishing(true)
+    const { error } = await supabase
+      .from('profiles')
+      .update({ onboarding_completed: true })
+      .eq('user_id', user.id)
+    setFinishing(false)
+    if (error) {
+      console.error('[Onboarding Step 6] Supabase error:', error)
+      setStep6Error(t('onboarding.save_failed', { error: error.message }))
+      return
+    }
+    navigate('/', { replace: true })
   }
 
   const saveChildren = async () => {
     if (!user?.id) {
       console.error('[Onboarding Step 2] No user.id — cannot insert children')
-      alert('Ошибка: не найден пользователь. Перезайди, пожалуйста.')
+      alert(t('onboarding.error_no_user'))
       return false
     }
 
@@ -97,8 +119,6 @@ export default function OnboardingPage() {
       sort_order: idx,
     }))
 
-    console.log('[Onboarding Step 2] Inserting children:', rows)
-
     try {
       const { data: inserted, error } = await supabase
         .from('children')
@@ -107,7 +127,7 @@ export default function OnboardingPage() {
 
       if (error) {
         console.error('[Onboarding Step 2] Supabase error:', error)
-        alert('Не удалось сохранить детей: ' + error.message)
+        alert(t('onboarding.save_failed', { error: error.message }))
         return false
       }
 
@@ -115,7 +135,7 @@ export default function OnboardingPage() {
       return true
     } catch (err) {
       console.error('[Onboarding Step 2] Unexpected error:', err)
-      alert('Ошибка при сохранении: ' + (err?.message || 'неизвестная'))
+      alert(t('onboarding.save_failed', { error: err?.message || '' }))
       return false
     }
   }
@@ -124,12 +144,8 @@ export default function OnboardingPage() {
     if (saving) return
 
     if (step === 1) {
-      console.log('[Onboarding Step 1] User:', user)
-      console.log('[Onboarding Step 1] Name to save:', data.name.trim())
-
       if (!user?.id) {
-        console.error('[Onboarding Step 1] No user.id — cannot update profile')
-        alert('Ошибка: не найден пользователь. Перезайди, пожалуйста.')
+        alert(t('onboarding.error_no_user'))
         return
       }
 
@@ -143,15 +159,13 @@ export default function OnboardingPage() {
 
       if (error) {
         console.error('[Onboarding Step 1] Supabase error:', error)
-        alert('Не удалось сохранить имя: ' + error.message)
+        alert(t('onboarding.save_failed', { error: error.message }))
         return
       }
 
-      console.log('[Onboarding Step 1] Update success:', updateData)
-
       if (!updateData || updateData.length === 0) {
         console.error('[Onboarding Step 1] Update returned 0 rows — check RLS or user_id mismatch')
-        alert('Имя не было сохранено (0 строк обновлено). Проверь консоль.')
+        alert(t('onboarding.save_failed', { error: '0 rows updated' }))
         return
       }
     }
@@ -165,13 +179,11 @@ export default function OnboardingPage() {
 
     if (step === 3) {
       if (!user?.id) {
-        console.error('[Onboarding Step 3] No user.id — cannot update profile')
-        setStep3Error('Ошибка: не найден пользователь. Перезайди, пожалуйста.')
+        setStep3Error(t('onboarding.error_no_user'))
         return
       }
 
       const selectedKeys = data.modules
-      console.log('[Onboarding Step 3] saving modules:', selectedKeys)
 
       setSaving(true)
       const { error } = await supabase
@@ -182,7 +194,7 @@ export default function OnboardingPage() {
 
       if (error) {
         console.error('[Onboarding Step 3] Supabase error:', error)
-        setStep3Error('Не удалось сохранить: ' + error.message)
+        setStep3Error(t('onboarding.save_failed', { error: error.message }))
         return
       }
 
@@ -191,20 +203,17 @@ export default function OnboardingPage() {
 
     if (step === 4) {
       if (!user?.id) {
-        console.error('[Onboarding Step 4] No user.id — cannot update profile')
-        setStep4Error('Ошибка: не найден пользователь. Перезайди, пожалуйста.')
+        setStep4Error(t('onboarding.error_no_user'))
         return
       }
 
       const a = data.assistant || {}
       const payload = {
-        assistant_name: (a.name || '').trim() || DEFAULT_ASSISTANT.name,
-        assistant_tone: TONE_KEYS.includes(a.tone) ? a.tone : DEFAULT_ASSISTANT.tone,
-        morning_digest_time: normalizeTime(a.morningTime, DEFAULT_ASSISTANT.morningTime),
-        evening_digest_time: normalizeTime(a.eveningTime, DEFAULT_ASSISTANT.eveningTime),
+        assistant_name: (a.name || '').trim() || defaultAssistant.name,
+        assistant_tone: TONE_KEYS.includes(a.tone) ? a.tone : defaultAssistant.tone,
+        morning_digest_time: normalizeTime(a.morningTime, defaultAssistant.morningTime),
+        evening_digest_time: normalizeTime(a.eveningTime, defaultAssistant.eveningTime),
       }
-
-      console.log('[Onboarding Step 4] saving assistant:', payload)
 
       setSaving(true)
       const { error } = await supabase
@@ -215,22 +224,17 @@ export default function OnboardingPage() {
 
       if (error) {
         console.error('[Onboarding Step 4] Supabase error:', error)
-        setStep4Error('Не удалось сохранить: ' + error.message)
+        setStep4Error(t('onboarding.save_failed', { error: error.message }))
         return
       }
 
       setStep4Error('')
     }
 
-    if (step === TOTAL_STEPS) {
-      handleFinish()
-      return
-    }
     setStep(step + 1)
   }
 
   const handleSkipChildren = () => {
-    console.log('[Onboarding Step 2] Skip pressed — not inserting, moving to step 3')
     setData({ ...data, children: [] })
     setStep(3)
   }
@@ -269,7 +273,7 @@ export default function OnboardingPage() {
               onClick={handleSkipChildren}
               className="font-sans text-sm text-ink-muted hover:text-ink-soft transition-colors"
             >
-              Пропустить
+              {t('common.skip')}
             </button>
           </div>
         </div>
@@ -306,22 +310,37 @@ export default function OnboardingPage() {
       )
     }
 
-    return (
-      <div className="text-center">
-        <h1 className="font-serif italic text-3xl text-accent">Шаг {step}</h1>
-        <p className="text-ink-muted font-sans mt-2">Скоро будет</p>
-      </div>
-    )
+    if (step === 5) {
+      return <Step5Preparing onDone={() => setStep(6)} delay={2500} />
+    }
+
+    if (step === 6) {
+      return (
+        <div>
+          <Step6Finish onStart={handleFinish} loading={finishing} />
+          {step6Error && (
+            <p className="font-sans text-sm text-accent text-center mt-4 max-w-md mx-auto">{step6Error}</p>
+          )}
+        </div>
+      )
+    }
+
+    return null
   }
+
+  const showFooter = step >= 1 && step <= 4
+  const backHandler = step > 1 && step < 5 ? handleBack : undefined
+  const nextHandler = step <= 4 ? handleNext : undefined
 
   return (
     <OnboardingLayout
       currentStep={step}
       totalSteps={TOTAL_STEPS}
-      onBack={step > 1 ? handleBack : undefined}
-      onNext={handleNext}
+      onBack={backHandler}
+      onNext={showFooter ? nextHandler : undefined}
       canGoNext={canGoNext()}
-      nextLabel={step === TOTAL_STEPS ? 'Готово' : 'Далее'}
+      nextLabel={t('common.next')}
+      backLabel={t('common.back')}
     >
       {renderStep()}
     </OnboardingLayout>

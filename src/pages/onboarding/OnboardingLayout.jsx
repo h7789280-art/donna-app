@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 export default function OnboardingLayout({
   currentStep,
@@ -6,9 +7,14 @@ export default function OnboardingLayout({
   onBack,
   onNext,
   canGoNext = true,
-  nextLabel = 'Далее',
+  nextLabel,
+  backLabel,
   children,
 }) {
+  const { t } = useTranslation()
+  const resolvedNextLabel = nextLabel ?? t('common.next')
+  const resolvedBackLabel = backLabel ?? t('common.back')
+
   return (
     <div className="min-h-screen bg-canvas flex flex-col">
       <div className="px-6 pt-8 pb-4">
@@ -46,7 +52,7 @@ export default function OnboardingLayout({
               onClick={onBack}
               className="flex-1 py-3 rounded-full border border-line text-ink font-sans text-sm"
             >
-              Назад
+              {resolvedBackLabel}
             </button>
           )}
           {onNext && (
@@ -57,7 +63,7 @@ export default function OnboardingLayout({
                 !canGoNext ? 'opacity-50' : ''
               }`}
             >
-              {nextLabel}
+              {resolvedNextLabel}
             </button>
           )}
         </div>

@@ -1,22 +1,7 @@
 export const TONES = [
-  {
-    key: 'sassy',
-    icon: '💅',
-    title: 'Дерзкая',
-    description: 'Прямолинейная, с иронией',
-  },
-  {
-    key: 'warm',
-    icon: '🤗',
-    title: 'Тёплая',
-    description: 'Поддерживающая, мягкая',
-  },
-  {
-    key: 'neutral',
-    icon: '🎯',
-    title: 'Нейтральная',
-    description: 'По делу, без лишнего',
-  },
+  { key: 'sassy', icon: '💅', titleKey: 'onboarding.tone_sassy_label', descKey: 'onboarding.tone_sassy_sublabel' },
+  { key: 'warm', icon: '🤗', titleKey: 'onboarding.tone_warm_label', descKey: 'onboarding.tone_warm_sublabel' },
+  { key: 'neutral', icon: '🎯', titleKey: 'onboarding.tone_neutral_label', descKey: 'onboarding.tone_neutral_sublabel' },
 ]
 
 export const TONE_KEYS = TONES.map((t) => t.key)
