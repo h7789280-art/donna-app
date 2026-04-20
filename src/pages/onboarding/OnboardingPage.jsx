@@ -29,6 +29,7 @@ export default function OnboardingPage() {
   const [step, setStep] = useState(1)
   const [saving, setSaving] = useState(false)
   const [finishing, setFinishing] = useState(false)
+  const [step2Error, setStep2Error] = useState('')
   const [step3Error, setStep3Error] = useState('')
   const [step4Error, setStep4Error] = useState('')
   const [step6Error, setStep6Error] = useState('')
@@ -100,42 +101,72 @@ export default function OnboardingPage() {
     navigate('/', { replace: true })
   }
 
-  const saveChildren = async () => {
+  const saveChildren = async (overrideList) => {
     if (!user?.id) {
-      console.error('[Onboarding Step 2] No user.id — cannot insert children')
-      alert(t('onboarding.error_no_user'))
+      console.error('[Onboarding Step 2] No user.id — cannot replace children')
+      setStep2Error(t('onboarding.error_no_user'))
       return false
     }
 
-    if (data.children.length === 0) {
-      console.log('[Onboarding Step 2] No children to insert — skipping')
-      return true
-    }
-
-    const rows = data.children.map((c, idx) => ({
-      user_id: user.id,
-      name: c.name,
-      birth_date: c.birth_date,
-      sort_order: idx,
-    }))
+    const newList = Array.isArray(overrideList) ? overrideList : data.children
 
     try {
-      const { data: inserted, error } = await supabase
+      const { data: existing, error: fetchErr } = await supabase
+        .from('children')
+        .select('id')
+        .eq('user_id', user.id)
+
+      if (fetchErr) {
+        console.error('[Onboarding Step 2] Fetch existing error:', fetchErr)
+        setStep2Error(t('onboarding.save_failed', { error: fetchErr.message }))
+        return false
+      }
+
+      console.log('[Onboarding Step 2] replacing children', {
+        deleted: existing?.length ?? 0,
+        inserted: newList.length,
+      })
+
+      const { error: delErr } = await supabase
+        .from('children')
+        .delete()
+        .eq('user_id', user.id)
+
+      if (delErr) {
+        console.error('[Onboarding Step 2] Delete error:', delErr)
+        setStep2Error(t('onboarding.save_failed', { error: delErr.message }))
+        return false
+      }
+
+      if (newList.length === 0) {
+        setStep2Error('')
+        return true
+      }
+
+      const rows = newList.map((c, idx) => ({
+        user_id: user.id,
+        name: c.name.trim(),
+        birth_date: c.birth_date,
+        sort_order: idx,
+      }))
+
+      const { data: inserted, error: insErr } = await supabase
         .from('children')
         .insert(rows)
         .select()
 
-      if (error) {
-        console.error('[Onboarding Step 2] Supabase error:', error)
-        alert(t('onboarding.save_failed', { error: error.message }))
+      if (insErr) {
+        console.error('[Onboarding Step 2] Insert error:', insErr)
+        setStep2Error(t('onboarding.save_failed', { error: insErr.message }))
         return false
       }
 
-      console.log('[Onboarding Step 2] Insert success:', inserted)
+      console.log('[Onboarding Step 2] Replace success:', inserted)
+      setStep2Error('')
       return true
     } catch (err) {
       console.error('[Onboarding Step 2] Unexpected error:', err)
-      alert(t('onboarding.save_failed', { error: err?.message || '' }))
+      setStep2Error(t('onboarding.save_failed', { error: err?.message || '' }))
       return false
     }
   }
@@ -234,7 +265,12 @@ export default function OnboardingPage() {
     setStep(step + 1)
   }
 
-  const handleSkipChildren = () => {
+  const handleSkipChildren = async () => {
+    if (saving) return
+    setSaving(true)
+    const ok = await saveChildren([])
+    setSaving(false)
+    if (!ok) return
     setData({ ...data, children: [] })
     setStep(3)
   }
@@ -265,13 +301,20 @@ export default function OnboardingPage() {
         <div>
           <Step2Children
             value={data.children}
-            onChange={(children) => setData({ ...data, children })}
+            onChange={(children) => {
+              setData({ ...data, children })
+              if (step2Error) setStep2Error('')
+            }}
           />
+          {step2Error && (
+            <p className="font-sans text-sm text-accent text-center mt-4 max-w-md mx-auto">{step2Error}</p>
+          )}
           <div className="w-full max-w-md mx-auto mt-6 text-center">
             <button
               type="button"
               onClick={handleSkipChildren}
-              className="font-sans text-sm text-ink-muted hover:text-ink-soft transition-colors"
+              disabled={saving}
+              className="font-sans text-sm text-ink-muted hover:text-ink-soft transition-colors disabled:opacity-50"
             >
               {t('common.skip')}
             </button>
