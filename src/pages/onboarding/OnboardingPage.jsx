@@ -1,13 +1,30 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import OnboardingLayout from './OnboardingLayout'
 import Step1Name from './Step1Name'
 import Step2Children from './Step2Children'
 import Step3Modules from './Step3Modules'
+import Step4Assistant from './Step4Assistant'
+import { TONE_KEYS, DEFAULT_TONE } from '../../config/tones'
 import { useAuth } from '../../contexts/AuthContext'
 import { supabase } from '../../lib/supabase'
 
 const TOTAL_STEPS = 6
+
+const DEFAULT_ASSISTANT = {
+  name: 'Донна',
+  tone: DEFAULT_TONE,
+  morningTime: '07:30',
+  eveningTime: '21:00',
+}
+
+const TIME_RE = /^\d{2}:\d{2}$/
+
+const normalizeTime = (raw, fallback) => {
+  if (!raw) return fallback
+  const trimmed = String(raw).slice(0, 5)
+  return TIME_RE.test(trimmed) ? trimmed : fallback
+}
 
 export default function OnboardingPage() {
   const navigate = useNavigate()
@@ -15,12 +32,46 @@ export default function OnboardingPage() {
   const [step, setStep] = useState(1)
   const [saving, setSaving] = useState(false)
   const [step3Error, setStep3Error] = useState('')
+  const [step4Error, setStep4Error] = useState('')
+  const [assistantLoaded, setAssistantLoaded] = useState(false)
   const [data, setData] = useState({
     name: '',
     children: [],
     modules: [],
-    assistant: {},
+    assistant: { ...DEFAULT_ASSISTANT },
   })
+
+  useEffect(() => {
+    if (step !== 4 || assistantLoaded || !user?.id) return
+    let cancelled = false
+    ;(async () => {
+      const { data: row, error } = await supabase
+        .from('profiles')
+        .select('assistant_name, assistant_tone, morning_digest_time, evening_digest_time')
+        .eq('user_id', user.id)
+        .single()
+      if (cancelled) return
+      if (error) {
+        console.error('[Onboarding Step 4] Load error:', error)
+        setAssistantLoaded(true)
+        return
+      }
+      const tone = TONE_KEYS.includes(row?.assistant_tone) ? row.assistant_tone : DEFAULT_ASSISTANT.tone
+      setData((prev) => ({
+        ...prev,
+        assistant: {
+          name: row?.assistant_name?.trim() || DEFAULT_ASSISTANT.name,
+          tone,
+          morningTime: normalizeTime(row?.morning_digest_time, DEFAULT_ASSISTANT.morningTime),
+          eveningTime: normalizeTime(row?.evening_digest_time, DEFAULT_ASSISTANT.eveningTime),
+        },
+      }))
+      setAssistantLoaded(true)
+    })()
+    return () => {
+      cancelled = true
+    }
+  }, [step, assistantLoaded, user?.id])
 
   const handleFinish = () => {
     console.log('Finish:', data)
@@ -138,6 +189,39 @@ export default function OnboardingPage() {
       setStep3Error('')
     }
 
+    if (step === 4) {
+      if (!user?.id) {
+        console.error('[Onboarding Step 4] No user.id — cannot update profile')
+        setStep4Error('Ошибка: не найден пользователь. Перезайди, пожалуйста.')
+        return
+      }
+
+      const a = data.assistant || {}
+      const payload = {
+        assistant_name: (a.name || '').trim() || DEFAULT_ASSISTANT.name,
+        assistant_tone: TONE_KEYS.includes(a.tone) ? a.tone : DEFAULT_ASSISTANT.tone,
+        morning_digest_time: normalizeTime(a.morningTime, DEFAULT_ASSISTANT.morningTime),
+        evening_digest_time: normalizeTime(a.eveningTime, DEFAULT_ASSISTANT.eveningTime),
+      }
+
+      console.log('[Onboarding Step 4] saving assistant:', payload)
+
+      setSaving(true)
+      const { error } = await supabase
+        .from('profiles')
+        .update(payload)
+        .eq('user_id', user.id)
+      setSaving(false)
+
+      if (error) {
+        console.error('[Onboarding Step 4] Supabase error:', error)
+        setStep4Error('Не удалось сохранить: ' + error.message)
+        return
+      }
+
+      setStep4Error('')
+    }
+
     if (step === TOTAL_STEPS) {
       handleFinish()
       return
@@ -202,6 +286,23 @@ export default function OnboardingPage() {
           }}
           error={step3Error}
         />
+      )
+    }
+
+    if (step === 4) {
+      return (
+        <div>
+          <Step4Assistant
+            value={data.assistant}
+            onChange={(assistant) => {
+              setData({ ...data, assistant })
+              if (step4Error) setStep4Error('')
+            }}
+          />
+          {step4Error && (
+            <p className="font-sans text-sm text-accent text-center mt-4 max-w-md mx-auto">{step4Error}</p>
+          )}
+        </div>
       )
     }
 
