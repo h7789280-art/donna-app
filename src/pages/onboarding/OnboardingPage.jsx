@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import OnboardingLayout from './OnboardingLayout'
 import Step1Name from './Step1Name'
 import Step2Children from './Step2Children'
+import Step3Modules from './Step3Modules'
 import { useAuth } from '../../contexts/AuthContext'
 import { supabase } from '../../lib/supabase'
 
@@ -13,6 +14,7 @@ export default function OnboardingPage() {
   const { user } = useAuth()
   const [step, setStep] = useState(1)
   const [saving, setSaving] = useState(false)
+  const [step3Error, setStep3Error] = useState('')
   const [data, setData] = useState({
     name: '',
     children: [],
@@ -110,6 +112,32 @@ export default function OnboardingPage() {
       if (!ok) return
     }
 
+    if (step === 3) {
+      if (!user?.id) {
+        console.error('[Onboarding Step 3] No user.id — cannot update profile')
+        setStep3Error('Ошибка: не найден пользователь. Перезайди, пожалуйста.')
+        return
+      }
+
+      const selectedKeys = data.modules
+      console.log('[Onboarding Step 3] saving modules:', selectedKeys)
+
+      setSaving(true)
+      const { error } = await supabase
+        .from('profiles')
+        .update({ dashboard_config: { modules: selectedKeys } })
+        .eq('user_id', user.id)
+      setSaving(false)
+
+      if (error) {
+        console.error('[Onboarding Step 3] Supabase error:', error)
+        setStep3Error('Не удалось сохранить: ' + error.message)
+        return
+      }
+
+      setStep3Error('')
+    }
+
     if (step === TOTAL_STEPS) {
       handleFinish()
       return
@@ -130,6 +158,7 @@ export default function OnboardingPage() {
   const canGoNext = () => {
     if (saving) return false
     if (step === 1) return data.name.trim().length >= 2
+    if (step === 3) return data.modules.length >= 1
     return true
   }
 
@@ -160,6 +189,19 @@ export default function OnboardingPage() {
             </button>
           </div>
         </div>
+      )
+    }
+
+    if (step === 3) {
+      return (
+        <Step3Modules
+          value={data.modules}
+          onChange={(modules) => {
+            setData({ ...data, modules })
+            if (step3Error) setStep3Error('')
+          }}
+          error={step3Error}
+        />
       )
     }
 
