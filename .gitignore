@@ -9,3 +9,5 @@ dist
 design-mockup.html
 .design-extracted/
 .extract-bundle.cjs
+
+.vercel
