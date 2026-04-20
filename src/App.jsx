@@ -3,7 +3,6 @@ import ProtectedRoute from './components/ProtectedRoute'
 import LocaleGate from './components/LocaleGate'
 import WelcomePage from './pages/welcome/WelcomePage'
 import LoginPage from './pages/auth/LoginPage'
-import AuthCallback from './pages/auth/AuthCallback'
 import OnboardingPage from './pages/onboarding/OnboardingPage'
 import DashboardPage from './pages/dashboard/DashboardPage'
 
@@ -17,14 +16,6 @@ export default function App() {
           element={
             <LocaleGate>
               <LoginPage />
-            </LocaleGate>
-          }
-        />
-        <Route
-          path="/auth/callback"
-          element={
-            <LocaleGate>
-              <AuthCallback />
             </LocaleGate>
           }
         />

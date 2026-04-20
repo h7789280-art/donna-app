@@ -52,8 +52,11 @@ export function AuthProvider({ children }) {
   const signInWithOtp = (email) =>
     supabase.auth.signInWithOtp({
       email,
-      options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
+      options: { shouldCreateUser: true },
     })
+
+  const verifyOtp = (email, token) =>
+    supabase.auth.verifyOtp({ email, token, type: 'email' })
 
   const signOut = () => supabase.auth.signOut()
 
@@ -74,6 +77,7 @@ export function AuthProvider({ children }) {
     profile,
     loading,
     signInWithOtp,
+    verifyOtp,
     signOut,
     refreshProfile,
   }
