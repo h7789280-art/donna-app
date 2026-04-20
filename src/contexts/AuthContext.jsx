@@ -21,12 +21,14 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
+      console.log('[Auth] getSession result:', data.session ? 'session found' : 'no session')
       setSession(data.session)
       setUser(data.session?.user ?? null)
       setLoading(false)
     })
 
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, newSession) => {
+    const { data: sub } = supabase.auth.onAuthStateChange((event, newSession) => {
+      console.log('[Auth] state change:', event, newSession?.user?.email)
       setSession(newSession)
       setUser(newSession?.user ?? null)
     })

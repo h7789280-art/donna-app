@@ -43,8 +43,14 @@ export default defineConfig({
         skipWaiting: true,
         cleanupOutdatedCaches: true,
         navigateFallback: '/index.html',
+        navigateFallbackDenylist: [/^\/auth\//],
         globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,woff2}'],
         runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/[a-z0-9-]+\.supabase\.co\/.*/i,
+            handler: 'NetworkOnly',
+            method: 'GET',
+          },
           {
             urlPattern: ({ request }) => request.mode === 'navigate',
             handler: 'NetworkFirst',
