@@ -82,5 +82,28 @@
     "step6_title": "Tout est prêt !",
     "step6_subtitle": "Ta Donna t'attend",
     "step6_start": "Commencer"
+  },
+  "dashboard": {
+    "welcome_back": "Bienvenue, {{name}}",
+    "notifications_aria": "Notifications",
+    "greeting_morning_sassy": "Bonjour, {{name}}.|Prête ?",
+    "greeting_day_sassy": "Tu tiens le |rythme, {{name}} ?",
+    "greeting_evening_sassy": "Bonsoir, {{name}}.|Comment s'est passée la journée ?",
+    "greeting_night_sassy": "Encore |debout, {{name}} ?",
+    "subtitle_sassy": "0 tâche aujourd'hui et une to-do list infinie. On va gérer.",
+    "family_label_one": "Famille · {{count}} enfant",
+    "family_label_many": "Famille · {{count}} enfants",
+    "family_label_other": "Famille · {{count}} enfants",
+    "water_label": "Eau aujourd'hui",
+    "water_subtitle": "verres",
+    "water_add_aria": "Ajouter un verre",
+    "quote_label": "Citation du jour",
+    "default_quote": "Tu n'es pas fatiguée parce que tu fais trop. Mais parce que tu ne fais pas les bonnes choses.",
+    "donna_speaks_label": "Donna parle",
+    "donna_insight_placeholder_sassy": "J'observe encore tes habitudes. Donne-moi une semaine — je te connaîtrai mieux que toi-même.",
+    "logout": "Se déconnecter",
+    "years_old_one": "{{count}} an",
+    "years_old_many": "{{count}} ans",
+    "years_old_other": "{{count}} ans"
   }
 }

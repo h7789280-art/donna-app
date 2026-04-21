@@ -82,5 +82,26 @@
     "step6_title": "Баары даяр!",
     "step6_subtitle": "Сенин Доннаң күтүүдө",
     "step6_start": "Баштоо"
+  },
+  "dashboard": {
+    "welcome_back": "Кош келиңиз, {{name}}",
+    "notifications_aria": "Эскертмелер",
+    "greeting_morning_sassy": "Кайырдуу таң, {{name}}.|Даярсыңбы?",
+    "greeting_day_sassy": "Темпти |кармап турасыңбы, {{name}}?",
+    "greeting_evening_sassy": "Кечиңиз менен, {{name}}.|Күнүң кандай өттү?",
+    "greeting_night_sassy": "Дагы эле |уктабайсыңбы, {{name}}?",
+    "subtitle_sassy": "Бүгүн 0 тапшырма жана чексиз иштер тизмеси. Чогуу чечебиз.",
+    "family_label_one": "Үй-бүлө · {{count}} бала",
+    "family_label_other": "Үй-бүлө · {{count}} бала",
+    "water_label": "Бүгүнкү суу",
+    "water_subtitle": "стакан",
+    "water_add_aria": "Стакан кошуу",
+    "quote_label": "Күн цитатасы",
+    "default_quote": "Сен көп иш кылгандан чарчаган жоксуң. Керексиз ишти кылгандан чарчадың.",
+    "donna_speaks_label": "Донна айтат",
+    "donna_insight_placeholder_sassy": "Мен азырынча адаттарыңды үйрөнүп жатам. Мага бир жума бер — сени өзүңдөн да жакшы билем.",
+    "logout": "Чыгуу",
+    "years_old_one": "{{count}} жаш",
+    "years_old_other": "{{count}} жаш"
   }
 }

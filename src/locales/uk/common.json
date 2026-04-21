@@ -84,5 +84,30 @@
     "step6_title": "Усе готово!",
     "step6_subtitle": "Твоя Донна чекає",
     "step6_start": "Почати"
+  },
+  "dashboard": {
+    "welcome_back": "Вітаю, {{name}}",
+    "notifications_aria": "Сповіщення",
+    "greeting_morning_sassy": "Доброго ранку, {{name}}.|Готова?",
+    "greeting_day_sassy": "Тримаєш |темп, {{name}}?",
+    "greeting_evening_sassy": "Вечір, {{name}}.|Як минув день?",
+    "greeting_night_sassy": "Ще не |спиш, {{name}}?",
+    "subtitle_sassy": "0 завдань на сьогодні і нескінченний список справ. Розберемося.",
+    "family_label_one": "Родина · {{count}} дитина",
+    "family_label_few": "Родина · {{count}} дитини",
+    "family_label_many": "Родина · {{count}} дітей",
+    "family_label_other": "Родина · {{count}} дітей",
+    "water_label": "Вода сьогодні",
+    "water_subtitle": "склянок",
+    "water_add_aria": "Додати склянку",
+    "quote_label": "Цитата дня",
+    "default_quote": "Ти не тому втомилася, що багато робиш. А тому що робиш не те.",
+    "donna_speaks_label": "Донна каже",
+    "donna_insight_placeholder_sassy": "Я ще придивляюся до твоїх звичок. Дай мені тиждень — і я знатиму про тебе більше, ніж ти сама.",
+    "logout": "Вийти",
+    "years_old_one": "{{count}} рік",
+    "years_old_few": "{{count}} роки",
+    "years_old_many": "{{count}} років",
+    "years_old_other": "{{count}} років"
   }
 }

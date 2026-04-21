@@ -82,5 +82,26 @@
     "step6_title": "ყველაფერი მზადაა!",
     "step6_subtitle": "შენი დონა გელოდება",
     "step6_start": "დაწყება"
+  },
+  "dashboard": {
+    "welcome_back": "კეთილი იყოს, {{name}}",
+    "notifications_aria": "შეტყობინებები",
+    "greeting_morning_sassy": "დილა მშვიდობისა, {{name}}.|მზად ხარ?",
+    "greeting_day_sassy": "ინარჩუნებ |ტემპს, {{name}}?",
+    "greeting_evening_sassy": "საღამო მშვიდობისა, {{name}}.|როგორ ჩაიარა დღემ?",
+    "greeting_night_sassy": "ჯერ კიდევ |ფხიზლად ხარ, {{name}}?",
+    "subtitle_sassy": "დღეს 0 დავალება და გაუთავებელი საქმეების სია. ვუმკლავდებით.",
+    "family_label_one": "ოჯახი · {{count}} შვილი",
+    "family_label_other": "ოჯახი · {{count}} შვილი",
+    "water_label": "წყალი დღეს",
+    "water_subtitle": "ჭიქა",
+    "water_add_aria": "ჭიქის დამატება",
+    "quote_label": "დღის ციტატა",
+    "default_quote": "დაიღალე არა იმიტომ, რომ ბევრს აკეთებ. არამედ იმიტომ, რომ არასწორს აკეთებ.",
+    "donna_speaks_label": "დონა ამბობს",
+    "donna_insight_placeholder_sassy": "ჯერ ვსწავლობ შენს ჩვევებს. მომეცი ერთი კვირა — უკეთ გაგიცნობ, ვიდრე შენ შენი თავი.",
+    "logout": "გასვლა",
+    "years_old_one": "{{count}} წლის",
+    "years_old_other": "{{count}} წლის"
   }
 }

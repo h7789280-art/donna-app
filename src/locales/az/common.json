@@ -82,5 +82,26 @@
     "step6_title": "Hər şey hazırdır!",
     "step6_subtitle": "Sənin Donna'n səni gözləyir",
     "step6_start": "Başla"
+  },
+  "dashboard": {
+    "welcome_back": "Xoş gəlmisən, {{name}}",
+    "notifications_aria": "Bildirişlər",
+    "greeting_morning_sassy": "Sabahın xeyir, {{name}}.|Hazırsan?",
+    "greeting_day_sassy": "Tempi |saxlayırsan, {{name}}?",
+    "greeting_evening_sassy": "Axşamın xeyir, {{name}}.|Gün necə keçdi?",
+    "greeting_night_sassy": "Hələ də |oyaqsan, {{name}}?",
+    "subtitle_sassy": "Bu gün 0 tapşırıq və sonsuz iş siyahısı. Öhdəsindən gələrik.",
+    "family_label_one": "Ailə · {{count}} uşaq",
+    "family_label_other": "Ailə · {{count}} uşaq",
+    "water_label": "Bugünkü su",
+    "water_subtitle": "stəkan",
+    "water_add_aria": "Stəkan əlavə et",
+    "quote_label": "Günün sitatı",
+    "default_quote": "Çox iş gördüyün üçün deyil, səhv işləri gördüyün üçün yorğunsan.",
+    "donna_speaks_label": "Donna deyir",
+    "donna_insight_placeholder_sassy": "Hələlik vərdişlərini izləyirəm. Mənə bir həftə ver — səni özündən yaxşı tanıyacağam.",
+    "logout": "Çıxış",
+    "years_old_one": "{{count}} yaş",
+    "years_old_other": "{{count}} yaş"
   }
 }

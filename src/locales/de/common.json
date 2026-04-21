@@ -82,5 +82,26 @@
     "step6_title": "Alles bereit!",
     "step6_subtitle": "Deine Donna wartet",
     "step6_start": "Loslegen"
+  },
+  "dashboard": {
+    "welcome_back": "Willkommen, {{name}}",
+    "notifications_aria": "Benachrichtigungen",
+    "greeting_morning_sassy": "Guten Morgen, {{name}}.|Bereit?",
+    "greeting_day_sassy": "Hältst du das |Tempo, {{name}}?",
+    "greeting_evening_sassy": "Guten Abend, {{name}}.|Wie war der Tag?",
+    "greeting_night_sassy": "Noch |wach, {{name}}?",
+    "subtitle_sassy": "0 Aufgaben heute und eine endlose To-do-Liste. Wir packen das.",
+    "family_label_one": "Familie · {{count}} Kind",
+    "family_label_other": "Familie · {{count}} Kinder",
+    "water_label": "Wasser heute",
+    "water_subtitle": "Gläser",
+    "water_add_aria": "Glas hinzufügen",
+    "quote_label": "Zitat des Tages",
+    "default_quote": "Du bist nicht müde, weil du zu viel tust. Sondern weil du das Falsche tust.",
+    "donna_speaks_label": "Donna sagt",
+    "donna_insight_placeholder_sassy": "Ich beobachte noch deine Muster. Gib mir eine Woche — dann kenne ich dich besser als du dich selbst.",
+    "logout": "Abmelden",
+    "years_old_one": "{{count}} Jahr",
+    "years_old_other": "{{count}} Jahre"
   }
 }

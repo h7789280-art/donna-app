@@ -82,5 +82,28 @@
     "step6_title": "Tudo pronto!",
     "step6_subtitle": "Sua Donna está esperando",
     "step6_start": "Começar"
+  },
+  "dashboard": {
+    "welcome_back": "Bem-vinda, {{name}}",
+    "notifications_aria": "Notificações",
+    "greeting_morning_sassy": "Bom dia, {{name}}.|Pronta?",
+    "greeting_day_sassy": "Segurando o |ritmo, {{name}}?",
+    "greeting_evening_sassy": "Boa noite, {{name}}.|Como foi o dia?",
+    "greeting_night_sassy": "Ainda |acordada, {{name}}?",
+    "subtitle_sassy": "0 tarefas hoje e uma lista infinita. A gente resolve.",
+    "family_label_one": "Família · {{count}} filho",
+    "family_label_many": "Família · {{count}} filhos",
+    "family_label_other": "Família · {{count}} filhos",
+    "water_label": "Água hoje",
+    "water_subtitle": "copos",
+    "water_add_aria": "Adicionar um copo",
+    "quote_label": "Citação do dia",
+    "default_quote": "Você não está cansada porque faz demais. Mas porque faz o que não precisa.",
+    "donna_speaks_label": "Donna fala",
+    "donna_insight_placeholder_sassy": "Ainda estou lendo seus padrões. Me dê uma semana — vou te conhecer melhor que você mesma.",
+    "logout": "Sair",
+    "years_old_one": "{{count}} ano",
+    "years_old_many": "{{count}} anos",
+    "years_old_other": "{{count}} anos"
   }
 }

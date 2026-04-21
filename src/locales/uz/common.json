@@ -82,5 +82,26 @@
     "step6_title": "Hammasi tayyor!",
     "step6_subtitle": "Sizning Donnangiz kutmoqda",
     "step6_start": "Boshlash"
+  },
+  "dashboard": {
+    "welcome_back": "Xush kelibsiz, {{name}}",
+    "notifications_aria": "Bildirishnomalar",
+    "greeting_morning_sassy": "Xayrli tong, {{name}}.|Tayyormisan?",
+    "greeting_day_sassy": "Sur'atni |ushlab turibsanmi, {{name}}?",
+    "greeting_evening_sassy": "Xayrli kech, {{name}}.|Kun qanday o'tdi?",
+    "greeting_night_sassy": "Hali ham |uyg'oqmisan, {{name}}?",
+    "subtitle_sassy": "Bugun 0 vazifa va cheksiz rejalar ro'yxati. Uddalaymiz.",
+    "family_label_one": "Oila · {{count}} farzand",
+    "family_label_other": "Oila · {{count}} farzand",
+    "water_label": "Bugungi suv",
+    "water_subtitle": "stakan",
+    "water_add_aria": "Stakan qo'shish",
+    "quote_label": "Kun iqtiboshi",
+    "default_quote": "Sen ko'p ish qilganing uchun emas, noto'g'ri ish qilganing uchun charchayapsan.",
+    "donna_speaks_label": "Donna gapiradi",
+    "donna_insight_placeholder_sassy": "Hozircha odatlaringni o'rganyapman. Menga bir hafta ber — seni o'zingdan ko'ra yaxshiroq bilaman.",
+    "logout": "Chiqish",
+    "years_old_one": "{{count}} yosh",
+    "years_old_other": "{{count}} yosh"
   }
 }

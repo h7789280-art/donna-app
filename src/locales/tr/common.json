@@ -82,5 +82,26 @@
     "step6_title": "Her şey hazır!",
     "step6_subtitle": "Donna'n seni bekliyor",
     "step6_start": "Başla"
+  },
+  "dashboard": {
+    "welcome_back": "Hoş geldin, {{name}}",
+    "notifications_aria": "Bildirimler",
+    "greeting_morning_sassy": "Günaydın, {{name}}.|Hazır mısın?",
+    "greeting_day_sassy": "Tempoyu |tutuyor musun, {{name}}?",
+    "greeting_evening_sassy": "İyi akşamlar, {{name}}.|Gün nasıl geçti?",
+    "greeting_night_sassy": "Hâlâ |ayakta mısın, {{name}}?",
+    "subtitle_sassy": "Bugün 0 görev ve sonsuz bir yapılacaklar listesi. Halledelim.",
+    "family_label_one": "Aile · {{count}} çocuk",
+    "family_label_other": "Aile · {{count}} çocuk",
+    "water_label": "Bugünkü su",
+    "water_subtitle": "bardak",
+    "water_add_aria": "Bardak ekle",
+    "quote_label": "Günün sözü",
+    "default_quote": "Çok yaptığın için değil, yanlış şeyleri yaptığın için yorgunsun.",
+    "donna_speaks_label": "Donna diyor ki",
+    "donna_insight_placeholder_sassy": "Şimdilik alışkanlıklarını izliyorum. Bir hafta ver bana — seni senden daha iyi tanıyacağım.",
+    "logout": "Çıkış yap",
+    "years_old_one": "{{count}} yaşında",
+    "years_old_other": "{{count}} yaşında"
   }
 }

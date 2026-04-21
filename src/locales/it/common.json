@@ -82,5 +82,28 @@
     "step6_title": "Tutto pronto!",
     "step6_subtitle": "La tua Donna ti aspetta",
     "step6_start": "Inizia"
+  },
+  "dashboard": {
+    "welcome_back": "Bentornata, {{name}}",
+    "notifications_aria": "Notifiche",
+    "greeting_morning_sassy": "Buongiorno, {{name}}.|Pronta?",
+    "greeting_day_sassy": "Stai tenendo il |ritmo, {{name}}?",
+    "greeting_evening_sassy": "Buonasera, {{name}}.|Com'è andata la giornata?",
+    "greeting_night_sassy": "Ancora |sveglia, {{name}}?",
+    "subtitle_sassy": "0 task oggi e una to-do list infinita. Ci pensiamo noi.",
+    "family_label_one": "Famiglia · {{count}} figlio",
+    "family_label_many": "Famiglia · {{count}} figli",
+    "family_label_other": "Famiglia · {{count}} figli",
+    "water_label": "Acqua oggi",
+    "water_subtitle": "bicchieri",
+    "water_add_aria": "Aggiungi un bicchiere",
+    "quote_label": "Frase del giorno",
+    "default_quote": "Non sei stanca perché fai troppo. Ma perché stai facendo le cose sbagliate.",
+    "donna_speaks_label": "Donna dice",
+    "donna_insight_placeholder_sassy": "Sto ancora studiando le tue abitudini. Dammi una settimana — ti conoscerò meglio di te stessa.",
+    "logout": "Esci",
+    "years_old_one": "{{count}} anno",
+    "years_old_many": "{{count}} anni",
+    "years_old_other": "{{count}} anni"
   }
 }

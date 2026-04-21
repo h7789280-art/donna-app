@@ -82,5 +82,26 @@
     "step6_title": "Ամեն ինչ պատրաստ է!",
     "step6_subtitle": "Քո Դոնան սպասում է",
     "step6_start": "Սկսել"
+  },
+  "dashboard": {
+    "welcome_back": "Բարի գալուստ, {{name}}",
+    "notifications_aria": "Ծանուցումներ",
+    "greeting_morning_sassy": "Բարի լույս, {{name}}.|Պատրա՞ստ ես",
+    "greeting_day_sassy": "Տեմպը |պահո՞ւմ ես, {{name}}",
+    "greeting_evening_sassy": "Բարի երեկո, {{name}}.|Օրն ինչպե՞ս անցավ",
+    "greeting_night_sassy": "Դեռ |արթո՞ւն ես, {{name}}",
+    "subtitle_sassy": "Այսօր 0 առաջադրանք և անվերջ անելիքների ցուցակ։ Կկարգավորենք։",
+    "family_label_one": "Ընտանիք · {{count}} երեխա",
+    "family_label_other": "Ընտանիք · {{count}} երեխա",
+    "water_label": "Ջուրն այսօր",
+    "water_subtitle": "բաժակ",
+    "water_add_aria": "Ավելացնել բաժակ",
+    "quote_label": "Օրվա մեջբերում",
+    "default_quote": "Դու հոգնած չես, որովհետև շատ ես անում։ Այլ՝ որովհետև սխալ բան ես անում։",
+    "donna_speaks_label": "Դոննան ասում է",
+    "donna_insight_placeholder_sassy": "Դեռ սովորում եմ քո սովորությունները։ Մի շաբաթ տուր ինձ — քեզ քեզանից լավ կճանաչեմ։",
+    "logout": "Դուրս գալ",
+    "years_old_one": "{{count}} տարեկան",
+    "years_old_other": "{{count}} տարեկան"
   }
 }

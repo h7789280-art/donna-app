@@ -84,5 +84,30 @@
     "step6_title": "Усё гатова!",
     "step6_subtitle": "Твая Донна чакае",
     "step6_start": "Пачаць"
+  },
+  "dashboard": {
+    "welcome_back": "Сардэчна запрашаем, {{name}}",
+    "notifications_aria": "Паведамленні",
+    "greeting_morning_sassy": "Добрай раніцы, {{name}}.|Гатовая?",
+    "greeting_day_sassy": "Трымаеш |тэмп, {{name}}?",
+    "greeting_evening_sassy": "Вечар, {{name}}.|Як прайшоў дзень?",
+    "greeting_night_sassy": "Яшчэ не |спіш, {{name}}?",
+    "subtitle_sassy": "0 задач на сёння і бясконцы спіс спраў. Разбяромся.",
+    "family_label_one": "Сям'я · {{count}} дзіця",
+    "family_label_few": "Сям'я · {{count}} дзіцяці",
+    "family_label_many": "Сям'я · {{count}} дзяцей",
+    "family_label_other": "Сям'я · {{count}} дзяцей",
+    "water_label": "Вада сёння",
+    "water_subtitle": "шклянак",
+    "water_add_aria": "Дадаць шклянку",
+    "quote_label": "Цытата дня",
+    "default_quote": "Ты не таму стамілася, што шмат робіш. А таму што робіш не тое.",
+    "donna_speaks_label": "Донна кажа",
+    "donna_insight_placeholder_sassy": "Я пакуль прыглядаюся да тваіх звычак. Дай мне тыдзень — і я буду ведаць цябе лепш, чым ты сама.",
+    "logout": "Выйсці",
+    "years_old_one": "{{count}} год",
+    "years_old_few": "{{count}} гады",
+    "years_old_many": "{{count}} гадоў",
+    "years_old_other": "{{count}} гадоў"
   }
 }

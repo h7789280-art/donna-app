@@ -86,5 +86,26 @@
     "step6_title": "All set!",
     "step6_subtitle": "Your Donna is ready",
     "step6_start": "Get started"
+  },
+  "dashboard": {
+    "welcome_back": "Welcome back, {{name}}",
+    "notifications_aria": "Notifications",
+    "greeting_morning_sassy": "Morning, {{name}}.|Ready?",
+    "greeting_day_sassy": "{{name}}, holding the |pace?",
+    "greeting_evening_sassy": "Evening, {{name}}.|How was the day?",
+    "greeting_night_sassy": "{{name}}, still |awake?",
+    "subtitle_sassy": "0 tasks today, an endless to-do list. Let's handle it.",
+    "family_label_one": "Family · {{count}} kid",
+    "family_label_other": "Family · {{count}} kids",
+    "water_label": "Water today",
+    "water_subtitle": "glasses",
+    "water_add_aria": "Add a glass",
+    "quote_label": "Quote of the day",
+    "default_quote": "You're not tired because you do too much. You're tired because you're doing the wrong things.",
+    "donna_speaks_label": "Donna speaks",
+    "donna_insight_placeholder_sassy": "I'm still reading your patterns. Give me a week — I'll know you better than you know yourself.",
+    "logout": "Sign out",
+    "years_old_one": "{{count}} year",
+    "years_old_other": "{{count}} years"
   }
 }
