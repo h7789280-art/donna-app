@@ -15,19 +15,17 @@ export function useWaterToday(userId) {
       setLoading(false)
       return
     }
-    const today = new Date().toISOString().slice(0, 10)
     const { data, error } = await supabase
-      .from('water_log')
-      .select('cups, goal_cups')
-      .eq('user_id', userId)
-      .eq('date', today)
+      .from('v_water_today')
+      .select('glasses, goal')
       .maybeSingle()
+    console.log('[useWaterToday] load:', { data, error })
     if (error) {
       console.error('[useWaterToday] load error:', error)
       setCups(0)
     } else if (data) {
-      setCups(Number(data.cups) || 0)
-      if (data.goal_cups) setGoal(Number(data.goal_cups))
+      setCups(Number(data.glasses) || 0)
+      if (data.goal) setGoal(Number(data.goal))
     } else {
       setCups(0)
     }
@@ -44,7 +42,8 @@ export function useWaterToday(userId) {
     setAdding(true)
     const prev = cups
     setCups(prev + 1)
-    const { error } = await supabase.rpc('add_water')
+    const { data, error } = await supabase.rpc('add_water')
+    console.log('[useWaterToday] add_water RPC:', { data, error })
     if (error) {
       console.error('[useWaterToday] add_water error:', error)
       setCups(prev)
