@@ -1,9 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { supabase } from '../lib/supabase'
+import { useAuth } from '../contexts/AuthContext'
 
 const DEFAULT_GOAL = 8
 
-export function useWaterToday(userId) {
+export function useWaterToday() {
+  const { user, loading: authLoading } = useAuth()
+  const userId = user?.id
+
   const [cups, setCups] = useState(0)
   const [goal, setGoal] = useState(DEFAULT_GOAL)
   const [loading, setLoading] = useState(true)
@@ -12,8 +16,7 @@ export function useWaterToday(userId) {
 
   const loadFromView = useCallback(async () => {
     if (!userId) {
-      setCups(0)
-      setLoading(false)
+      console.log('[useWaterToday] skip load — no user yet')
       return
     }
     if (isMutating.current) {
@@ -24,7 +27,7 @@ export function useWaterToday(userId) {
       .from('v_water_today')
       .select('glasses, goal')
       .maybeSingle()
-    console.log('[useWaterToday] load:', { data, error })
+    console.log('[useWaterToday] load:', { data, error, userId })
     if (error) {
       console.error('[useWaterToday] load error:', error)
       setLoading(false)
@@ -38,9 +41,18 @@ export function useWaterToday(userId) {
   }, [userId])
 
   useEffect(() => {
+    if (authLoading) {
+      console.log('[useWaterToday] waiting for auth to resolve')
+      return
+    }
+    if (!userId) {
+      setCups(0)
+      setLoading(false)
+      return
+    }
     setLoading(true)
     loadFromView()
-  }, [loadFromView])
+  }, [authLoading, userId, loadFromView])
 
   const add = useCallback(async () => {
     if (!userId || isMutating.current) return

@@ -64,7 +64,7 @@ export default function DashboardPage() {
   const dateLabel = useMemo(() => formatDateUppercase(i18n.language), [i18n.language])
 
   const { children } = useChildren(user?.id)
-  const { cups, goal, adding, add } = useWaterToday(user?.id)
+  const { cups, goal, adding, add } = useWaterToday()
   const { quote } = useDailyQuote(user?.id)
 
   const greetingRaw = t(`dashboard.greeting_${timeOfDay}_sassy`, { name: displayName })
