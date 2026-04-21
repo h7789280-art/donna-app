@@ -72,7 +72,7 @@ export default function DashboardPage() {
     ? greetingRaw.split('|')
     : [greetingRaw, '']
 
-  const quoteText = quote?.text || t('dashboard.default_quote')
+  const quoteText = quote?.quote || t('dashboard.default_quote')
   const quoteAuthor = quote?.author
 
   return (

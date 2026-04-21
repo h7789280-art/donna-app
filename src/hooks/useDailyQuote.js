@@ -13,7 +13,7 @@ export function useDailyQuote(userId) {
       : 'user_id.is.null'
     supabase
       .from('quotes')
-      .select('id, text, author')
+      .select('id, quote, author, category')
       .or(orFilter)
       .limit(100)
       .then(({ data, error }) => {
