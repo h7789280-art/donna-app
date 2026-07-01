@@ -63,6 +63,31 @@
       "wrong": "PIN incorrecto",
       "saved": "PIN guardado",
       "save_error": "No se pudo guardar el PIN. Inténtalo de nuevo."
+    },
+    "tx": {
+      "title": "Nueva operación",
+      "type": "Tipo",
+      "type_expense": "Gasto",
+      "type_income": "Ingreso",
+      "wallet": "Cartera",
+      "category": "Categoría",
+      "subcategory": "Subcategoría",
+      "subcategory_none": "— Sin subcategoría",
+      "no_categories": "Aún no hay categorías",
+      "amount": "Importe",
+      "date": "Fecha",
+      "note": "Nota",
+      "note_placeholder": "Opcional",
+      "save": "Guardar",
+      "saved": "Operación guardada",
+      "no_wallets": "Aún no hay carteras",
+      "need_wallet": "Primero añade una cartera",
+      "go_wallets": "A las carteras",
+      "error": "No se pudo guardar. Inténtalo de nuevo.",
+      "balance_error": "Operación guardada, pero el saldo de la cartera no se actualizó.",
+      "invalid_amount": "Introduce un importe mayor que cero",
+      "hub_title": "Añadir operación",
+      "hub_subtitle": "Gasto o ingreso"
     }
   },
   "common": {

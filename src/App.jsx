@@ -10,6 +10,7 @@ import DashboardPage from './pages/dashboard/DashboardPage'
 import FinancePage from './pages/finance/FinancePage'
 import FinanceGate from './pages/finance/FinanceGate'
 import WalletsPage from './pages/finance/WalletsPage'
+import AddTransactionPage from './pages/finance/AddTransactionPage'
 import PinSetup from './pages/finance/PinSetup'
 import PinEnter from './pages/finance/PinEnter'
 import ChildrenPage from './pages/children/ChildrenPage'
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="/finance" element={<FinanceGate />}>
             <Route index element={<FinancePage />} />
             <Route path="wallets" element={<WalletsPage />} />
+            <Route path="add" element={<AddTransactionPage />} />
           </Route>
           <Route path="/children" element={<ChildrenPage />} />
           <Route path="/health" element={<HealthPage />} />

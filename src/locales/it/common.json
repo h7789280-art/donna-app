@@ -63,6 +63,31 @@
       "wrong": "PIN errato",
       "saved": "PIN salvato",
       "save_error": "Impossibile salvare il PIN. Riprova."
+    },
+    "tx": {
+      "title": "Nuova operazione",
+      "type": "Tipo",
+      "type_expense": "Spesa",
+      "type_income": "Entrata",
+      "wallet": "Portafoglio",
+      "category": "Categoria",
+      "subcategory": "Sottocategoria",
+      "subcategory_none": "— Nessuna sottocategoria",
+      "no_categories": "Ancora nessuna categoria",
+      "amount": "Importo",
+      "date": "Data",
+      "note": "Nota",
+      "note_placeholder": "Facoltativo",
+      "save": "Salva",
+      "saved": "Operazione salvata",
+      "no_wallets": "Ancora nessun portafoglio",
+      "need_wallet": "Aggiungi prima un portafoglio",
+      "go_wallets": "Ai portafogli",
+      "error": "Impossibile salvare. Riprova.",
+      "balance_error": "Operazione salvata, ma il saldo del portafoglio non è stato aggiornato.",
+      "invalid_amount": "Inserisci un importo maggiore di zero",
+      "hub_title": "Aggiungi operazione",
+      "hub_subtitle": "Spesa o entrata"
     }
   },
   "common": {

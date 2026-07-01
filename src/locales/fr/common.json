@@ -63,6 +63,31 @@
       "wrong": "PIN incorrect",
       "saved": "PIN enregistré",
       "save_error": "Impossible d'enregistrer le PIN. Réessaie."
+    },
+    "tx": {
+      "title": "Nouvelle opération",
+      "type": "Type",
+      "type_expense": "Dépense",
+      "type_income": "Revenu",
+      "wallet": "Portefeuille",
+      "category": "Catégorie",
+      "subcategory": "Sous-catégorie",
+      "subcategory_none": "— Sans sous-catégorie",
+      "no_categories": "Aucune catégorie pour l'instant",
+      "amount": "Montant",
+      "date": "Date",
+      "note": "Note",
+      "note_placeholder": "Facultatif",
+      "save": "Enregistrer",
+      "saved": "Opération enregistrée",
+      "no_wallets": "Aucun portefeuille pour l'instant",
+      "need_wallet": "Ajoute d'abord un portefeuille",
+      "go_wallets": "Vers les portefeuilles",
+      "error": "Échec de l'enregistrement. Réessaie.",
+      "balance_error": "Opération enregistrée, mais le solde du portefeuille n'a pas été mis à jour.",
+      "invalid_amount": "Saisis un montant supérieur à zéro",
+      "hub_title": "Ajouter une opération",
+      "hub_subtitle": "Dépense ou revenu"
     }
   },
   "common": {

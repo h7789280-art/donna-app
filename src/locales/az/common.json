@@ -63,6 +63,31 @@
       "wrong": "Yanlış PIN",
       "saved": "PIN yadda saxlanıldı",
       "save_error": "PIN saxlanmadı. Yenidən cəhd et."
+    },
+    "tx": {
+      "title": "Yeni əməliyyat",
+      "type": "Növ",
+      "type_expense": "Xərc",
+      "type_income": "Gəlir",
+      "wallet": "Pul kisəsi",
+      "category": "Kateqoriya",
+      "subcategory": "Alt kateqoriya",
+      "subcategory_none": "— Alt kateqoriya yoxdur",
+      "no_categories": "Hələ kateqoriya yoxdur",
+      "amount": "Məbləğ",
+      "date": "Tarix",
+      "note": "Qeyd",
+      "note_placeholder": "İstəyə bağlı",
+      "save": "Yadda saxla",
+      "saved": "Əməliyyat yadda saxlanıldı",
+      "no_wallets": "Hələ pul kisəsi yoxdur",
+      "need_wallet": "Əvvəlcə pul kisəsi əlavə et",
+      "go_wallets": "Pul kisələrinə keç",
+      "error": "Yadda saxlamaq alınmadı. Yenidən cəhd et.",
+      "balance_error": "Əməliyyat yadda saxlanıldı, lakin pul kisəsinin balansı yenilənmədi.",
+      "invalid_amount": "Sıfırdan böyük məbləğ daxil et",
+      "hub_title": "Əməliyyat əlavə et",
+      "hub_subtitle": "Xərc və ya gəlir"
     }
   },
   "common": {

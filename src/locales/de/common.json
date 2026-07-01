@@ -63,6 +63,31 @@
       "wrong": "Falscher PIN",
       "saved": "PIN gespeichert",
       "save_error": "PIN konnte nicht gespeichert werden. Versuch es noch mal."
+    },
+    "tx": {
+      "title": "Neue Buchung",
+      "type": "Typ",
+      "type_expense": "Ausgabe",
+      "type_income": "Einnahme",
+      "wallet": "Geldbörse",
+      "category": "Kategorie",
+      "subcategory": "Unterkategorie",
+      "subcategory_none": "— Keine Unterkategorie",
+      "no_categories": "Noch keine Kategorien",
+      "amount": "Betrag",
+      "date": "Datum",
+      "note": "Notiz",
+      "note_placeholder": "Optional",
+      "save": "Speichern",
+      "saved": "Buchung gespeichert",
+      "no_wallets": "Noch keine Geldbörsen",
+      "need_wallet": "Füge zuerst eine Geldbörse hinzu",
+      "go_wallets": "Zu den Geldbörsen",
+      "error": "Speichern fehlgeschlagen. Versuch es erneut.",
+      "balance_error": "Buchung gespeichert, aber der Kontostand wurde nicht aktualisiert.",
+      "invalid_amount": "Gib einen Betrag größer als null ein",
+      "hub_title": "Buchung hinzufügen",
+      "hub_subtitle": "Ausgabe oder Einnahme"
     }
   },
   "common": {

@@ -63,6 +63,31 @@
       "wrong": "Noto'g'ri PIN",
       "saved": "PIN saqlandi",
       "save_error": "PIN saqlanmadi. Qayta urinib ko'ring."
+    },
+    "tx": {
+      "title": "Yangi amaliyot",
+      "type": "Turi",
+      "type_expense": "Xarajat",
+      "type_income": "Daromad",
+      "wallet": "Hamyon",
+      "category": "Kategoriya",
+      "subcategory": "Quyi kategoriya",
+      "subcategory_none": "— Quyi kategoriyasiz",
+      "no_categories": "Hozircha kategoriyalar yo'q",
+      "amount": "Summa",
+      "date": "Sana",
+      "note": "Izoh",
+      "note_placeholder": "Ixtiyoriy",
+      "save": "Saqlash",
+      "saved": "Amaliyot saqlandi",
+      "no_wallets": "Hozircha hamyonlar yo'q",
+      "need_wallet": "Avval hamyon qo'sh",
+      "go_wallets": "Hamyonlarga",
+      "error": "Saqlab bo'lmadi. Qayta urinib ko'r.",
+      "balance_error": "Amaliyot saqlandi, lekin hamyon balansi yangilanmadi.",
+      "invalid_amount": "Noldan katta summa kirit",
+      "hub_title": "Amaliyot qo'shish",
+      "hub_subtitle": "Xarajat yoki daromad"
     }
   },
   "common": {

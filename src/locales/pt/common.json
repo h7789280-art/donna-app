@@ -63,6 +63,31 @@
       "wrong": "PIN incorreto",
       "saved": "PIN salvo",
       "save_error": "Não foi possível salvar o PIN. Tente de novo."
+    },
+    "tx": {
+      "title": "Nova operação",
+      "type": "Tipo",
+      "type_expense": "Despesa",
+      "type_income": "Receita",
+      "wallet": "Carteira",
+      "category": "Categoria",
+      "subcategory": "Subcategoria",
+      "subcategory_none": "— Sem subcategoria",
+      "no_categories": "Ainda sem categorias",
+      "amount": "Valor",
+      "date": "Data",
+      "note": "Nota",
+      "note_placeholder": "Opcional",
+      "save": "Guardar",
+      "saved": "Operação guardada",
+      "no_wallets": "Ainda sem carteiras",
+      "need_wallet": "Adiciona primeiro uma carteira",
+      "go_wallets": "Para as carteiras",
+      "error": "Não foi possível guardar. Tenta novamente.",
+      "balance_error": "Operação guardada, mas o saldo da carteira não foi atualizado.",
+      "invalid_amount": "Introduz um valor maior que zero",
+      "hub_title": "Adicionar operação",
+      "hub_subtitle": "Despesa ou receita"
     }
   },
   "common": {

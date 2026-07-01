@@ -63,6 +63,31 @@
       "wrong": "Wrong PIN",
       "saved": "PIN saved",
       "save_error": "Couldn't save the PIN. Try again."
+    },
+    "tx": {
+      "title": "New transaction",
+      "type": "Type",
+      "type_expense": "Expense",
+      "type_income": "Income",
+      "wallet": "Wallet",
+      "category": "Category",
+      "subcategory": "Subcategory",
+      "subcategory_none": "— No subcategory",
+      "no_categories": "No categories yet",
+      "amount": "Amount",
+      "date": "Date",
+      "note": "Note",
+      "note_placeholder": "Optional",
+      "save": "Save",
+      "saved": "Transaction saved",
+      "no_wallets": "No wallets yet",
+      "need_wallet": "Add a wallet first",
+      "go_wallets": "To wallets",
+      "error": "Couldn't save. Try again.",
+      "balance_error": "Transaction saved, but the wallet balance didn't update.",
+      "invalid_amount": "Enter an amount greater than zero",
+      "hub_title": "Add transaction",
+      "hub_subtitle": "Expense or income"
     }
   },
   "common": {

@@ -63,6 +63,31 @@
       "wrong": "Yanlış PIN",
       "saved": "PIN kaydedildi",
       "save_error": "PIN kaydedilemedi. Tekrar dene."
+    },
+    "tx": {
+      "title": "Yeni işlem",
+      "type": "Tür",
+      "type_expense": "Gider",
+      "type_income": "Gelir",
+      "wallet": "Cüzdan",
+      "category": "Kategori",
+      "subcategory": "Alt kategori",
+      "subcategory_none": "— Alt kategori yok",
+      "no_categories": "Henüz kategori yok",
+      "amount": "Tutar",
+      "date": "Tarih",
+      "note": "Not",
+      "note_placeholder": "İsteğe bağlı",
+      "save": "Kaydet",
+      "saved": "İşlem kaydedildi",
+      "no_wallets": "Henüz cüzdan yok",
+      "need_wallet": "Önce bir cüzdan ekle",
+      "go_wallets": "Cüzdanlara git",
+      "error": "Kaydedilemedi. Tekrar dene.",
+      "balance_error": "İşlem kaydedildi ama cüzdan bakiyesi güncellenmedi.",
+      "invalid_amount": "Sıfırdan büyük bir tutar gir",
+      "hub_title": "İşlem ekle",
+      "hub_subtitle": "Gider veya gelir"
     }
   },
   "common": {
