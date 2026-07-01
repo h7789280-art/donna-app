@@ -1,4 +1,12 @@
 {
+  "nav": {
+    "home": "Inicio",
+    "finance": "Finanzas",
+    "children": "Niños",
+    "health": "Salud",
+    "more": "Más"
+  },
+  "coming_soon": "Próximamente",
   "common": {
     "continue": "Continuar",
     "back": "Atrás",

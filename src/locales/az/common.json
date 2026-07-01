@@ -1,4 +1,12 @@
 {
+  "nav": {
+    "home": "Ana səhifə",
+    "finance": "Maliyyə",
+    "children": "Uşaqlar",
+    "health": "Sağlamlıq",
+    "more": "Daha çox"
+  },
+  "coming_soon": "Tezliklə",
   "common": {
     "continue": "Davam et",
     "back": "Geri",

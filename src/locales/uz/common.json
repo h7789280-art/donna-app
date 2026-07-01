@@ -1,4 +1,12 @@
 {
+  "nav": {
+    "home": "Bosh sahifa",
+    "finance": "Moliya",
+    "children": "Bolalar",
+    "health": "Salomatlik",
+    "more": "Yana"
+  },
+  "coming_soon": "Tez orada",
   "common": {
     "continue": "Davom etish",
     "back": "Orqaga",

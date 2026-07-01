@@ -1,4 +1,12 @@
 {
+  "nav": {
+    "home": "Басты",
+    "finance": "Қаржы",
+    "children": "Балалар",
+    "health": "Денсаулық",
+    "more": "Тағы"
+  },
+  "coming_soon": "Жақында",
   "common": {
     "continue": "Жалғастыру",
     "back": "Артқа",

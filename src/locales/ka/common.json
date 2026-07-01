@@ -1,4 +1,12 @@
 {
+  "nav": {
+    "home": "მთავარი",
+    "finance": "ფინანსები",
+    "children": "ბავშვები",
+    "health": "ჯანმრთელობა",
+    "more": "მეტი"
+  },
+  "coming_soon": "მალე",
   "common": {
     "continue": "გაგრძელება",
     "back": "უკან",

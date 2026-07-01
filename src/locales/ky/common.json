@@ -1,4 +1,12 @@
 {
+  "nav": {
+    "home": "Башкы",
+    "finance": "Каржы",
+    "children": "Балдар",
+    "health": "Ден соолук",
+    "more": "Дагы"
+  },
+  "coming_soon": "Жакында",
   "common": {
     "continue": "Улантуу",
     "back": "Артка",

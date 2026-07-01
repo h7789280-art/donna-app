@@ -1,4 +1,12 @@
 {
+  "nav": {
+    "home": "Галоўная",
+    "finance": "Фінансы",
+    "children": "Дзеці",
+    "health": "Здароўе",
+    "more": "Яшчэ"
+  },
+  "coming_soon": "Хутка",
   "common": {
     "continue": "Працягнуць",
     "back": "Назад",
