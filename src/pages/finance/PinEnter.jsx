@@ -48,10 +48,6 @@ export default function PinEnter() {
           <PinPad value={value} onChange={setValue} onComplete={handleComplete} />
         </motion.div>
 
-        <p className="mt-10 font-sans text-base text-ink-muted text-center">
-          {t('finance.pin.forgot')}
-        </p>
-
         <Toast message={toast?.message} type={toast?.type} onDone={() => setToast(null)} />
       </div>
     </div>

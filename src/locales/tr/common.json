@@ -18,8 +18,7 @@
       "mismatch": "PIN'ler eşleşmiyor",
       "wrong": "Yanlış PIN",
       "saved": "PIN kaydedildi",
-      "save_error": "PIN kaydedilemedi. Tekrar dene.",
-      "forgot": "PIN'i mi unuttun? Ayarlardan sıfırlayabilirsin."
+      "save_error": "PIN kaydedilemedi. Tekrar dene."
     }
   },
   "common": {

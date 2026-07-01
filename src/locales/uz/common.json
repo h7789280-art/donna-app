@@ -18,8 +18,7 @@
       "mismatch": "PIN'lar mos kelmadi",
       "wrong": "Noto'g'ri PIN",
       "saved": "PIN saqlandi",
-      "save_error": "PIN saqlanmadi. Qayta urinib ko'ring.",
-      "forgot": "PIN'ni unutdingizmi? Uni sozlamalarda tiklashingiz mumkin."
+      "save_error": "PIN saqlanmadi. Qayta urinib ko'ring."
     }
   },
   "common": {

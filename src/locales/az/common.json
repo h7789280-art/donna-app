@@ -18,8 +18,7 @@
       "mismatch": "PIN-lər uyğun gəlmir",
       "wrong": "Yanlış PIN",
       "saved": "PIN yadda saxlanıldı",
-      "save_error": "PIN saxlanmadı. Yenidən cəhd et.",
-      "forgot": "PIN-i unutmusan? Onu ayarlarda sıfırlaya bilərsən."
+      "save_error": "PIN saxlanmadı. Yenidən cəhd et."
     }
   },
   "common": {

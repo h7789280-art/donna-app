@@ -18,8 +18,7 @@
       "mismatch": "Los PIN no coinciden",
       "wrong": "PIN incorrecto",
       "saved": "PIN guardado",
-      "save_error": "No se pudo guardar el PIN. Inténtalo de nuevo.",
-      "forgot": "¿Olvidaste el PIN? Puedes restablecerlo en ajustes."
+      "save_error": "No se pudo guardar el PIN. Inténtalo de nuevo."
     }
   },
   "common": {
