@@ -7,6 +7,21 @@
     "more": "Дагы"
   },
   "coming_soon": "Жакында",
+  "finance": {
+    "pin": {
+      "setup_title": "Каржы үчүн PIN коюу",
+      "setup_subtitle": "Ал бул өтмөктү түзмөгүңдө кулпулайт",
+      "confirm_title": "PIN'ди кайтала",
+      "confirm_subtitle": "Ошол эле 4 санды кайра киргиз",
+      "enter_title": "PIN киргиз",
+      "enter_subtitle": "Каржы бөлүмүн ач",
+      "mismatch": "PIN дал келбейт",
+      "wrong": "PIN туура эмес",
+      "saved": "PIN сакталды",
+      "save_error": "PIN сакталган жок. Кайра аракет кыл.",
+      "forgot": "PIN'ди унуттуңбу? Аны жөндөөлөрдөн баштапкы абалга келтирсе болот."
+    }
+  },
   "common": {
     "continue": "Улантуу",
     "back": "Артка",

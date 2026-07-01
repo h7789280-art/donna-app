@@ -7,6 +7,21 @@
     "more": "Ще"
   },
   "coming_soon": "Незабаром",
+  "finance": {
+    "pin": {
+      "setup_title": "Задай PIN для фінансів",
+      "setup_subtitle": "Він закриває цю вкладку на твоєму пристрої",
+      "confirm_title": "Повтори PIN",
+      "confirm_subtitle": "Введи ті самі 4 цифри ще раз",
+      "enter_title": "Введи PIN",
+      "enter_subtitle": "Розблокуй розділ фінансів",
+      "mismatch": "PIN не збігається",
+      "wrong": "Невірний PIN",
+      "saved": "PIN збережено",
+      "save_error": "Не вдалося зберегти PIN. Спробуй ще раз.",
+      "forgot": "Забула PIN? Його можна скинути в налаштуваннях."
+    }
+  },
   "common": {
     "continue": "Продовжити",
     "back": "Назад",

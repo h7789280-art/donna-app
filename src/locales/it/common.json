@@ -7,6 +7,21 @@
     "more": "Altro"
   },
   "coming_soon": "Prossimamente",
+  "finance": {
+    "pin": {
+      "setup_title": "Imposta un PIN per le finanze",
+      "setup_subtitle": "Blocca questa scheda sul tuo dispositivo",
+      "confirm_title": "Ripeti il PIN",
+      "confirm_subtitle": "Inserisci di nuovo le stesse 4 cifre",
+      "enter_title": "Inserisci il PIN",
+      "enter_subtitle": "Sblocca la sezione finanze",
+      "mismatch": "I PIN non coincidono",
+      "wrong": "PIN errato",
+      "saved": "PIN salvato",
+      "save_error": "Impossibile salvare il PIN. Riprova.",
+      "forgot": "PIN dimenticato? Puoi reimpostarlo nelle impostazioni."
+    }
+  },
   "common": {
     "continue": "Continua",
     "back": "Indietro",

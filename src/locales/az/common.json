@@ -7,6 +7,21 @@
     "more": "Daha çox"
   },
   "coming_soon": "Tezliklə",
+  "finance": {
+    "pin": {
+      "setup_title": "Maliyyə üçün PIN təyin et",
+      "setup_subtitle": "Bu bölməni cihazında kilidləyir",
+      "confirm_title": "PIN-i təkrarla",
+      "confirm_subtitle": "Eyni 4 rəqəmi yenidən daxil et",
+      "enter_title": "PIN daxil et",
+      "enter_subtitle": "Maliyyə bölməsini aç",
+      "mismatch": "PIN-lər uyğun gəlmir",
+      "wrong": "Yanlış PIN",
+      "saved": "PIN yadda saxlanıldı",
+      "save_error": "PIN saxlanmadı. Yenidən cəhd et.",
+      "forgot": "PIN-i unutmusan? Onu ayarlarda sıfırlaya bilərsən."
+    }
+  },
   "common": {
     "continue": "Davam et",
     "back": "Geri",

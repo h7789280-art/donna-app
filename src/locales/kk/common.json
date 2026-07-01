@@ -7,6 +7,21 @@
     "more": "Тағы"
   },
   "coming_soon": "Жақында",
+  "finance": {
+    "pin": {
+      "setup_title": "Қаржы үшін PIN орнат",
+      "setup_subtitle": "Ол осы қойындыны құрылғыңда құлыптайды",
+      "confirm_title": "PIN-ды қайтала",
+      "confirm_subtitle": "Дәл сол 4 санды тағы енгіз",
+      "enter_title": "PIN енгіз",
+      "enter_subtitle": "Қаржы бөлімін ашу",
+      "mismatch": "PIN сәйкес келмейді",
+      "wrong": "PIN қате",
+      "saved": "PIN сақталды",
+      "save_error": "PIN сақталмады. Қайталап көр.",
+      "forgot": "PIN-ды ұмыттың ба? Оны баптауларда қалпына келтіруге болады."
+    }
+  },
   "common": {
     "continue": "Жалғастыру",
     "back": "Артқа",

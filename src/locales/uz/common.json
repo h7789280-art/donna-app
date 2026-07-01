@@ -7,6 +7,21 @@
     "more": "Yana"
   },
   "coming_soon": "Tez orada",
+  "finance": {
+    "pin": {
+      "setup_title": "Moliya uchun PIN o'rnating",
+      "setup_subtitle": "U ushbu bo'limni qurilmangizda qulflaydi",
+      "confirm_title": "PIN'ni takrorlang",
+      "confirm_subtitle": "Xuddi shu 4 raqamni qayta kiriting",
+      "enter_title": "PIN kiriting",
+      "enter_subtitle": "Moliya bo'limini oching",
+      "mismatch": "PIN'lar mos kelmadi",
+      "wrong": "Noto'g'ri PIN",
+      "saved": "PIN saqlandi",
+      "save_error": "PIN saqlanmadi. Qayta urinib ko'ring.",
+      "forgot": "PIN'ni unutdingizmi? Uni sozlamalarda tiklashingiz mumkin."
+    }
+  },
   "common": {
     "continue": "Davom etish",
     "back": "Orqaga",

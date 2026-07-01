@@ -7,6 +7,21 @@
     "more": "Daha Fazla"
   },
   "coming_soon": "Yakında",
+  "finance": {
+    "pin": {
+      "setup_title": "Finans için PIN belirle",
+      "setup_subtitle": "Bu sekmeyi cihazında kilitler",
+      "confirm_title": "PIN'i tekrarla",
+      "confirm_subtitle": "Aynı 4 haneyi tekrar gir",
+      "enter_title": "PIN gir",
+      "enter_subtitle": "Finans bölümünün kilidini aç",
+      "mismatch": "PIN'ler eşleşmiyor",
+      "wrong": "Yanlış PIN",
+      "saved": "PIN kaydedildi",
+      "save_error": "PIN kaydedilemedi. Tekrar dene.",
+      "forgot": "PIN'i mi unuttun? Ayarlardan sıfırlayabilirsin."
+    }
+  },
   "common": {
     "continue": "Devam et",
     "back": "Geri",

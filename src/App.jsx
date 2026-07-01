@@ -8,6 +8,9 @@ import LoginPage from './pages/auth/LoginPage'
 import OnboardingPage from './pages/onboarding/OnboardingPage'
 import DashboardPage from './pages/dashboard/DashboardPage'
 import FinancePage from './pages/finance/FinancePage'
+import FinanceGate from './pages/finance/FinanceGate'
+import PinSetup from './pages/finance/PinSetup'
+import PinEnter from './pages/finance/PinEnter'
 import ChildrenPage from './pages/children/ChildrenPage'
 import HealthPage from './pages/health/HealthPage'
 import MorePage from './pages/more/MorePage'
@@ -39,7 +42,11 @@ export default function App() {
         />
         <Route element={<AppLayout />}>
           <Route path="/" element={<DashboardPage />} />
-          <Route path="/finance" element={<FinancePage />} />
+          <Route path="/finance/pin-setup" element={<PinSetup />} />
+          <Route path="/finance/pin-enter" element={<PinEnter />} />
+          <Route path="/finance" element={<FinanceGate />}>
+            <Route index element={<FinancePage />} />
+          </Route>
           <Route path="/children" element={<ChildrenPage />} />
           <Route path="/health" element={<HealthPage />} />
           <Route path="/more" element={<MorePage />} />

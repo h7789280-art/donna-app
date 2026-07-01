@@ -7,6 +7,21 @@
     "more": "Plus"
   },
   "coming_soon": "Bientôt",
+  "finance": {
+    "pin": {
+      "setup_title": "Définis un PIN pour les finances",
+      "setup_subtitle": "Il verrouille cet onglet sur ton appareil",
+      "confirm_title": "Répète le PIN",
+      "confirm_subtitle": "Saisis à nouveau les mêmes 4 chiffres",
+      "enter_title": "Saisis le PIN",
+      "enter_subtitle": "Déverrouille la section finances",
+      "mismatch": "Les PIN ne correspondent pas",
+      "wrong": "PIN incorrect",
+      "saved": "PIN enregistré",
+      "save_error": "Impossible d'enregistrer le PIN. Réessaie.",
+      "forgot": "PIN oublié ? Tu peux le réinitialiser dans les réglages."
+    }
+  },
   "common": {
     "continue": "Continuer",
     "back": "Retour",

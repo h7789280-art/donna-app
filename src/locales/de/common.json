@@ -7,6 +7,21 @@
     "more": "Mehr"
   },
   "coming_soon": "Demnächst",
+  "finance": {
+    "pin": {
+      "setup_title": "PIN für Finanzen festlegen",
+      "setup_subtitle": "Sperrt diesen Tab auf deinem Gerät",
+      "confirm_title": "PIN wiederholen",
+      "confirm_subtitle": "Gib dieselben 4 Ziffern erneut ein",
+      "enter_title": "PIN eingeben",
+      "enter_subtitle": "Finanzbereich entsperren",
+      "mismatch": "PINs stimmen nicht überein",
+      "wrong": "Falscher PIN",
+      "saved": "PIN gespeichert",
+      "save_error": "PIN konnte nicht gespeichert werden. Versuch es noch mal.",
+      "forgot": "PIN vergessen? Du kannst ihn in den Einstellungen zurücksetzen."
+    }
+  },
   "common": {
     "continue": "Weiter",
     "back": "Zurück",

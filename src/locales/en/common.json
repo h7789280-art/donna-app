@@ -7,6 +7,21 @@
     "more": "More"
   },
   "coming_soon": "Coming soon",
+  "finance": {
+    "pin": {
+      "setup_title": "Set a PIN for finances",
+      "setup_subtitle": "It locks this tab on your device",
+      "confirm_title": "Repeat the PIN",
+      "confirm_subtitle": "Enter the same 4 digits again",
+      "enter_title": "Enter PIN",
+      "enter_subtitle": "Unlock the finance section",
+      "mismatch": "PINs don't match",
+      "wrong": "Wrong PIN",
+      "saved": "PIN saved",
+      "save_error": "Couldn't save the PIN. Try again.",
+      "forgot": "Forgot the PIN? You can reset it in settings."
+    }
+  },
   "common": {
     "continue": "Continue",
     "back": "Back",
