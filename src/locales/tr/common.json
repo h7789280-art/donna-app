@@ -121,6 +121,26 @@
       "share": "Pay",
       "hub_report_title": "Rapor",
       "hub_report_subtitle": "Kategoriye göre harcamalar"
+    },
+    "categories": {
+      "title": "Kategoriler",
+      "expense": "Giderler",
+      "income": "Gelirler",
+      "add_category": "Kategori ekle",
+      "add_subcategory": "Alt kategori ekle",
+      "edit": "Düzenle",
+      "delete": "Sil",
+      "name": "Ad",
+      "name_placeholder": "Örn. Market",
+      "no_categories": "Henüz kategori yok",
+      "no_subcategories": "Alt kategori yok",
+      "save": "Kaydet",
+      "cancel": "İptal",
+      "delete_confirm": "“{{name}}” kategorisi silinsin mi?",
+      "delete_parent_confirm": "“{{name}}” ve alt kategorileri ({{count}}) silinsin mi?",
+      "operations_detach_note": "İşlemler silinmez — “Kategorisiz” olur.",
+      "hub_categories_title": "Kategoriler",
+      "hub_categories_subtitle": "Gider ve gelir kategorilerin"
     }
   },
   "common": {

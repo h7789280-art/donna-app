@@ -121,6 +121,26 @@
       "share": "Բաժին",
       "hub_report_title": "Հաշվետվություն",
       "hub_report_subtitle": "Ծախսերն ըստ կատեգորիաների"
+    },
+    "categories": {
+      "title": "Կատեգորիաներ",
+      "expense": "Ծախսեր",
+      "income": "Եկամուտներ",
+      "add_category": "Ավելացնել կատեգորիա",
+      "add_subcategory": "Ավելացնել ենթակատեգորիա",
+      "edit": "Խմբագրել",
+      "delete": "Ջնջել",
+      "name": "Անուն",
+      "name_placeholder": "Օր. Մթերք",
+      "no_categories": "Դեռ կատեգորիաներ չկան",
+      "no_subcategories": "Ենթակատեգորիաներ չկան",
+      "save": "Պահպանել",
+      "cancel": "Չեղարկել",
+      "delete_confirm": "Ջնջե՞լ «{{name}}» կատեգորիան։",
+      "delete_parent_confirm": "Ջնջե՞լ «{{name}}»-ը և նրա ենթակատեգորիաները ({{count}})։",
+      "operations_detach_note": "Գործառնությունները չեն ջնջվի — դրանք կդառնան «Առանց կատեգորիայի»։",
+      "hub_categories_title": "Կատեգորիաներ",
+      "hub_categories_subtitle": "Ձեր ծախսերի և եկամուտների կատեգորիաները"
     }
   },
   "common": {

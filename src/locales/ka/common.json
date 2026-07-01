@@ -121,6 +121,26 @@
       "share": "წილი",
       "hub_report_title": "ანგარიში",
       "hub_report_subtitle": "ხარჯები კატეგორიების მიხედვით"
+    },
+    "categories": {
+      "title": "კატეგორიები",
+      "expense": "ხარჯები",
+      "income": "შემოსავლები",
+      "add_category": "კატეგორიის დამატება",
+      "add_subcategory": "ქვეკატეგორიის დამატება",
+      "edit": "რედაქტირება",
+      "delete": "წაშლა",
+      "name": "სახელი",
+      "name_placeholder": "მაგ. სასურსათო",
+      "no_categories": "ჯერ კატეგორიები არ არის",
+      "no_subcategories": "ქვეკატეგორიები არ არის",
+      "save": "შენახვა",
+      "cancel": "გაუქმება",
+      "delete_confirm": "წავშალო კატეგორია „{{name}}“?",
+      "delete_parent_confirm": "წავშალო „{{name}}“ და მისი ქვეკატეგორიები ({{count}})?",
+      "operations_detach_note": "ოპერაციები არ წაიშლება — ისინი გახდება „კატეგორიის გარეშე“.",
+      "hub_categories_title": "კატეგორიები",
+      "hub_categories_subtitle": "თქვენი ხარჯებისა და შემოსავლების კატეგორიები"
     }
   },
   "common": {

@@ -121,6 +121,26 @@
       "share": "Частка",
       "hub_report_title": "Звіт",
       "hub_report_subtitle": "Витрати за категоріями"
+    },
+    "categories": {
+      "title": "Категорії",
+      "expense": "Витрати",
+      "income": "Доходи",
+      "add_category": "Додати категорію",
+      "add_subcategory": "Додати підкатегорію",
+      "edit": "Змінити",
+      "delete": "Видалити",
+      "name": "Назва",
+      "name_placeholder": "Наприклад, Продукти",
+      "no_categories": "Поки немає категорій",
+      "no_subcategories": "Немає підкатегорій",
+      "save": "Зберегти",
+      "cancel": "Скасувати",
+      "delete_confirm": "Видалити категорію «{{name}}»?",
+      "delete_parent_confirm": "Видалити «{{name}}» та її підкатегорії ({{count}})?",
+      "operations_detach_note": "Операції не видаляться — вони стануть «Без категорії».",
+      "hub_categories_title": "Категорії",
+      "hub_categories_subtitle": "Власні категорії витрат і доходів"
     }
   },
   "common": {

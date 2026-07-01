@@ -121,6 +121,26 @@
       "share": "Ulush",
       "hub_report_title": "Hisobot",
       "hub_report_subtitle": "Kategoriya bo'yicha xarajatlar"
+    },
+    "categories": {
+      "title": "Kategoriyalar",
+      "expense": "Xarajatlar",
+      "income": "Daromadlar",
+      "add_category": "Kategoriya qo‘shish",
+      "add_subcategory": "Subkategoriya qo‘shish",
+      "edit": "Tahrirlash",
+      "delete": "O‘chirish",
+      "name": "Nomi",
+      "name_placeholder": "Masalan, Oziq-ovqat",
+      "no_categories": "Hozircha kategoriyalar yo‘q",
+      "no_subcategories": "Subkategoriyalar yo‘q",
+      "save": "Saqlash",
+      "cancel": "Bekor qilish",
+      "delete_confirm": "«{{name}}» kategoriyasi o‘chirilsinmi?",
+      "delete_parent_confirm": "«{{name}}» va uning subkategoriyalari ({{count}}) o‘chirilsinmi?",
+      "operations_detach_note": "Amallar o‘chirilmaydi — ular «Kategoriyasiz» bo‘ladi.",
+      "hub_categories_title": "Kategoriyalar",
+      "hub_categories_subtitle": "Xarajat va daromad kategoriyalaringiz"
     }
   },
   "common": {

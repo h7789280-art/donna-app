@@ -42,6 +42,17 @@ function ReportGlyph() {
   )
 }
 
+function CategoriesGlyph() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="3.5" y="3.5" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
+      <rect x="13.5" y="3.5" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
+      <rect x="3.5" y="13.5" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
+      <rect x="13.5" y="13.5" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  )
+}
+
 function ChevronIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -102,7 +113,7 @@ export default function FinancePage() {
           </Card>
         </Link>
 
-        <Link to="/finance/report" className="block">
+        <Link to="/finance/report" className="block mb-3">
           <Card className="p-4 flex items-center gap-3 hover:bg-card-alt transition-colors cursor-pointer">
             <span className="shrink-0 h-11 w-11 rounded-xl bg-card-alt text-accent flex items-center justify-center">
               <ReportGlyph />
@@ -110,6 +121,21 @@ export default function FinancePage() {
             <div className="min-w-0 flex-1">
               <h2 className="font-sans text-md font-medium text-ink">{t('finance.report.hub_report_title')}</h2>
               <p className="font-sans text-sm text-ink-soft">{t('finance.report.hub_report_subtitle')}</p>
+            </div>
+            <span className="shrink-0 text-ink-muted">
+              <ChevronIcon />
+            </span>
+          </Card>
+        </Link>
+
+        <Link to="/finance/categories" className="block">
+          <Card className="p-4 flex items-center gap-3 hover:bg-card-alt transition-colors cursor-pointer">
+            <span className="shrink-0 h-11 w-11 rounded-xl bg-card-alt text-accent flex items-center justify-center">
+              <CategoriesGlyph />
+            </span>
+            <div className="min-w-0 flex-1">
+              <h2 className="font-sans text-md font-medium text-ink">{t('finance.categories.hub_categories_title')}</h2>
+              <p className="font-sans text-sm text-ink-soft">{t('finance.categories.hub_categories_subtitle')}</p>
             </div>
             <span className="shrink-0 text-ink-muted">
               <ChevronIcon />

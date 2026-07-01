@@ -121,6 +121,26 @@
       "share": "Үлүш",
       "hub_report_title": "Отчёт",
       "hub_report_subtitle": "Категориялар боюнча чыгымдар"
+    },
+    "categories": {
+      "title": "Категориялар",
+      "expense": "Чыгашалар",
+      "income": "Кирешелер",
+      "add_category": "Категория кошуу",
+      "add_subcategory": "Ички категория кошуу",
+      "edit": "Өзгөртүү",
+      "delete": "Өчүрүү",
+      "name": "Аталышы",
+      "name_placeholder": "Мисалы, Азык-түлүк",
+      "no_categories": "Азырынча категориялар жок",
+      "no_subcategories": "Ички категориялар жок",
+      "save": "Сактоо",
+      "cancel": "Жокко чыгаруу",
+      "delete_confirm": "«{{name}}» категориясын өчүрөсүзбү?",
+      "delete_parent_confirm": "«{{name}}» жана анын ички категорияларын ({{count}}) өчүрөсүзбү?",
+      "operations_detach_note": "Операциялар өчпөйт — алар «Категориясыз» болуп калат.",
+      "hub_categories_title": "Категориялар",
+      "hub_categories_subtitle": "Чыгаша жана киреше категорияларыңыз"
     }
   },
   "common": {

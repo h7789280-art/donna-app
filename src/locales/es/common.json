@@ -121,6 +121,26 @@
       "share": "Parte",
       "hub_report_title": "Informe",
       "hub_report_subtitle": "Gastos por categoría"
+    },
+    "categories": {
+      "title": "Categorías",
+      "expense": "Gastos",
+      "income": "Ingresos",
+      "add_category": "Añadir categoría",
+      "add_subcategory": "Añadir subcategoría",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "name": "Nombre",
+      "name_placeholder": "Ej. Comida",
+      "no_categories": "Aún no hay categorías",
+      "no_subcategories": "Sin subcategorías",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "delete_confirm": "¿Eliminar la categoría «{{name}}»?",
+      "delete_parent_confirm": "¿Eliminar «{{name}}» y sus subcategorías ({{count}})?",
+      "operations_detach_note": "Las operaciones no se eliminarán: pasarán a «Sin categoría».",
+      "hub_categories_title": "Categorías",
+      "hub_categories_subtitle": "Tus categorías de gastos e ingresos"
     }
   },
   "common": {

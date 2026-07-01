@@ -121,6 +121,26 @@
       "share": "Доля",
       "hub_report_title": "Справаздача",
       "hub_report_subtitle": "Выдаткі па катэгорыях"
+    },
+    "categories": {
+      "title": "Катэгорыі",
+      "expense": "Выдаткі",
+      "income": "Даходы",
+      "add_category": "Дадаць катэгорыю",
+      "add_subcategory": "Дадаць падкатэгорыю",
+      "edit": "Змяніць",
+      "delete": "Выдаліць",
+      "name": "Назва",
+      "name_placeholder": "Напрыклад, Прадукты",
+      "no_categories": "Пакуль няма катэгорый",
+      "no_subcategories": "Няма падкатэгорый",
+      "save": "Захаваць",
+      "cancel": "Скасаваць",
+      "delete_confirm": "Выдаліць катэгорыю «{{name}}»?",
+      "delete_parent_confirm": "Выдаліць «{{name}}» і яе падкатэгорыі ({{count}})?",
+      "operations_detach_note": "Аперацыі не выдаляцца — яны стануць «Без катэгорыі».",
+      "hub_categories_title": "Катэгорыі",
+      "hub_categories_subtitle": "Свае катэгорыі выдаткаў і даходаў"
     }
   },
   "common": {

@@ -121,6 +121,26 @@
       "share": "Share",
       "hub_report_title": "Report",
       "hub_report_subtitle": "Expenses by category"
+    },
+    "categories": {
+      "title": "Categories",
+      "expense": "Expenses",
+      "income": "Income",
+      "add_category": "Add category",
+      "add_subcategory": "Add subcategory",
+      "edit": "Edit",
+      "delete": "Delete",
+      "name": "Name",
+      "name_placeholder": "e.g. Groceries",
+      "no_categories": "No categories yet",
+      "no_subcategories": "No subcategories",
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete_confirm": "Delete category “{{name}}”?",
+      "delete_parent_confirm": "Delete “{{name}}” and its subcategories ({{count}})?",
+      "operations_detach_note": "Operations won’t be deleted — they’ll become “No category”.",
+      "hub_categories_title": "Categories",
+      "hub_categories_subtitle": "Your expense and income categories"
     }
   },
   "common": {

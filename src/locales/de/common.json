@@ -121,6 +121,26 @@
       "share": "Anteil",
       "hub_report_title": "Bericht",
       "hub_report_subtitle": "Ausgaben nach Kategorie"
+    },
+    "categories": {
+      "title": "Kategorien",
+      "expense": "Ausgaben",
+      "income": "Einnahmen",
+      "add_category": "Kategorie hinzufügen",
+      "add_subcategory": "Unterkategorie hinzufügen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "name": "Name",
+      "name_placeholder": "z. B. Lebensmittel",
+      "no_categories": "Noch keine Kategorien",
+      "no_subcategories": "Keine Unterkategorien",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "delete_confirm": "Kategorie „{{name}}“ löschen?",
+      "delete_parent_confirm": "„{{name}}“ und ihre Unterkategorien ({{count}}) löschen?",
+      "operations_detach_note": "Buchungen werden nicht gelöscht – sie werden „Ohne Kategorie“.",
+      "hub_categories_title": "Kategorien",
+      "hub_categories_subtitle": "Deine Ausgaben- und Einnahmenkategorien"
     }
   },
   "common": {

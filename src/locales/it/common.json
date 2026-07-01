@@ -121,6 +121,26 @@
       "share": "Quota",
       "hub_report_title": "Report",
       "hub_report_subtitle": "Spese per categoria"
+    },
+    "categories": {
+      "title": "Categorie",
+      "expense": "Spese",
+      "income": "Entrate",
+      "add_category": "Aggiungi categoria",
+      "add_subcategory": "Aggiungi sottocategoria",
+      "edit": "Modifica",
+      "delete": "Elimina",
+      "name": "Nome",
+      "name_placeholder": "Es. Spesa",
+      "no_categories": "Ancora nessuna categoria",
+      "no_subcategories": "Nessuna sottocategoria",
+      "save": "Salva",
+      "cancel": "Annulla",
+      "delete_confirm": "Eliminare la categoria «{{name}}»?",
+      "delete_parent_confirm": "Eliminare «{{name}}» e le sue sottocategorie ({{count}})?",
+      "operations_detach_note": "Le operazioni non verranno eliminate: diventeranno «Senza categoria».",
+      "hub_categories_title": "Categorie",
+      "hub_categories_subtitle": "Le tue categorie di spese ed entrate"
     }
   },
   "common": {

@@ -121,6 +121,26 @@
       "share": "Доля",
       "hub_report_title": "Отчёт",
       "hub_report_subtitle": "Расходы по категориям"
+    },
+    "categories": {
+      "title": "Категории",
+      "expense": "Расходы",
+      "income": "Доходы",
+      "add_category": "Добавить категорию",
+      "add_subcategory": "Добавить подкатегорию",
+      "edit": "Изменить",
+      "delete": "Удалить",
+      "name": "Название",
+      "name_placeholder": "Например, Продукты",
+      "no_categories": "Пока нет категорий",
+      "no_subcategories": "Нет подкатегорий",
+      "save": "Сохранить",
+      "cancel": "Отмена",
+      "delete_confirm": "Удалить категорию «{{name}}»?",
+      "delete_parent_confirm": "Удалить «{{name}}» и её подкатегории ({{count}})?",
+      "operations_detach_note": "Операции не удалятся — они станут «Без категории».",
+      "hub_categories_title": "Категории",
+      "hub_categories_subtitle": "Свои категории расходов и доходов"
     }
   },
   "common": {

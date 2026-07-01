@@ -121,6 +121,26 @@
       "share": "Pay",
       "hub_report_title": "Hesabat",
       "hub_report_subtitle": "Kateqoriya üzrə xərclər"
+    },
+    "categories": {
+      "title": "Kateqoriyalar",
+      "expense": "Xərclər",
+      "income": "Gəlirlər",
+      "add_category": "Kateqoriya əlavə et",
+      "add_subcategory": "Alt kateqoriya əlavə et",
+      "edit": "Redaktə et",
+      "delete": "Sil",
+      "name": "Ad",
+      "name_placeholder": "Məs. Ərzaq",
+      "no_categories": "Hələ kateqoriya yoxdur",
+      "no_subcategories": "Alt kateqoriya yoxdur",
+      "save": "Yadda saxla",
+      "cancel": "Ləğv et",
+      "delete_confirm": "“{{name}}” kateqoriyası silinsin?",
+      "delete_parent_confirm": "“{{name}}” və onun alt kateqoriyaları ({{count}}) silinsin?",
+      "operations_detach_note": "Əməliyyatlar silinməyəcək — onlar “Kateqoriyasız” olacaq.",
+      "hub_categories_title": "Kateqoriyalar",
+      "hub_categories_subtitle": "Xərc və gəlir kateqoriyalarınız"
     }
   },
   "common": {

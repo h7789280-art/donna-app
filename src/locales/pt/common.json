@@ -121,6 +121,26 @@
       "share": "Parte",
       "hub_report_title": "Relatório",
       "hub_report_subtitle": "Despesas por categoria"
+    },
+    "categories": {
+      "title": "Categorias",
+      "expense": "Despesas",
+      "income": "Receitas",
+      "add_category": "Adicionar categoria",
+      "add_subcategory": "Adicionar subcategoria",
+      "edit": "Editar",
+      "delete": "Excluir",
+      "name": "Nome",
+      "name_placeholder": "Ex.: Mercado",
+      "no_categories": "Ainda não há categorias",
+      "no_subcategories": "Sem subcategorias",
+      "save": "Salvar",
+      "cancel": "Cancelar",
+      "delete_confirm": "Excluir a categoria “{{name}}”?",
+      "delete_parent_confirm": "Excluir “{{name}}” e suas subcategorias ({{count}})?",
+      "operations_detach_note": "As operações não serão excluídas — passarão a “Sem categoria”.",
+      "hub_categories_title": "Categorias",
+      "hub_categories_subtitle": "Suas categorias de despesas e receitas"
     }
   },
   "common": {

@@ -121,6 +121,26 @@
       "share": "Үлес",
       "hub_report_title": "Есеп",
       "hub_report_subtitle": "Санаттар бойынша шығыстар"
+    },
+    "categories": {
+      "title": "Санаттар",
+      "expense": "Шығыстар",
+      "income": "Кірістер",
+      "add_category": "Санат қосу",
+      "add_subcategory": "Ішкі санат қосу",
+      "edit": "Өзгерту",
+      "delete": "Жою",
+      "name": "Атауы",
+      "name_placeholder": "Мысалы, Азық-түлік",
+      "no_categories": "Әзірше санат жоқ",
+      "no_subcategories": "Ішкі санаттар жоқ",
+      "save": "Сақтау",
+      "cancel": "Болдырмау",
+      "delete_confirm": "«{{name}}» санатын жою керек пе?",
+      "delete_parent_confirm": "«{{name}}» және оның ішкі санаттарын ({{count}}) жою керек пе?",
+      "operations_detach_note": "Операциялар жойылмайды — олар «Санатсыз» болады.",
+      "hub_categories_title": "Санаттар",
+      "hub_categories_subtitle": "Шығыс пен кіріс санаттарыңыз"
     }
   },
   "common": {

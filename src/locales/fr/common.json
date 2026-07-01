@@ -121,6 +121,26 @@
       "share": "Part",
       "hub_report_title": "Rapport",
       "hub_report_subtitle": "Dépenses par catégorie"
+    },
+    "categories": {
+      "title": "Catégories",
+      "expense": "Dépenses",
+      "income": "Revenus",
+      "add_category": "Ajouter une catégorie",
+      "add_subcategory": "Ajouter une sous-catégorie",
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "name": "Nom",
+      "name_placeholder": "Ex. Courses",
+      "no_categories": "Pas encore de catégories",
+      "no_subcategories": "Aucune sous-catégorie",
+      "save": "Enregistrer",
+      "cancel": "Annuler",
+      "delete_confirm": "Supprimer la catégorie « {{name}} » ?",
+      "delete_parent_confirm": "Supprimer « {{name}} » et ses sous-catégories ({{count}}) ?",
+      "operations_detach_note": "Les opérations ne seront pas supprimées — elles deviendront « Sans catégorie ».",
+      "hub_categories_title": "Catégories",
+      "hub_categories_subtitle": "Vos catégories de dépenses et de revenus"
     }
   },
   "common": {
