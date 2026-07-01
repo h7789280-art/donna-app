@@ -124,6 +124,7 @@
     "ui_demo_badge_neutral": "Neutral",
     "ui_demo_badge_success": "Éxito",
     "ui_demo_badge_warning": "Aviso",
+    "ui_demo_badge_error": "Error",
     "ui_demo_stat_label": "Gastado hoy",
     "ui_demo_stat_hint": "+12 % vs ayer",
     "ui_demo_open_modal": "Abrir modal",

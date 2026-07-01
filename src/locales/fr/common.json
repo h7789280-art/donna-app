@@ -124,6 +124,7 @@
     "ui_demo_badge_neutral": "Neutre",
     "ui_demo_badge_success": "Succès",
     "ui_demo_badge_warning": "Attention",
+    "ui_demo_badge_error": "Erreur",
     "ui_demo_stat_label": "Dépensé aujourd’hui",
     "ui_demo_stat_hint": "+12 % vs hier",
     "ui_demo_open_modal": "Ouvrir la modale",

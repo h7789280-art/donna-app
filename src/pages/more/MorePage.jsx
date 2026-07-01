@@ -37,6 +37,7 @@ export default function MorePage() {
             <Badge variant="neutral">{t('more.ui_demo_badge_neutral')}</Badge>
             <Badge variant="success">{t('more.ui_demo_badge_success')}</Badge>
             <Badge variant="warning">{t('more.ui_demo_badge_warning')}</Badge>
+            <Badge variant="error">{t('more.ui_demo_badge_error')}</Badge>
           </div>
 
           <div className="grid grid-cols-2 gap-3">

@@ -122,6 +122,7 @@
     "ui_demo_badge_neutral": "Չեզոք",
     "ui_demo_badge_success": "Հաջողություն",
     "ui_demo_badge_warning": "Զգուշացում",
+    "ui_demo_badge_error": "Սխալ",
     "ui_demo_stat_label": "Այսօր ծախսված",
     "ui_demo_stat_hint": "երեկվա համեմատ +12%",
     "ui_demo_open_modal": "Բացել մոդալը",

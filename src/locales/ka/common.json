@@ -122,6 +122,7 @@
     "ui_demo_badge_neutral": "ნეიტრალური",
     "ui_demo_badge_success": "წარმატება",
     "ui_demo_badge_warning": "გაფრთხილება",
+    "ui_demo_badge_error": "შეცდომა",
     "ui_demo_stat_label": "დღეს დახარჯული",
     "ui_demo_stat_hint": "გუშინდელთან +12%",
     "ui_demo_open_modal": "მოდალის გახსნა",

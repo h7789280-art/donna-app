@@ -1,11 +1,9 @@
 import { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-// NOTE: no dedicated status colors in the token set — the left accent bar
-// approximates success/error/info with the accent + decor palette.
 const TYPES = {
-  success: 'bg-decor-rose-soft',
-  error: 'bg-accent',
+  success: 'bg-success',
+  error: 'bg-error',
   info: 'bg-decor-taupe',
 }
 

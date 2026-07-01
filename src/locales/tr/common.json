@@ -122,6 +122,7 @@
     "ui_demo_badge_neutral": "Nötr",
     "ui_demo_badge_success": "Başarılı",
     "ui_demo_badge_warning": "Uyarı",
+    "ui_demo_badge_error": "Hata",
     "ui_demo_stat_label": "Bugün harcanan",
     "ui_demo_stat_hint": "düne göre +%12",
     "ui_demo_open_modal": "Modalı aç",

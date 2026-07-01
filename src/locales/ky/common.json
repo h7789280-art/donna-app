@@ -122,6 +122,7 @@
     "ui_demo_badge_neutral": "Нейтралдуу",
     "ui_demo_badge_success": "Ийгилик",
     "ui_demo_badge_warning": "Эскертүү",
+    "ui_demo_badge_error": "Ката",
     "ui_demo_stat_label": "Бүгүн короотулду",
     "ui_demo_stat_hint": "кечээгиге +12%",
     "ui_demo_open_modal": "Модалды ачуу",

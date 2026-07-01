@@ -122,6 +122,7 @@
     "ui_demo_badge_neutral": "Бейтарап",
     "ui_demo_badge_success": "Сәтті",
     "ui_demo_badge_warning": "Назар",
+    "ui_demo_badge_error": "Қате",
     "ui_demo_stat_label": "Бүгін жұмсалды",
     "ui_demo_stat_hint": "кешеге +12%",
     "ui_demo_open_modal": "Модаль ашу",

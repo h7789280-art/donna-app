@@ -132,6 +132,7 @@
     "ui_demo_badge_neutral": "Нейтральный",
     "ui_demo_badge_success": "Успех",
     "ui_demo_badge_warning": "Внимание",
+    "ui_demo_badge_error": "Ошибка",
     "ui_demo_stat_label": "Потрачено сегодня",
     "ui_demo_stat_hint": "+12% ко вчера",
     "ui_demo_open_modal": "Открыть модалку",

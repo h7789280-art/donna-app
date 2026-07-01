@@ -122,6 +122,7 @@
     "ui_demo_badge_neutral": "Neytral",
     "ui_demo_badge_success": "Uğur",
     "ui_demo_badge_warning": "Xəbərdarlıq",
+    "ui_demo_badge_error": "Xəta",
     "ui_demo_stat_label": "Bu gün xərclənib",
     "ui_demo_stat_hint": "dünənə nisbətən +12%",
     "ui_demo_open_modal": "Modalı aç",

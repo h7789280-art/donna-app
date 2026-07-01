@@ -28,6 +28,12 @@ export default {
         'decor-rose': 'var(--decor-rose)',
         'decor-rose-soft': 'var(--decor-rose-soft)',
         'decor-taupe': 'var(--decor-taupe)',
+        success: 'var(--success)',
+        'success-soft': 'var(--success-soft)',
+        warning: 'var(--warning)',
+        'warning-soft': 'var(--warning-soft)',
+        error: 'var(--error)',
+        'error-soft': 'var(--error-soft)',
       },
       fontFamily: {
         sans: ['Geist', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
