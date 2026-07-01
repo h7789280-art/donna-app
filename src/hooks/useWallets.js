@@ -92,6 +92,7 @@ export function useWallets() {
         .from(TABLE)
         .update(updates)
         .eq('id', id)
+        .eq('user_id', userId)
         .select()
       if (err) {
         console.error('[useWallets] updateWallet error:', err)
@@ -107,7 +108,12 @@ export function useWallets() {
     async (id) => {
       if (!userId) return { ok: false, error: 'no-user' }
       const removed = wallets.find((w) => w.id === id)
-      const { error: err } = await supabase.from(TABLE).delete().eq('id', id).select()
+      const { error: err } = await supabase
+        .from(TABLE)
+        .delete()
+        .eq('id', id)
+        .eq('user_id', userId)
+        .select()
       if (err) {
         console.error('[useWallets] deleteWallet error:', err)
         return { ok: false, error: err }
@@ -120,6 +126,7 @@ export function useWallets() {
           .from(TABLE)
           .update({ is_default: true })
           .eq('id', remaining[0].id)
+          .eq('user_id', userId)
           .select()
         if (heirErr) console.error('[useWallets] promote default error:', heirErr)
       }
@@ -138,6 +145,7 @@ export function useWallets() {
         .from(TABLE)
         .update({ is_default: true })
         .eq('id', id)
+        .eq('user_id', userId)
         .select()
       if (err) {
         console.error('[useWallets] setDefault error:', err)
