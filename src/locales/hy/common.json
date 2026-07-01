@@ -111,5 +111,23 @@
     "logout": "Դուրս գալ",
     "years_old_one": "{{count}} տարեկան",
     "years_old_other": "{{count}} տարեկան"
+  },
+  "more": {
+    "ui_demo_title": "UI հավաքածու (դեմո)",
+    "ui_demo_btn_primary": "Հիմնական",
+    "ui_demo_btn_secondary": "Երկրորդական",
+    "ui_demo_btn_ghost": "Թափանցիկ",
+    "ui_demo_btn_disabled": "Անջատված",
+    "ui_demo_badge_accent": "Շեշտ",
+    "ui_demo_badge_neutral": "Չեզոք",
+    "ui_demo_badge_success": "Հաջողություն",
+    "ui_demo_badge_warning": "Զգուշացում",
+    "ui_demo_stat_label": "Այսօր ծախսված",
+    "ui_demo_stat_hint": "երեկվա համեմատ +12%",
+    "ui_demo_open_modal": "Բացել մոդալը",
+    "ui_demo_show_toast": "Ցույց տալ թոստը",
+    "ui_demo_modal_title": "Մոդալի օրինակ",
+    "ui_demo_modal_body": "Սա UI հավաքածուի մոդալ պատուհան է։",
+    "ui_demo_toast_msg": "Պատրաստ է — սա թոստ է։"
   }
 }

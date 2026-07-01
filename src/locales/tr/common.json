@@ -111,5 +111,23 @@
     "logout": "Çıkış yap",
     "years_old_one": "{{count}} yaşında",
     "years_old_other": "{{count}} yaşında"
+  },
+  "more": {
+    "ui_demo_title": "UI kiti (demo)",
+    "ui_demo_btn_primary": "Birincil",
+    "ui_demo_btn_secondary": "İkincil",
+    "ui_demo_btn_ghost": "Şeffaf",
+    "ui_demo_btn_disabled": "Devre dışı",
+    "ui_demo_badge_accent": "Vurgu",
+    "ui_demo_badge_neutral": "Nötr",
+    "ui_demo_badge_success": "Başarılı",
+    "ui_demo_badge_warning": "Uyarı",
+    "ui_demo_stat_label": "Bugün harcanan",
+    "ui_demo_stat_hint": "düne göre +%12",
+    "ui_demo_open_modal": "Modalı aç",
+    "ui_demo_show_toast": "Toast göster",
+    "ui_demo_modal_title": "Örnek modal",
+    "ui_demo_modal_body": "Bu, UI kitinden bir modal penceredir.",
+    "ui_demo_toast_msg": "Tamam — bu bir toast."
   }
 }

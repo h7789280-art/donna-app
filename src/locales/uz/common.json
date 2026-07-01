@@ -111,5 +111,23 @@
     "logout": "Chiqish",
     "years_old_one": "{{count}} yosh",
     "years_old_other": "{{count}} yosh"
+  },
+  "more": {
+    "ui_demo_title": "UI to‘plami (demo)",
+    "ui_demo_btn_primary": "Asosiy",
+    "ui_demo_btn_secondary": "Ikkilamchi",
+    "ui_demo_btn_ghost": "Shaffof",
+    "ui_demo_btn_disabled": "O‘chirilgan",
+    "ui_demo_badge_accent": "Urg‘u",
+    "ui_demo_badge_neutral": "Neytral",
+    "ui_demo_badge_success": "Muvaffaqiyat",
+    "ui_demo_badge_warning": "Ogohlantirish",
+    "ui_demo_stat_label": "Bugun sarflandi",
+    "ui_demo_stat_hint": "kechagiga nisbatan +12%",
+    "ui_demo_open_modal": "Modalni ochish",
+    "ui_demo_show_toast": "Toast ko‘rsatish",
+    "ui_demo_modal_title": "Modal namunasi",
+    "ui_demo_modal_body": "Bu — UI to‘plamidagi modal oyna.",
+    "ui_demo_toast_msg": "Tayyor — bu toast."
   }
 }

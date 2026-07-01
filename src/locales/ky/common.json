@@ -111,5 +111,23 @@
     "logout": "Чыгуу",
     "years_old_one": "{{count}} жаш",
     "years_old_other": "{{count}} жаш"
+  },
+  "more": {
+    "ui_demo_title": "UI топтому (демо)",
+    "ui_demo_btn_primary": "Негизги",
+    "ui_demo_btn_secondary": "Кошумча",
+    "ui_demo_btn_ghost": "Тунук",
+    "ui_demo_btn_disabled": "Өчүрүлгөн",
+    "ui_demo_badge_accent": "Басым",
+    "ui_demo_badge_neutral": "Нейтралдуу",
+    "ui_demo_badge_success": "Ийгилик",
+    "ui_demo_badge_warning": "Эскертүү",
+    "ui_demo_stat_label": "Бүгүн короотулду",
+    "ui_demo_stat_hint": "кечээгиге +12%",
+    "ui_demo_open_modal": "Модалды ачуу",
+    "ui_demo_show_toast": "Тост көрсөтүү",
+    "ui_demo_modal_title": "Модал үлгүсү",
+    "ui_demo_modal_body": "Бул — UI топтомундагы модал терезе.",
+    "ui_demo_toast_msg": "Даяр — бул тост."
   }
 }

@@ -113,5 +113,23 @@
     "years_old_one": "{{count}} anno",
     "years_old_many": "{{count}} anni",
     "years_old_other": "{{count}} anni"
+  },
+  "more": {
+    "ui_demo_title": "Kit UI (demo)",
+    "ui_demo_btn_primary": "Primario",
+    "ui_demo_btn_secondary": "Secondario",
+    "ui_demo_btn_ghost": "Fantasma",
+    "ui_demo_btn_disabled": "Disabilitato",
+    "ui_demo_badge_accent": "Accento",
+    "ui_demo_badge_neutral": "Neutro",
+    "ui_demo_badge_success": "Successo",
+    "ui_demo_badge_warning": "Attenzione",
+    "ui_demo_stat_label": "Speso oggi",
+    "ui_demo_stat_hint": "+12% rispetto a ieri",
+    "ui_demo_open_modal": "Apri modale",
+    "ui_demo_show_toast": "Mostra toast",
+    "ui_demo_modal_title": "Modale di esempio",
+    "ui_demo_modal_body": "Questa è una finestra modale del kit UI.",
+    "ui_demo_toast_msg": "Fatto — questo è un toast."
   }
 }

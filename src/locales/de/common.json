@@ -111,5 +111,23 @@
     "logout": "Abmelden",
     "years_old_one": "{{count}} Jahr",
     "years_old_other": "{{count}} Jahre"
+  },
+  "more": {
+    "ui_demo_title": "UI-Kit (Demo)",
+    "ui_demo_btn_primary": "Primär",
+    "ui_demo_btn_secondary": "Sekundär",
+    "ui_demo_btn_ghost": "Transparent",
+    "ui_demo_btn_disabled": "Deaktiviert",
+    "ui_demo_badge_accent": "Akzent",
+    "ui_demo_badge_neutral": "Neutral",
+    "ui_demo_badge_success": "Erfolg",
+    "ui_demo_badge_warning": "Warnung",
+    "ui_demo_stat_label": "Heute ausgegeben",
+    "ui_demo_stat_hint": "+12 % ggü. gestern",
+    "ui_demo_open_modal": "Modal öffnen",
+    "ui_demo_show_toast": "Toast anzeigen",
+    "ui_demo_modal_title": "Beispiel-Modal",
+    "ui_demo_modal_body": "Dies ist ein modales Fenster aus dem UI-Kit.",
+    "ui_demo_toast_msg": "Fertig — das ist ein Toast."
   }
 }

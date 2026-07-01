@@ -111,5 +111,23 @@
     "logout": "Шығу",
     "years_old_one": "{{count}} жас",
     "years_old_other": "{{count}} жас"
+  },
+  "more": {
+    "ui_demo_title": "UI-жинақ (демо)",
+    "ui_demo_btn_primary": "Негізгі",
+    "ui_demo_btn_secondary": "Қосымша",
+    "ui_demo_btn_ghost": "Мөлдір",
+    "ui_demo_btn_disabled": "Өшірілген",
+    "ui_demo_badge_accent": "Акцент",
+    "ui_demo_badge_neutral": "Бейтарап",
+    "ui_demo_badge_success": "Сәтті",
+    "ui_demo_badge_warning": "Назар",
+    "ui_demo_stat_label": "Бүгін жұмсалды",
+    "ui_demo_stat_hint": "кешеге +12%",
+    "ui_demo_open_modal": "Модаль ашу",
+    "ui_demo_show_toast": "Тост көрсету",
+    "ui_demo_modal_title": "Модаль үлгісі",
+    "ui_demo_modal_body": "Бұл — UI-жинақтан алынған модаль терезе.",
+    "ui_demo_toast_msg": "Дайын — бұл тост."
   }
 }

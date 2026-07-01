@@ -111,5 +111,23 @@
     "logout": "გასვლა",
     "years_old_one": "{{count}} წლის",
     "years_old_other": "{{count}} წლის"
+  },
+  "more": {
+    "ui_demo_title": "UI ნაკრები (დემო)",
+    "ui_demo_btn_primary": "ძირითადი",
+    "ui_demo_btn_secondary": "მეორეხარისხოვანი",
+    "ui_demo_btn_ghost": "გამჭვირვალე",
+    "ui_demo_btn_disabled": "გამორთული",
+    "ui_demo_badge_accent": "აქცენტი",
+    "ui_demo_badge_neutral": "ნეიტრალური",
+    "ui_demo_badge_success": "წარმატება",
+    "ui_demo_badge_warning": "გაფრთხილება",
+    "ui_demo_stat_label": "დღეს დახარჯული",
+    "ui_demo_stat_hint": "გუშინდელთან +12%",
+    "ui_demo_open_modal": "მოდალის გახსნა",
+    "ui_demo_show_toast": "ტოსტის ჩვენება",
+    "ui_demo_modal_title": "მოდალის ნიმუში",
+    "ui_demo_modal_body": "ეს არის მოდალური ფანჯარა UI ნაკრებიდან.",
+    "ui_demo_toast_msg": "მზადაა — ეს ტოსტია."
   }
 }

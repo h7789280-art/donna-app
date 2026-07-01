@@ -111,5 +111,23 @@
     "logout": "Çıxış",
     "years_old_one": "{{count}} yaş",
     "years_old_other": "{{count}} yaş"
+  },
+  "more": {
+    "ui_demo_title": "UI dəsti (demo)",
+    "ui_demo_btn_primary": "Əsas",
+    "ui_demo_btn_secondary": "İkincil",
+    "ui_demo_btn_ghost": "Şəffaf",
+    "ui_demo_btn_disabled": "Deaktiv",
+    "ui_demo_badge_accent": "Vurğu",
+    "ui_demo_badge_neutral": "Neytral",
+    "ui_demo_badge_success": "Uğur",
+    "ui_demo_badge_warning": "Xəbərdarlıq",
+    "ui_demo_stat_label": "Bu gün xərclənib",
+    "ui_demo_stat_hint": "dünənə nisbətən +12%",
+    "ui_demo_open_modal": "Modalı aç",
+    "ui_demo_show_toast": "Toast göstər",
+    "ui_demo_modal_title": "Nümunə modal",
+    "ui_demo_modal_body": "Bu, UI dəstindən bir modal pəncərədir.",
+    "ui_demo_toast_msg": "Hazırdır — bu bir toastdır."
   }
 }

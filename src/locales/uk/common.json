@@ -117,5 +117,23 @@
     "years_old_few": "{{count}} роки",
     "years_old_many": "{{count}} років",
     "years_old_other": "{{count}} років"
+  },
+  "more": {
+    "ui_demo_title": "UI-кіт (демо)",
+    "ui_demo_btn_primary": "Основна",
+    "ui_demo_btn_secondary": "Вторинна",
+    "ui_demo_btn_ghost": "Примарна",
+    "ui_demo_btn_disabled": "Вимкнена",
+    "ui_demo_badge_accent": "Акцент",
+    "ui_demo_badge_neutral": "Нейтральний",
+    "ui_demo_badge_success": "Успіх",
+    "ui_demo_badge_warning": "Увага",
+    "ui_demo_stat_label": "Витрачено сьогодні",
+    "ui_demo_stat_hint": "+12% до вчора",
+    "ui_demo_open_modal": "Відкрити модалку",
+    "ui_demo_show_toast": "Показати тост",
+    "ui_demo_modal_title": "Приклад модалки",
+    "ui_demo_modal_body": "Це модальне вікно з UI-кіту.",
+    "ui_demo_toast_msg": "Готово — це тост."
   }
 }

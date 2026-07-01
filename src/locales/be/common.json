@@ -117,5 +117,23 @@
     "years_old_few": "{{count}} гады",
     "years_old_many": "{{count}} гадоў",
     "years_old_other": "{{count}} гадоў"
+  },
+  "more": {
+    "ui_demo_title": "UI-кіт (дэма)",
+    "ui_demo_btn_primary": "Асноўная",
+    "ui_demo_btn_secondary": "Другасная",
+    "ui_demo_btn_ghost": "Празрыстая",
+    "ui_demo_btn_disabled": "Адключана",
+    "ui_demo_badge_accent": "Акцэнт",
+    "ui_demo_badge_neutral": "Нейтральны",
+    "ui_demo_badge_success": "Поспех",
+    "ui_demo_badge_warning": "Увага",
+    "ui_demo_stat_label": "Патрачана сёння",
+    "ui_demo_stat_hint": "+12% да ўчора",
+    "ui_demo_open_modal": "Адкрыць мадалку",
+    "ui_demo_show_toast": "Паказаць тост",
+    "ui_demo_modal_title": "Прыклад мадалкі",
+    "ui_demo_modal_body": "Гэта мадальнае акно з UI-кіту.",
+    "ui_demo_toast_msg": "Гатова — гэта тост."
   }
 }
