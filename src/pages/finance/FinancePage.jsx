@@ -39,7 +39,7 @@ export default function FinancePage() {
         <h1 className="font-serif italic text-3xl text-ink mb-6">{t('nav.finance')}</h1>
 
         <Link to="/finance/add" className="block mb-3">
-          <Card className="p-4 flex items-center gap-3 bg-accent text-accent-ink border-transparent hover:opacity-90 transition-opacity cursor-pointer">
+          <Card className="p-4 flex items-center gap-3 bg-accent! text-accent-ink border-transparent hover:opacity-90 transition-opacity cursor-pointer">
             <span className="shrink-0 h-11 w-11 rounded-xl bg-accent-ink/15 flex items-center justify-center">
               <PlusGlyph />
             </span>

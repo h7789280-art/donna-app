@@ -189,7 +189,6 @@ export default function AddTransactionPage() {
                 >
                   {parentList.map((c) => (
                     <option key={c.id} value={c.id}>
-                      {c.icon ? `${c.icon} ` : ''}
                       {c.name}
                     </option>
                   ))}
@@ -209,7 +208,6 @@ export default function AddTransactionPage() {
                   <option value="">{t('finance.tx.subcategory_none')}</option>
                   {subList.map((c) => (
                     <option key={c.id} value={c.id}>
-                      {c.icon ? `${c.icon} ` : ''}
                       {c.name}
                     </option>
                   ))}
