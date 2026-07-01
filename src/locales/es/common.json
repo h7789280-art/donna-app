@@ -88,6 +88,20 @@
       "invalid_amount": "Introduce un importe mayor que cero",
       "hub_title": "Añadir operación",
       "hub_subtitle": "Gasto o ingreso"
+    },
+    "history": {
+      "title": "Historial de operaciones",
+      "empty": "Aún no hay operaciones",
+      "empty_hint": "Añade tu primera operación — aparecerá aquí",
+      "delete_confirm_title": "¿Eliminar operación?",
+      "delete_confirm_text": "{{amount}} · {{category}} se eliminará y se recalculará el saldo de la billetera.",
+      "delete": "Eliminar",
+      "cancel": "Cancelar",
+      "deleted": "Operación eliminada",
+      "delete_error": "No se pudo eliminar. Inténtalo de nuevo.",
+      "hub_history_title": "Historial de operaciones",
+      "hub_history_subtitle": "Todos los gastos e ingresos",
+      "no_category": "Sin categoría"
     }
   },
   "common": {

@@ -88,6 +88,20 @@
       "invalid_amount": "Sıfırdan böyük məbləğ daxil et",
       "hub_title": "Əməliyyat əlavə et",
       "hub_subtitle": "Xərc və ya gəlir"
+    },
+    "history": {
+      "title": "Əməliyyat tarixçəsi",
+      "empty": "Hələ əməliyyat yoxdur",
+      "empty_hint": "İlk əməliyyatını əlavə et — burada görünəcək",
+      "delete_confirm_title": "Əməliyyat silinsin?",
+      "delete_confirm_text": "{{amount}} · {{category}} silinəcək və pul kisəsinin balansı yenidən hesablanacaq.",
+      "delete": "Sil",
+      "cancel": "Ləğv et",
+      "deleted": "Əməliyyat silindi",
+      "delete_error": "Silinmədi. Yenidən cəhd et.",
+      "hub_history_title": "Əməliyyat tarixçəsi",
+      "hub_history_subtitle": "Bütün xərc və gəlirlər",
+      "no_category": "Kateqoriyasız"
     }
   },
   "common": {

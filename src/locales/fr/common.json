@@ -88,6 +88,20 @@
       "invalid_amount": "Saisis un montant supérieur à zéro",
       "hub_title": "Ajouter une opération",
       "hub_subtitle": "Dépense ou revenu"
+    },
+    "history": {
+      "title": "Historique des opérations",
+      "empty": "Pas encore d'opérations",
+      "empty_hint": "Ajoute ta première opération — elle apparaîtra ici",
+      "delete_confirm_title": "Supprimer l'opération ?",
+      "delete_confirm_text": "{{amount}} · {{category}} sera supprimée et le solde du portefeuille recalculé.",
+      "delete": "Supprimer",
+      "cancel": "Annuler",
+      "deleted": "Opération supprimée",
+      "delete_error": "Échec de la suppression. Réessaie.",
+      "hub_history_title": "Historique des opérations",
+      "hub_history_subtitle": "Toutes les dépenses et revenus",
+      "no_category": "Sans catégorie"
     }
   },
   "common": {

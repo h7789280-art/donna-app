@@ -88,6 +88,20 @@
       "invalid_amount": "Introduz um valor maior que zero",
       "hub_title": "Adicionar operação",
       "hub_subtitle": "Despesa ou receita"
+    },
+    "history": {
+      "title": "Histórico de operações",
+      "empty": "Ainda não há operações",
+      "empty_hint": "Adiciona a tua primeira operação — vai aparecer aqui",
+      "delete_confirm_title": "Eliminar operação?",
+      "delete_confirm_text": "{{amount}} · {{category}} será eliminada e o saldo da carteira recalculado.",
+      "delete": "Eliminar",
+      "cancel": "Cancelar",
+      "deleted": "Operação eliminada",
+      "delete_error": "Não foi possível eliminar. Tenta novamente.",
+      "hub_history_title": "Histórico de operações",
+      "hub_history_subtitle": "Todas as despesas e receitas",
+      "no_category": "Sem categoria"
     }
   },
   "common": {

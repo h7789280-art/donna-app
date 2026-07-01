@@ -88,6 +88,20 @@
       "invalid_amount": "Gib einen Betrag größer als null ein",
       "hub_title": "Buchung hinzufügen",
       "hub_subtitle": "Ausgabe oder Einnahme"
+    },
+    "history": {
+      "title": "Transaktionsverlauf",
+      "empty": "Noch keine Transaktionen",
+      "empty_hint": "Füge deine erste Transaktion hinzu — sie erscheint hier",
+      "delete_confirm_title": "Transaktion löschen?",
+      "delete_confirm_text": "{{amount}} · {{category}} wird gelöscht und der Wallet-Saldo neu berechnet.",
+      "delete": "Löschen",
+      "cancel": "Abbrechen",
+      "deleted": "Transaktion gelöscht",
+      "delete_error": "Löschen fehlgeschlagen. Bitte versuch es erneut.",
+      "hub_history_title": "Transaktionsverlauf",
+      "hub_history_subtitle": "Alle Ausgaben und Einnahmen",
+      "no_category": "Ohne Kategorie"
     }
   },
   "common": {

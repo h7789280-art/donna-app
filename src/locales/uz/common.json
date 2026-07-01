@@ -88,6 +88,20 @@
       "invalid_amount": "Noldan katta summa kirit",
       "hub_title": "Amaliyot qo'shish",
       "hub_subtitle": "Xarajat yoki daromad"
+    },
+    "history": {
+      "title": "Amaliyotlar tarixi",
+      "empty": "Hozircha amaliyotlar yo'q",
+      "empty_hint": "Birinchi amaliyotingni qo'sh — u shu yerda ko'rinadi",
+      "delete_confirm_title": "Amaliyot o'chirilsinmi?",
+      "delete_confirm_text": "{{amount}} · {{category}} oʻchiriladi va hamyon balansi qayta hisoblanadi.",
+      "delete": "O'chirish",
+      "cancel": "Bekor qilish",
+      "deleted": "Amaliyot o'chirildi",
+      "delete_error": "O'chirib bo'lmadi. Qayta urinib ko'r.",
+      "hub_history_title": "Amaliyotlar tarixi",
+      "hub_history_subtitle": "Barcha xarajat va daromadlar",
+      "no_category": "Kategoriyasiz"
     }
   },
   "common": {

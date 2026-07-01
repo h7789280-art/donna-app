@@ -88,6 +88,20 @@
       "invalid_amount": "Sıfırdan büyük bir tutar gir",
       "hub_title": "İşlem ekle",
       "hub_subtitle": "Gider veya gelir"
+    },
+    "history": {
+      "title": "İşlem geçmişi",
+      "empty": "Henüz işlem yok",
+      "empty_hint": "İlk işlemini ekle — burada görünecek",
+      "delete_confirm_title": "İşlem silinsin mi?",
+      "delete_confirm_text": "{{amount}} · {{category}} silinecek ve cüzdan bakiyesi yeniden hesaplanacak.",
+      "delete": "Sil",
+      "cancel": "Vazgeç",
+      "deleted": "İşlem silindi",
+      "delete_error": "Silinemedi. Lütfen tekrar dene.",
+      "hub_history_title": "İşlem geçmişi",
+      "hub_history_subtitle": "Tüm gider ve gelirler",
+      "no_category": "Kategorisiz"
     }
   },
   "common": {

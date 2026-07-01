@@ -23,6 +23,16 @@ function PlusGlyph() {
   )
 }
 
+function HistoryGlyph() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 12a8 8 0 1 0 2.3-5.6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M4 4v3h3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 8v4l2.5 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 function ChevronIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -53,7 +63,7 @@ export default function FinancePage() {
           </Card>
         </Link>
 
-        <Link to="/finance/wallets" className="block">
+        <Link to="/finance/wallets" className="block mb-3">
           <Card className="p-4 flex items-center gap-3 hover:bg-card-alt transition-colors cursor-pointer">
             <span className="shrink-0 h-11 w-11 rounded-xl bg-card-alt text-accent flex items-center justify-center">
               <WalletGlyph />
@@ -61,6 +71,21 @@ export default function FinancePage() {
             <div className="min-w-0 flex-1">
               <h2 className="font-sans text-md font-medium text-ink">{t('wallets.title')}</h2>
               <p className="font-sans text-sm text-ink-soft">{t('wallets.hub_subtitle')}</p>
+            </div>
+            <span className="shrink-0 text-ink-muted">
+              <ChevronIcon />
+            </span>
+          </Card>
+        </Link>
+
+        <Link to="/finance/history" className="block">
+          <Card className="p-4 flex items-center gap-3 hover:bg-card-alt transition-colors cursor-pointer">
+            <span className="shrink-0 h-11 w-11 rounded-xl bg-card-alt text-accent flex items-center justify-center">
+              <HistoryGlyph />
+            </span>
+            <div className="min-w-0 flex-1">
+              <h2 className="font-sans text-md font-medium text-ink">{t('finance.history.hub_history_title')}</h2>
+              <p className="font-sans text-sm text-ink-soft">{t('finance.history.hub_history_subtitle')}</p>
             </div>
             <span className="shrink-0 text-ink-muted">
               <ChevronIcon />

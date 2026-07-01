@@ -88,6 +88,20 @@
       "invalid_amount": "Inserisci un importo maggiore di zero",
       "hub_title": "Aggiungi operazione",
       "hub_subtitle": "Spesa o entrata"
+    },
+    "history": {
+      "title": "Cronologia delle operazioni",
+      "empty": "Ancora nessuna operazione",
+      "empty_hint": "Aggiungi la tua prima operazione — apparirà qui",
+      "delete_confirm_title": "Eliminare l'operazione?",
+      "delete_confirm_text": "{{amount}} · {{category}} verrà eliminata e il saldo del portafoglio ricalcolato.",
+      "delete": "Elimina",
+      "cancel": "Annulla",
+      "deleted": "Operazione eliminata",
+      "delete_error": "Impossibile eliminare. Riprova.",
+      "hub_history_title": "Cronologia delle operazioni",
+      "hub_history_subtitle": "Tutte le spese e le entrate",
+      "no_category": "Senza categoria"
     }
   },
   "common": {

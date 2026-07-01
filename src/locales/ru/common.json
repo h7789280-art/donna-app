@@ -88,6 +88,20 @@
       "invalid_amount": "Введи сумму больше нуля",
       "hub_title": "Добавить операцию",
       "hub_subtitle": "Расход или доход"
+    },
+    "history": {
+      "title": "История операций",
+      "empty": "Пока нет операций",
+      "empty_hint": "Добавь первую операцию — она появится здесь",
+      "delete_confirm_title": "Удалить операцию?",
+      "delete_confirm_text": "{{amount}} · {{category}} будет удалена, а баланс кошелька пересчитан.",
+      "delete": "Удалить",
+      "cancel": "Отмена",
+      "deleted": "Операция удалена",
+      "delete_error": "Не удалось удалить. Попробуй ещё раз.",
+      "hub_history_title": "История операций",
+      "hub_history_subtitle": "Все расходы и доходы",
+      "no_category": "Без категории"
     }
   },
   "common": {

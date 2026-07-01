@@ -88,6 +88,20 @@
       "invalid_amount": "Enter an amount greater than zero",
       "hub_title": "Add transaction",
       "hub_subtitle": "Expense or income"
+    },
+    "history": {
+      "title": "Operations history",
+      "empty": "No operations yet",
+      "empty_hint": "Add your first operation — it'll show up here",
+      "delete_confirm_title": "Delete operation?",
+      "delete_confirm_text": "{{amount}} · {{category}} will be deleted and the wallet balance recalculated.",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "deleted": "Operation deleted",
+      "delete_error": "Couldn't delete. Please try again.",
+      "hub_history_title": "Operations history",
+      "hub_history_subtitle": "All expenses and income",
+      "no_category": "No category"
     }
   },
   "common": {
