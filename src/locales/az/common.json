@@ -102,6 +102,25 @@
       "hub_history_title": "Əməliyyat tarixçəsi",
       "hub_history_subtitle": "Bütün xərc və gəlirlər",
       "no_category": "Kateqoriyasız"
+    },
+    "report": {
+      "title": "Hesabat",
+      "currency": "Valyuta",
+      "period": "Dövr",
+      "period_today": "Bu gün",
+      "period_week": "Həftə",
+      "period_month": "Ay",
+      "period_custom": "Fərdi",
+      "from": "Başlanğıc",
+      "to": "Son",
+      "total": "Cəmi",
+      "no_data": "Bu dövrdə xərc yoxdur",
+      "back": "Geri",
+      "no_subcategory": "Alt kateqoriyasız",
+      "no_category": "Kateqoriyasız",
+      "share": "Pay",
+      "hub_report_title": "Hesabat",
+      "hub_report_subtitle": "Kateqoriya üzrə xərclər"
     }
   },
   "common": {

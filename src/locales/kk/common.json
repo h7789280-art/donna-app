@@ -102,6 +102,25 @@
       "hub_history_title": "Операциялар тарихы",
       "hub_history_subtitle": "Барлық шығыс пен кіріс",
       "no_category": "Санатсыз"
+    },
+    "report": {
+      "title": "Есеп",
+      "currency": "Валюта",
+      "period": "Кезең",
+      "period_today": "Бүгін",
+      "period_week": "Апта",
+      "period_month": "Ай",
+      "period_custom": "Өзгеше",
+      "from": "Басы",
+      "to": "Соңы",
+      "total": "Барлығы",
+      "no_data": "Кезеңде шығыс жоқ",
+      "back": "Артқа",
+      "no_subcategory": "Ішкі санатсыз",
+      "no_category": "Санатсыз",
+      "share": "Үлес",
+      "hub_report_title": "Есеп",
+      "hub_report_subtitle": "Санаттар бойынша шығыстар"
     }
   },
   "common": {

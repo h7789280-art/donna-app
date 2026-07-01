@@ -12,6 +12,7 @@ import FinanceGate from './pages/finance/FinanceGate'
 import WalletsPage from './pages/finance/WalletsPage'
 import AddTransactionPage from './pages/finance/AddTransactionPage'
 import HistoryPage from './pages/finance/HistoryPage'
+import ReportPage from './pages/finance/ReportPage'
 import PinSetup from './pages/finance/PinSetup'
 import PinEnter from './pages/finance/PinEnter'
 import ChildrenPage from './pages/children/ChildrenPage'
@@ -52,6 +53,7 @@ export default function App() {
             <Route path="wallets" element={<WalletsPage />} />
             <Route path="add" element={<AddTransactionPage />} />
             <Route path="history" element={<HistoryPage />} />
+            <Route path="report" element={<ReportPage />} />
           </Route>
           <Route path="/children" element={<ChildrenPage />} />
           <Route path="/health" element={<HealthPage />} />

@@ -102,6 +102,25 @@
       "hub_history_title": "Історія операцій",
       "hub_history_subtitle": "Усі витрати та доходи",
       "no_category": "Без категорії"
+    },
+    "report": {
+      "title": "Звіт",
+      "currency": "Валюта",
+      "period": "Період",
+      "period_today": "Сьогодні",
+      "period_week": "Тиждень",
+      "period_month": "Місяць",
+      "period_custom": "Свій",
+      "from": "З",
+      "to": "По",
+      "total": "Разом",
+      "no_data": "Немає витрат за період",
+      "back": "Назад",
+      "no_subcategory": "Без підкатегорії",
+      "no_category": "Без категорії",
+      "share": "Частка",
+      "hub_report_title": "Звіт",
+      "hub_report_subtitle": "Витрати за категоріями"
     }
   },
   "common": {

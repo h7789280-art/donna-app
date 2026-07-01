@@ -102,6 +102,25 @@
       "hub_history_title": "История операций",
       "hub_history_subtitle": "Все расходы и доходы",
       "no_category": "Без категории"
+    },
+    "report": {
+      "title": "Отчёт",
+      "currency": "Валюта",
+      "period": "Период",
+      "period_today": "Сегодня",
+      "period_week": "Неделя",
+      "period_month": "Месяц",
+      "period_custom": "Свой",
+      "from": "С",
+      "to": "По",
+      "total": "Итого",
+      "no_data": "Нет расходов за период",
+      "back": "Назад",
+      "no_subcategory": "Без подкатегории",
+      "no_category": "Без категории",
+      "share": "Доля",
+      "hub_report_title": "Отчёт",
+      "hub_report_subtitle": "Расходы по категориям"
     }
   },
   "common": {

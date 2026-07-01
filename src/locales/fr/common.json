@@ -102,6 +102,25 @@
       "hub_history_title": "Historique des opérations",
       "hub_history_subtitle": "Toutes les dépenses et revenus",
       "no_category": "Sans catégorie"
+    },
+    "report": {
+      "title": "Rapport",
+      "currency": "Devise",
+      "period": "Période",
+      "period_today": "Aujourd'hui",
+      "period_week": "Semaine",
+      "period_month": "Mois",
+      "period_custom": "Perso",
+      "from": "Du",
+      "to": "Au",
+      "total": "Total",
+      "no_data": "Aucune dépense sur la période",
+      "back": "Retour",
+      "no_subcategory": "Sans sous-catégorie",
+      "no_category": "Sans catégorie",
+      "share": "Part",
+      "hub_report_title": "Rapport",
+      "hub_report_subtitle": "Dépenses par catégorie"
     }
   },
   "common": {

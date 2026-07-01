@@ -102,6 +102,25 @@
       "hub_history_title": "Cronologia delle operazioni",
       "hub_history_subtitle": "Tutte le spese e le entrate",
       "no_category": "Senza categoria"
+    },
+    "report": {
+      "title": "Report",
+      "currency": "Valuta",
+      "period": "Periodo",
+      "period_today": "Oggi",
+      "period_week": "Settimana",
+      "period_month": "Mese",
+      "period_custom": "Personal.",
+      "from": "Da",
+      "to": "A",
+      "total": "Totale",
+      "no_data": "Nessuna spesa nel periodo",
+      "back": "Indietro",
+      "no_subcategory": "Senza sottocategoria",
+      "no_category": "Senza categoria",
+      "share": "Quota",
+      "hub_report_title": "Report",
+      "hub_report_subtitle": "Spese per categoria"
     }
   },
   "common": {

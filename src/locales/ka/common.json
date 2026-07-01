@@ -102,6 +102,25 @@
       "hub_history_title": "ოპერაციების ისტორია",
       "hub_history_subtitle": "ყველა ხარჯი და შემოსავალი",
       "no_category": "კატეგორიის გარეშე"
+    },
+    "report": {
+      "title": "ანგარიში",
+      "currency": "ვალუტა",
+      "period": "პერიოდი",
+      "period_today": "დღეს",
+      "period_week": "კვირა",
+      "period_month": "თვე",
+      "period_custom": "საკუთარი",
+      "from": "დან",
+      "to": "მდე",
+      "total": "სულ",
+      "no_data": "ამ პერიოდში ხარჯები არ არის",
+      "back": "უკან",
+      "no_subcategory": "ქვეკატეგორიის გარეშე",
+      "no_category": "კატეგორიის გარეშე",
+      "share": "წილი",
+      "hub_report_title": "ანგარიში",
+      "hub_report_subtitle": "ხარჯები კატეგორიების მიხედვით"
     }
   },
   "common": {

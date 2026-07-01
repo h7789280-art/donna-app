@@ -102,6 +102,25 @@
       "hub_history_title": "Операциялар тарыхы",
       "hub_history_subtitle": "Бардык чыгым жана киреше",
       "no_category": "Категориясыз"
+    },
+    "report": {
+      "title": "Отчёт",
+      "currency": "Валюта",
+      "period": "Мезгил",
+      "period_today": "Бүгүн",
+      "period_week": "Жума",
+      "period_month": "Ай",
+      "period_custom": "Өзүм",
+      "from": "Башы",
+      "to": "Аягы",
+      "total": "Жалпы",
+      "no_data": "Мезгилде чыгым жок",
+      "back": "Артка",
+      "no_subcategory": "Субкатегориясыз",
+      "no_category": "Категориясыз",
+      "share": "Үлүш",
+      "hub_report_title": "Отчёт",
+      "hub_report_subtitle": "Категориялар боюнча чыгымдар"
     }
   },
   "common": {

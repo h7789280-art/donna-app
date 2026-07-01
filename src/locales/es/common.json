@@ -102,6 +102,25 @@
       "hub_history_title": "Historial de operaciones",
       "hub_history_subtitle": "Todos los gastos e ingresos",
       "no_category": "Sin categoría"
+    },
+    "report": {
+      "title": "Informe",
+      "currency": "Moneda",
+      "period": "Período",
+      "period_today": "Hoy",
+      "period_week": "Semana",
+      "period_month": "Mes",
+      "period_custom": "Personal",
+      "from": "Desde",
+      "to": "Hasta",
+      "total": "Total",
+      "no_data": "No hay gastos en el período",
+      "back": "Atrás",
+      "no_subcategory": "Sin subcategoría",
+      "no_category": "Sin categoría",
+      "share": "Parte",
+      "hub_report_title": "Informe",
+      "hub_report_subtitle": "Gastos por categoría"
     }
   },
   "common": {

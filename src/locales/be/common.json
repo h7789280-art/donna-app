@@ -102,6 +102,25 @@
       "hub_history_title": "Гісторыя аперацый",
       "hub_history_subtitle": "Усе выдаткі і даходы",
       "no_category": "Без катэгорыі"
+    },
+    "report": {
+      "title": "Справаздача",
+      "currency": "Валюта",
+      "period": "Перыяд",
+      "period_today": "Сёння",
+      "period_week": "Тыдзень",
+      "period_month": "Месяц",
+      "period_custom": "Свой",
+      "from": "З",
+      "to": "Па",
+      "total": "Разам",
+      "no_data": "Няма выдаткаў за перыяд",
+      "back": "Назад",
+      "no_subcategory": "Без падкатэгорыі",
+      "no_category": "Без катэгорыі",
+      "share": "Доля",
+      "hub_report_title": "Справаздача",
+      "hub_report_subtitle": "Выдаткі па катэгорыях"
     }
   },
   "common": {

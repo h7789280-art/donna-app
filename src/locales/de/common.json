@@ -102,6 +102,25 @@
       "hub_history_title": "Transaktionsverlauf",
       "hub_history_subtitle": "Alle Ausgaben und Einnahmen",
       "no_category": "Ohne Kategorie"
+    },
+    "report": {
+      "title": "Bericht",
+      "currency": "Währung",
+      "period": "Zeitraum",
+      "period_today": "Heute",
+      "period_week": "Woche",
+      "period_month": "Monat",
+      "period_custom": "Eigen",
+      "from": "Von",
+      "to": "Bis",
+      "total": "Gesamt",
+      "no_data": "Keine Ausgaben in diesem Zeitraum",
+      "back": "Zurück",
+      "no_subcategory": "Keine Unterkategorie",
+      "no_category": "Keine Kategorie",
+      "share": "Anteil",
+      "hub_report_title": "Bericht",
+      "hub_report_subtitle": "Ausgaben nach Kategorie"
     }
   },
   "common": {

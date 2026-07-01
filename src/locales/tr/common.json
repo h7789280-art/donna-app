@@ -102,6 +102,25 @@
       "hub_history_title": "İşlem geçmişi",
       "hub_history_subtitle": "Tüm gider ve gelirler",
       "no_category": "Kategorisiz"
+    },
+    "report": {
+      "title": "Rapor",
+      "currency": "Para birimi",
+      "period": "Dönem",
+      "period_today": "Bugün",
+      "period_week": "Hafta",
+      "period_month": "Ay",
+      "period_custom": "Özel",
+      "from": "Başlangıç",
+      "to": "Bitiş",
+      "total": "Toplam",
+      "no_data": "Bu dönemde harcama yok",
+      "back": "Geri",
+      "no_subcategory": "Alt kategori yok",
+      "no_category": "Kategori yok",
+      "share": "Pay",
+      "hub_report_title": "Rapor",
+      "hub_report_subtitle": "Kategoriye göre harcamalar"
     }
   },
   "common": {

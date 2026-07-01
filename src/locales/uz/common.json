@@ -102,6 +102,25 @@
       "hub_history_title": "Amaliyotlar tarixi",
       "hub_history_subtitle": "Barcha xarajat va daromadlar",
       "no_category": "Kategoriyasiz"
+    },
+    "report": {
+      "title": "Hisobot",
+      "currency": "Valyuta",
+      "period": "Davr",
+      "period_today": "Bugun",
+      "period_week": "Hafta",
+      "period_month": "Oy",
+      "period_custom": "O'zim",
+      "from": "Dan",
+      "to": "Gacha",
+      "total": "Jami",
+      "no_data": "Ushbu davrda xarajat yo'q",
+      "back": "Orqaga",
+      "no_subcategory": "Subkategoriyasiz",
+      "no_category": "Kategoriyasiz",
+      "share": "Ulush",
+      "hub_report_title": "Hisobot",
+      "hub_report_subtitle": "Kategoriya bo'yicha xarajatlar"
     }
   },
   "common": {

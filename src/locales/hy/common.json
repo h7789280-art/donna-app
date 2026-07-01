@@ -102,6 +102,25 @@
       "hub_history_title": "Գործառնությունների պատմություն",
       "hub_history_subtitle": "Բոլոր ծախսերն ու եկամուտները",
       "no_category": "Առանց կատեգորիայի"
+    },
+    "report": {
+      "title": "Հաշվետվություն",
+      "currency": "Արժույթ",
+      "period": "Ժամանակահատված",
+      "period_today": "Այսօր",
+      "period_week": "Շաբաթ",
+      "period_month": "Ամիս",
+      "period_custom": "Իմ",
+      "from": "Սկիզբ",
+      "to": "Ավարտ",
+      "total": "Ընդամենը",
+      "no_data": "Այս ժամանակահատվածում ծախսեր չկան",
+      "back": "Հետ",
+      "no_subcategory": "Առանց ենթակատեգորիայի",
+      "no_category": "Առանց կատեգորիայի",
+      "share": "Բաժին",
+      "hub_report_title": "Հաշվետվություն",
+      "hub_report_subtitle": "Ծախսերն ըստ կատեգորիաների"
     }
   },
   "common": {

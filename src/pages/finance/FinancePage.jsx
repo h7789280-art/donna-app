@@ -33,6 +33,15 @@ function HistoryGlyph() {
   )
 }
 
+function ReportGlyph() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 3a9 9 0 1 0 9 9h-9V3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M14 3.5a7.5 7.5 0 0 1 6.5 6.5H14V3.5z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 function ChevronIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -78,7 +87,7 @@ export default function FinancePage() {
           </Card>
         </Link>
 
-        <Link to="/finance/history" className="block">
+        <Link to="/finance/history" className="block mb-3">
           <Card className="p-4 flex items-center gap-3 hover:bg-card-alt transition-colors cursor-pointer">
             <span className="shrink-0 h-11 w-11 rounded-xl bg-card-alt text-accent flex items-center justify-center">
               <HistoryGlyph />
@@ -86,6 +95,21 @@ export default function FinancePage() {
             <div className="min-w-0 flex-1">
               <h2 className="font-sans text-md font-medium text-ink">{t('finance.history.hub_history_title')}</h2>
               <p className="font-sans text-sm text-ink-soft">{t('finance.history.hub_history_subtitle')}</p>
+            </div>
+            <span className="shrink-0 text-ink-muted">
+              <ChevronIcon />
+            </span>
+          </Card>
+        </Link>
+
+        <Link to="/finance/report" className="block">
+          <Card className="p-4 flex items-center gap-3 hover:bg-card-alt transition-colors cursor-pointer">
+            <span className="shrink-0 h-11 w-11 rounded-xl bg-card-alt text-accent flex items-center justify-center">
+              <ReportGlyph />
+            </span>
+            <div className="min-w-0 flex-1">
+              <h2 className="font-sans text-md font-medium text-ink">{t('finance.report.hub_report_title')}</h2>
+              <p className="font-sans text-sm text-ink-soft">{t('finance.report.hub_report_subtitle')}</p>
             </div>
             <span className="shrink-0 text-ink-muted">
               <ChevronIcon />

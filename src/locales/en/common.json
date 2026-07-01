@@ -102,6 +102,25 @@
       "hub_history_title": "Operations history",
       "hub_history_subtitle": "All expenses and income",
       "no_category": "No category"
+    },
+    "report": {
+      "title": "Report",
+      "currency": "Currency",
+      "period": "Period",
+      "period_today": "Today",
+      "period_week": "Week",
+      "period_month": "Month",
+      "period_custom": "Custom",
+      "from": "From",
+      "to": "To",
+      "total": "Total",
+      "no_data": "No expenses for this period",
+      "back": "Back",
+      "no_subcategory": "No subcategory",
+      "no_category": "No category",
+      "share": "Share",
+      "hub_report_title": "Report",
+      "hub_report_subtitle": "Expenses by category"
     }
   },
   "common": {
