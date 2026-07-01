@@ -2,7 +2,7 @@
 
 **PWA SaaS Application (NO Telegram!)**
 
-Обновлено: 18.04.2026 — база данных развёрнута, начинаем фронтенд.
+Обновлено: 01.07.2026 — каркас + дизайн-система готовы, финансовый модуль в работе.
 
 ---
 
@@ -12,19 +12,19 @@ Donna — AI-powered life manager SaaS. PWA-приложение.
 - ~50 модулей, ~1334 пункта в чек-листе
 - Целевая аудитория: женщины 25-45, мамы, предпринимательницы, экспаты
 - Монетизация: **Free / Pro $4.99 / Family $7.99**
-- Язык интерфейса: 11 языков (ru, uk, be, kk, en, tr, de, fr, es, it, pt)
+- Язык интерфейса: 16 языков (ru, uk, be, kk, en, tr, de, fr, es, it, pt, uz, ky, az, hy, ka)
 
 ---
 
 ## СТЕК
 
-- **Frontend:** Vite + React 18 + Tailwind CSS
+- **Frontend:** Vite + React 19 + Tailwind CSS
 - **Backend:** Supabase (Auth + Database + Storage + Edge Functions)
 - **AI:** Gemini 2.5 Flash API (через Edge Functions)
 - **Cron/Push:** n8n Cloud (schedule triggers + Web Push)
 - **Хостинг:** Vercel (бесплатно)
 - **Платежи:** Stripe
-- **i18n:** react-i18next
+- **i18n:** react-i18next (16 языков, файлы `src/locales/<lng>/common.json`)
 - **Графики:** Recharts
 - **Анимации:** framer-motion
 - **PWA:** manifest.json + Service Worker
@@ -53,9 +53,28 @@ Donna — AI-powered life manager SaaS. PWA-приложение.
 - [x] Автотриггер `handle_new_user` — создаёт profile + free-подписку + gamification при регистрации
 - [x] Схема сохранена в `donna_schema.sql` (идемпотентная, можно накатывать повторно)
 
-### 🔜 СЛЕДУЮЩИЙ ШАГ
+### ✅ ТЕКУЩИЙ ПРОГРЕСС (обновлено 01.07.2026)
 
-**Задание 1: Инициализация Vite-проекта** (см. ниже)
+**Каркас и дизайн-система:**
+- [x] Vite + React 19 проект инициализирован, Supabase-клиент, Auth (OTP), роутинг
+- [x] **BottomNav** — текстовая навигация, 5 табов: Главная / Финансы / Дети / Здоровье / Ещё
+- [x] **AppLayout** — обёртка `ProtectedRoute` + `Outlet` + `BottomNav`
+- [x] **UI-кит** в `src/components/ui/`: Button, Badge, StatCard, ProgressRing, Modal, Toast
+- [x] Статусные токены `success` / `warning` / `error` (шалфей / охра / терракота) в `globals.css` + `tailwind.config.js`
+
+**Финансы (модуль в работе):**
+- [x] **PIN-защита:** `useFinancePin` (SHA-256 + `user_id` как соль), `PinPad`, `PinSetup`, `PinEnter`, `FinanceGate` (гейт роутинга). Хэш в `profiles.finance_pin_hash`.
+- [x] **БД:** таблица `wallets` (мультивалюта, тип cash/card, `is_default`, RLS + GRANT). `finance_categories` расширена `parent_id` (двухуровневая иерархия), посеяно дерево (57 категорий: 13 родителей расходов + подкатегории + 5 доходов). `expenses` / `income` получили `wallet_id`. GRANT `authenticated` на `wallets` / `expenses` / `income` / `finance_categories`.
+- [x] **Кошельки:** `useWallets` (CRUD, логика «основного»), `WalletCard`, `WalletForm`, `WalletsPage`. `src/lib/currencies.js` (TRY / USD / EUR / RUB / GBP / UAH / KZT / AZN / GEL / AMD).
+- [x] **Ввод операции:** `useFinanceCategories`, `useTransactions`, `AddTransactionPage`. Расход/доход → кошелёк → категория → подкатегория → сумма → дата → заметка. Баланс кошелька пересчитывается в коде (вариант А: прочитать → delta → записать).
+
+### 🔜 СЛЕДУЮЩЕЕ по финансам
+
+- [ ] Лента операций (список последних записей)
+- [ ] Управление категориями (добавлять/редактировать свои)
+- [ ] Отчёт с drill-down (тап на категорию → разбивка по подкатегориям, раздельно по валютам)
+- [ ] Стартовое дерево категорий для НОВЫХ юзеров (триггер при регистрации или онбординг)
+- [ ] При редактировании/удалении операции — откат баланса на дельту (вариант А)
 
 ---
 
@@ -63,7 +82,7 @@ Donna — AI-powered life manager SaaS. PWA-приложение.
 
 - **Project:** Donna Life Manager
 - **URL:** `https://daxuzttlpnyenveflhmg.supabase.co`
-- **Auth:** Email + Magic Link (+ опционально Google OAuth)
+- **Auth:** Email + OTP-код (6 цифр, `signInWithOtp`) (+ опционально Google OAuth)
 - **RLS:** включён на всех таблицах — anon key безопасен для клиента
 - **Все таблицы имеют `user_id`** — пользователь видит только свои данные
 - **Дети:** таблица `children`, все детские модули через `child_id`
@@ -163,15 +182,23 @@ donna-life/
 │   │   ├── home/                # Cleaning, Travel
 │   │   ├── reflect/             # Gratitude, Reflection, Journal
 │   │   └── settings/            # Profile, Subscription, PIN
-│   ├── locales/
-│   │   ├── ru.json
-│   │   ├── en.json
-│   │   ├── tr.json
-│   │   ├── es.json
-│   │   ├── de.json
-│   │   ├── fr.json
-│   │   ├── it.json
-│   │   └── pt.json
+│   ├── locales/                # 16 языков, по папке на локаль
+│   │   ├── ru/common.json
+│   │   ├── uk/common.json
+│   │   ├── be/common.json
+│   │   ├── kk/common.json
+│   │   ├── en/common.json
+│   │   ├── tr/common.json
+│   │   ├── de/common.json
+│   │   ├── fr/common.json
+│   │   ├── es/common.json
+│   │   ├── it/common.json
+│   │   ├── pt/common.json
+│   │   ├── uz/common.json
+│   │   ├── ky/common.json
+│   │   ├── az/common.json
+│   │   ├── hy/common.json
+│   │   └── ka/common.json
 │   └── styles/
 │       └── globals.css
 ├── CLAUDE.md
@@ -225,11 +252,18 @@ donna-life/
 2. Supabase использует `auth.uid()` автоматически через RLS — **не нужно вручную добавлять `user_id` в запросы `SELECT`** (только в `INSERT`)
 3. **RLS включён** — anon key безопасен для клиента
 4. **Mobile-first** — сначала мобильный, потом десктоп
-5. **i18n с первого дня** — все строки через `t('key')`, 11 языков
+5. **i18n с первого дня** — все строки через `t('key')`, 16 языков. **Non-negotiable:** каждый перевод всегда заливать во ВСЕ 16 файлов `src/locales/<lng>/common.json` без пропусков (ru, uk, be, kk, en, tr, de, fr, es, it, pt, uz, ky, az, hy, ka)
 6. **Компоненты переиспользуемые** — Card, Badge, StatCard, ProgressRing
 7. **Каждый `npm run build`** должен проходить без ошибок
 8. **PIN только на финансы** — хэш в `profiles.finance_pin_hash`, обычные модули без PIN
 9. **Free/Pro/Family** — проверка через `usePlan()` хук, paywall при попытке Pro-фичи
+
+---
+
+## УСВОЕННЫЕ УРОКИ (не наступать повторно)
+
+- **Каждая новая таблица:** сразу `GRANT SELECT/INSERT/UPDATE/DELETE ... TO authenticated`. RLS **не заменяет** GRANT — забывали, ловили `42501 permission denied`.
+- **Все мутации Supabase:** `.select()` + обработка ошибки; на `UPDATE`/`DELETE` обязательно `.eq('user_id', ...)` (иначе RLS-403, как было с `setDefault` в `useWallets`).
 
 ---
 
@@ -281,7 +315,7 @@ VITE_SUPABASE_ANON_KEY=твой_publishable_key
 
 ## ЗАДАНИЕ 2: Auth + Onboarding
 
-1. **LoginPage:** email + magic link (`supabase.auth.signInWithOtp`)
+1. **LoginPage:** email + OTP-код (`supabase.auth.signInWithOtp`)
 2. Обработка callback (`/auth/callback`)
 3. **OnboardingPage** (6 шагов):
    - Шаг 1: "Как тебя зовут?" (имя → `profiles.name`)
@@ -330,7 +364,7 @@ VITE_SUPABASE_ANON_KEY=твой_publishable_key
 9. **Push-уведомления** (n8n + Web Push API)
 10. **Чат с Донной** (голос + текст через Gemini Edge Function)
 11. **Геймификация** (XP, уровни, бейджи)
-12. **i18n** — перевод на 11 языков
+12. **i18n** — перевод на 16 языков
 13. **Stripe подписка** (Free/Pro/Family, paywall)
 14. **PWA** (manifest, service worker, install prompt)
 15. **Деплой на Vercel**
