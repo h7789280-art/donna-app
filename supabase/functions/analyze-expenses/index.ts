@@ -1,8 +1,10 @@
 // supabase/functions/analyze-expenses/index.ts
 //
 // Edge Function: AI-разбор расходов в голосе Донны Полсен через Gemini 2.5 Flash.
-// Первая интеграция Gemini в проекте. Деплой вручную:
-//   supabase functions deploy analyze-expenses
+// Первая интеграция Gemini в проекте.
+// Деплой: автоматически через GitHub Actions (.github/workflows/deploy-functions.yml)
+//   при push в main с изменениями в supabase/functions/**.
+//   Ручной запасной вариант: supabase functions deploy analyze-expenses
 // Секрет GEMINI_API_KEY уже заведён в Supabase (Project Settings → Edge Functions → Secrets).
 
 // deno-lint-ignore-file no-explicit-any
