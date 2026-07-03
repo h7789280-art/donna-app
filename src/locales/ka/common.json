@@ -120,7 +120,10 @@
       "no_category": "კატეგორიის გარეშე",
       "share": "წილი",
       "hub_report_title": "ანგარიში",
-      "hub_report_subtitle": "ხარჯები კატეგორიების მიხედვით"
+      "hub_report_subtitle": "ხარჯები კატეგორიების მიხედვით",
+      "donna_button": "დონას ანალიზი",
+      "donna_thinking": "დონა ფიქრობს…",
+      "donna_error": "დონა ჩაფიქრდა, სცადე ხელახლა"
     },
     "categories": {
       "title": "კატეგორიები",

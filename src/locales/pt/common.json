@@ -120,7 +120,10 @@
       "no_category": "Sem categoria",
       "share": "Parte",
       "hub_report_title": "Relatório",
-      "hub_report_subtitle": "Despesas por categoria"
+      "hub_report_subtitle": "Despesas por categoria",
+      "donna_button": "A análise da Donna",
+      "donna_thinking": "Donna está pensando…",
+      "donna_error": "Donna se perdeu em pensamentos, tente de novo"
     },
     "categories": {
       "title": "Categorias",

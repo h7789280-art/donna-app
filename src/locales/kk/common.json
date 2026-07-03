@@ -120,7 +120,10 @@
       "no_category": "Санатсыз",
       "share": "Үлес",
       "hub_report_title": "Есеп",
-      "hub_report_subtitle": "Санаттар бойынша шығыстар"
+      "hub_report_subtitle": "Санаттар бойынша шығыстар",
+      "donna_button": "Доннаның талдауы",
+      "donna_thinking": "Донна ойлануда…",
+      "donna_error": "Донна ойланып кетті, тағы да көріңіз"
     },
     "categories": {
       "title": "Санаттар",

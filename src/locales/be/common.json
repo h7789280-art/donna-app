@@ -120,7 +120,10 @@
       "no_category": "Без катэгорыі",
       "share": "Доля",
       "hub_report_title": "Справаздача",
-      "hub_report_subtitle": "Выдаткі па катэгорыях"
+      "hub_report_subtitle": "Выдаткі па катэгорыях",
+      "donna_button": "Разбор ад Донны",
+      "donna_thinking": "Донна думае…",
+      "donna_error": "Донна задумалася, паспрабуй яшчэ раз"
     },
     "categories": {
       "title": "Катэгорыі",

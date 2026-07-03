@@ -120,7 +120,10 @@
       "no_category": "Առանց կատեգորիայի",
       "share": "Բաժին",
       "hub_report_title": "Հաշվետվություն",
-      "hub_report_subtitle": "Ծախսերն ըստ կատեգորիաների"
+      "hub_report_subtitle": "Ծախսերն ըստ կատեգորիաների",
+      "donna_button": "Դոննայի վերլուծությունը",
+      "donna_thinking": "Դոննան մտածում է…",
+      "donna_error": "Դոննան մտքի մեջ ընկավ, նորից փորձիր"
     },
     "categories": {
       "title": "Կատեգորիաներ",

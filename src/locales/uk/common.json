@@ -120,7 +120,10 @@
       "no_category": "Без категорії",
       "share": "Частка",
       "hub_report_title": "Звіт",
-      "hub_report_subtitle": "Витрати за категоріями"
+      "hub_report_subtitle": "Витрати за категоріями",
+      "donna_button": "Розбір від Донни",
+      "donna_thinking": "Донна думає…",
+      "donna_error": "Донна замислилась, спробуй ще раз"
     },
     "categories": {
       "title": "Категорії",

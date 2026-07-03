@@ -120,7 +120,10 @@
       "no_category": "Keine Kategorie",
       "share": "Anteil",
       "hub_report_title": "Bericht",
-      "hub_report_subtitle": "Ausgaben nach Kategorie"
+      "hub_report_subtitle": "Ausgaben nach Kategorie",
+      "donna_button": "Donnas Analyse",
+      "donna_thinking": "Donna denkt nach…",
+      "donna_error": "Donna ist in Gedanken versunken, versuch es nochmal"
     },
     "categories": {
       "title": "Kategorien",

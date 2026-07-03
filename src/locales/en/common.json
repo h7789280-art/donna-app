@@ -120,7 +120,10 @@
       "no_category": "No category",
       "share": "Share",
       "hub_report_title": "Report",
-      "hub_report_subtitle": "Expenses by category"
+      "hub_report_subtitle": "Expenses by category",
+      "donna_button": "Donna's take",
+      "donna_thinking": "Donna is thinking…",
+      "donna_error": "Donna got lost in thought — try again"
     },
     "categories": {
       "title": "Categories",

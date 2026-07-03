@@ -120,7 +120,10 @@
       "no_category": "Sans catégorie",
       "share": "Part",
       "hub_report_title": "Rapport",
-      "hub_report_subtitle": "Dépenses par catégorie"
+      "hub_report_subtitle": "Dépenses par catégorie",
+      "donna_button": "L'analyse de Donna",
+      "donna_thinking": "Donna réfléchit…",
+      "donna_error": "Donna est perdue dans ses pensées, réessaie"
     },
     "categories": {
       "title": "Catégories",

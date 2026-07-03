@@ -120,7 +120,10 @@
       "no_category": "Без категории",
       "share": "Доля",
       "hub_report_title": "Отчёт",
-      "hub_report_subtitle": "Расходы по категориям"
+      "hub_report_subtitle": "Расходы по категориям",
+      "donna_button": "Разбор от Донны",
+      "donna_thinking": "Донна думает…",
+      "donna_error": "Донна задумалась, попробуй ещё раз"
     },
     "categories": {
       "title": "Категории",

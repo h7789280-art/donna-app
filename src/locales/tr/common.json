@@ -120,7 +120,10 @@
       "no_category": "Kategori yok",
       "share": "Pay",
       "hub_report_title": "Rapor",
-      "hub_report_subtitle": "Kategoriye göre harcamalar"
+      "hub_report_subtitle": "Kategoriye göre harcamalar",
+      "donna_button": "Donna'nın yorumu",
+      "donna_thinking": "Donna düşünüyor…",
+      "donna_error": "Donna dalıp gitti, tekrar dene"
     },
     "categories": {
       "title": "Kategoriler",

@@ -3,7 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { useWallets } from '../../hooks/useWallets'
 import { useFinanceReport, NO_CATEGORY } from '../../hooks/useFinanceReport'
 import { getCurrency } from '../../lib/currencies'
+import { analyzeExpenses } from '../../lib/gemini'
 import Card from '../../components/ui/Card'
+import Button from '../../components/ui/Button'
 import ReportDonut, { colorFor } from '../../components/finance/ReportDonut'
 import ReportRow from '../../components/finance/ReportRow'
 
@@ -45,7 +47,7 @@ function BackIcon() {
 }
 
 export default function ReportPage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { wallets, loading: walletsLoading } = useWallets()
 
   const [currency, setCurrency] = useState('')
@@ -53,6 +55,10 @@ export default function ReportPage() {
   const [customFrom, setCustomFrom] = useState(todayISO)
   const [customTo, setCustomTo] = useState(todayISO)
   const [drill, setDrill] = useState(null) // parentId under inspection, or null
+
+  // Donna's AI take: idle → loading → success (insight) | error.
+  const [donnaState, setDonnaState] = useState('idle')
+  const [insight, setInsight] = useState('')
 
   // Distinct currencies actually present across the user's wallets.
   const currencies = useMemo(
@@ -77,10 +83,18 @@ export default function ReportPage() {
 
   const { total, parents, childrenOf, loading } = useFinanceReport({ currency, from, to })
 
-  // Reset drill-down whenever the filters change (the parent may vanish).
+  // Reset drill-down + Donna's take whenever the filters change (the data shifts).
   useEffect(() => {
     setDrill(null)
+    setDonnaState('idle')
+    setInsight('')
   }, [currency, from, to])
+
+  // Human-readable label of the active period, for Gemini's context.
+  const periodLabel = useMemo(() => {
+    if (period === 'custom') return `${customFrom} — ${customTo}`
+    return t(`finance.report.period_${period}`)
+  }, [period, customFrom, customTo, t])
 
   const currencyCode = currency
   const parentName = (p) => (p?.name ?? t('finance.report.no_category'))
@@ -115,6 +129,29 @@ export default function ReportPage() {
     ? subRows.map((s) => ({ name: s.label, value: s.sum, color: s.color }))
     : parentSegments.map((p) => ({ name: p.label, value: p.sum, color: p.color }))
   const donutTotal = inDrill ? drillParent.sum : total
+
+  // «Разбор от Донны»: сводка [{category, amount}] → Edge Function → Gemini.
+  async function runDonnaAnalysis() {
+    if (donnaState === 'loading') return
+    setDonnaState('loading')
+    try {
+      const summary = parentSegments.map((p) => ({
+        category: p.label,
+        amount: Math.round(p.sum * 100) / 100,
+      }))
+      const text = await analyzeExpenses({
+        summary,
+        currency: currencyCode,
+        periodLabel,
+        language: i18n.language,
+      })
+      setInsight(text)
+      setDonnaState('success')
+    } catch (err) {
+      console.error('[ReportPage] Donna analysis failed:', err)
+      setDonnaState('error')
+    }
+  }
 
   return (
     <div className="min-h-screen bg-canvas text-ink">
@@ -247,6 +284,39 @@ export default function ReportPage() {
                   />
                 ))}
             </Card>
+
+            {/* Donna's AI take — general report only (not drill-down) */}
+            {!inDrill && (
+              <div className="flex flex-col gap-3 mt-6">
+                <Button
+                  variant="secondary"
+                  onClick={runDonnaAnalysis}
+                  disabled={donnaState === 'loading'}
+                  className="w-full"
+                >
+                  <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M6 1.5l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="currentColor" opacity="0.7" />
+                  </svg>
+                  {donnaState === 'loading'
+                    ? t('finance.report.donna_thinking')
+                    : t('finance.report.donna_button')}
+                </Button>
+
+                {donnaState === 'error' && (
+                  <p className="font-sans text-sm text-ink-muted text-center">
+                    {t('finance.report.donna_error')}
+                  </p>
+                )}
+
+                {donnaState === 'success' && (
+                  <Card className="p-5 bg-card-alt">
+                    <p className="font-serif italic text-md text-ink-soft leading-relaxed">
+                      {insight}
+                    </p>
+                  </Card>
+                )}
+              </div>
+            )}
           </>
         )}
       </div>
