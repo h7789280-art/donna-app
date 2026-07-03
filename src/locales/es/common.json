@@ -161,6 +161,18 @@
       "total": "Total",
       "saved": "Listo",
       "save_error": "No se pudieron guardar los artículos. Inténtalo de nuevo."
+    },
+    "voice": {
+      "record": "Grabar por voz",
+      "listening": "Habla, estoy grabando…",
+      "thinking": "Donna está escuchando…",
+      "stop": "Detener",
+      "record_again": "Grabar de nuevo",
+      "no_speech": "No te entendí, inténtalo otra vez.",
+      "mic_denied": "Se necesita acceso al micrófono.",
+      "saved": "Listo",
+      "error_generic": "No pude reconocerlo. Inténtalo otra vez.",
+      "unsupported": "La entrada de voz no es compatible con este navegador."
     }
   },
   "common": {

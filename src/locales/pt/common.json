@@ -161,6 +161,18 @@
       "total": "Total",
       "saved": "Pronto",
       "save_error": "Não foi possível salvar os itens. Tente de novo."
+    },
+    "voice": {
+      "record": "Gravar por voz",
+      "listening": "Fale, estou gravando…",
+      "thinking": "Donna está ouvindo…",
+      "stop": "Parar",
+      "record_again": "Gravar de novo",
+      "no_speech": "Não entendi, tente de novo.",
+      "mic_denied": "É necessário acesso ao microfone.",
+      "saved": "Pronto",
+      "error_generic": "Não consegui reconhecer. Tente de novo.",
+      "unsupported": "A entrada por voz não é suportada neste navegador."
     }
   },
   "common": {

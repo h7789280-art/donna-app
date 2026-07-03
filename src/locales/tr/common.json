@@ -161,6 +161,18 @@
       "total": "Toplam",
       "saved": "Tamam",
       "save_error": "Kalemler kaydedilemedi. Tekrar dene."
+    },
+    "voice": {
+      "record": "Sesle kaydet",
+      "listening": "Konuş, kaydediyorum…",
+      "thinking": "Donna dinliyor…",
+      "stop": "Durdur",
+      "record_again": "Yeniden kaydet",
+      "no_speech": "Duyamadım, tekrar dener misin.",
+      "mic_denied": "Mikrofon erişimi gerekli.",
+      "saved": "Tamam",
+      "error_generic": "Tanıyamadım. Tekrar dene.",
+      "unsupported": "Bu tarayıcıda sesli giriş desteklenmiyor."
     }
   },
   "common": {

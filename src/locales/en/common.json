@@ -161,6 +161,18 @@
       "total": "Total",
       "saved": "Done",
       "save_error": "Couldn’t save the items. Try again."
+    },
+    "voice": {
+      "record": "Record by voice",
+      "listening": "Speak, I'm recording…",
+      "thinking": "Donna is listening…",
+      "stop": "Stop",
+      "record_again": "Record again",
+      "no_speech": "I didn't catch that, try again.",
+      "mic_denied": "Microphone access is needed.",
+      "saved": "Done",
+      "error_generic": "Couldn't recognize it. Try again.",
+      "unsupported": "Voice input isn't supported in this browser."
     }
   },
   "common": {

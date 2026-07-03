@@ -9,6 +9,7 @@ import Button from '../../components/ui/Button'
 import Card from '../../components/ui/Card'
 import Toast from '../../components/ui/Toast'
 import ReceiptScanner from './ReceiptScanner'
+import VoiceExpense from './VoiceExpense'
 
 // Local YYYY-MM-DD for the date input's default (today, in the user's timezone).
 function todayISO() {
@@ -157,19 +158,32 @@ export default function AddTransactionPage() {
               </div>
             </div>
 
-            {/* Receipt scan — expenses only; complements the manual form below */}
+            {/* Receipt scan + voice — expenses only; complement the manual form below */}
             {kind === 'expense' && (
-              <ReceiptScanner
-                categories={categories}
-                parents={parents}
-                children={children}
-                wallets={wallets}
-                defaultWalletId={walletId}
-                currency={currencyCode}
-                addExpensesBatch={addExpensesBatch}
-                onToast={setToast}
-                onSaved={() => setTimeout(() => navigate('/finance'), 600)}
-              />
+              <div className="grid grid-cols-2 gap-2">
+                <ReceiptScanner
+                  categories={categories}
+                  parents={parents}
+                  children={children}
+                  wallets={wallets}
+                  defaultWalletId={walletId}
+                  currency={currencyCode}
+                  addExpensesBatch={addExpensesBatch}
+                  onToast={setToast}
+                  onSaved={() => setTimeout(() => navigate('/finance'), 600)}
+                />
+                <VoiceExpense
+                  categories={categories}
+                  parents={parents}
+                  children={children}
+                  wallets={wallets}
+                  defaultWalletId={walletId}
+                  currency={currencyCode}
+                  addExpensesBatch={addExpensesBatch}
+                  onToast={setToast}
+                  onSaved={() => setTimeout(() => navigate('/finance'), 600)}
+                />
+              </div>
             )}
 
             {/* Wallet */}

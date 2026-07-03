@@ -161,6 +161,18 @@
       "total": "Totale",
       "saved": "Fatto",
       "save_error": "Impossibile salvare le voci. Riprova."
+    },
+    "voice": {
+      "record": "Registra a voce",
+      "listening": "Parla, sto registrando…",
+      "thinking": "Donna sta ascoltando…",
+      "stop": "Ferma",
+      "record_again": "Registra di nuovo",
+      "no_speech": "Non ho capito, riprova.",
+      "mic_denied": "È necessario l'accesso al microfono.",
+      "saved": "Fatto",
+      "error_generic": "Non sono riuscita a riconoscerlo. Riprova.",
+      "unsupported": "L'inserimento vocale non è supportato in questo browser."
     }
   },
   "common": {

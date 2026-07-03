@@ -161,6 +161,18 @@
       "total": "Gesamt",
       "saved": "Fertig",
       "save_error": "Positionen konnten nicht gespeichert werden. Versuch es nochmal."
+    },
+    "voice": {
+      "record": "Per Sprache erfassen",
+      "listening": "Sprich, ich nehme auf…",
+      "thinking": "Donna hört zu…",
+      "stop": "Stopp",
+      "record_again": "Erneut aufnehmen",
+      "no_speech": "Ich habe nichts verstanden, versuch es nochmal.",
+      "mic_denied": "Zugriff auf das Mikrofon erforderlich.",
+      "saved": "Fertig",
+      "error_generic": "Konnte es nicht erkennen. Versuch es nochmal.",
+      "unsupported": "Spracheingabe wird in diesem Browser nicht unterstützt."
     }
   },
   "common": {

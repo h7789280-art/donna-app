@@ -161,6 +161,18 @@
       "total": "Jami",
       "saved": "Tayyor",
       "save_error": "Pozitsiyalarni saqlab boʻlmadi. Yana urinib koʻr."
+    },
+    "voice": {
+      "record": "Ovoz bilan yozish",
+      "listening": "Gapiring, yozib olyapman…",
+      "thinking": "Donna tinglayapti…",
+      "stop": "To'xtatish",
+      "record_again": "Qayta yozish",
+      "no_speech": "Eshitmadim, qaytadan urinib ko'ring.",
+      "mic_denied": "Mikrofonga ruxsat kerak.",
+      "saved": "Tayyor",
+      "error_generic": "Taniy olmadim. Qaytadan urinib ko'ring.",
+      "unsupported": "Bu brauzerda ovozli kiritish qo'llab-quvvatlanmaydi."
     }
   },
   "common": {

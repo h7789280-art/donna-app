@@ -161,6 +161,18 @@
       "total": "Total",
       "saved": "Terminé",
       "save_error": "Impossible d’enregistrer les articles. Réessaie."
+    },
+    "voice": {
+      "record": "Enregistrer à la voix",
+      "listening": "Parle, j'enregistre…",
+      "thinking": "Donna écoute…",
+      "stop": "Arrêter",
+      "record_again": "Réenregistrer",
+      "no_speech": "Je n'ai pas saisi, réessaie.",
+      "mic_denied": "L'accès au micro est nécessaire.",
+      "saved": "Terminé",
+      "error_generic": "Je n'ai pas pu reconnaître. Réessaie.",
+      "unsupported": "La saisie vocale n'est pas prise en charge dans ce navigateur."
     }
   },
   "common": {

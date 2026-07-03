@@ -161,6 +161,18 @@
       "total": "Cəmi",
       "saved": "Hazır",
       "save_error": "Maddələri yadda saxlamaq mümkün olmadı. Yenidən cəhd et."
+    },
+    "voice": {
+      "record": "Səslə yaz",
+      "listening": "Danış, yazıram…",
+      "thinking": "Donna dinləyir…",
+      "stop": "Dayandır",
+      "record_again": "Yenidən yaz",
+      "no_speech": "Eşitmədim, yenidən cəhd et.",
+      "mic_denied": "Mikrofona giriş lazımdır.",
+      "saved": "Hazırdır",
+      "error_generic": "Tanıya bilmədim. Yenidən cəhd et.",
+      "unsupported": "Bu brauzerdə səslə daxiletmə dəstəklənmir."
     }
   },
   "common": {
