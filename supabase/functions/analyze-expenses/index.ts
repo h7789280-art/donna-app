@@ -95,7 +95,11 @@ Deno.serve(async (req: Request) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.9, maxOutputTokens: 400 },
+        generationConfig: {
+          temperature: 0.9,
+          maxOutputTokens: 800,
+          thinkingConfig: { thinkingBudget: 0 },
+        },
       }),
     })
   } catch (e) {
@@ -128,6 +132,14 @@ Deno.serve(async (req: Request) => {
 
   if (!insight) {
     return json({ error: 'Gemini вернул пустой ответ' }, 502)
+  }
+
+  // Защита от тихой обрезки: если модель упёрлась в лимит токенов, ответ
+  // может быть неполным. Сам текст всё равно отдаём, но факт логируем.
+  if (data?.candidates?.[0]?.finishReason === 'MAX_TOKENS') {
+    console.warn(
+      'Gemini finishReason=MAX_TOKENS: ответ мог оборваться, стоит поднять maxOutputTokens',
+    )
   }
 
   return json({ insight })
