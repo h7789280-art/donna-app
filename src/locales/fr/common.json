@@ -144,6 +144,23 @@
       "operations_detach_note": "Les opérations ne seront pas supprimées — elles deviendront « Sans catégorie ».",
       "hub_categories_title": "Catégories",
       "hub_categories_subtitle": "Vos catégories de dépenses et de revenus"
+    },
+    "receipt": {
+      "scan": "Scanner le reçu",
+      "reading": "Donna examine ton reçu…",
+      "error_generic": "Impossible de lire le reçu. Réessaie.",
+      "retry": "Réessayer",
+      "empty_items": "Donna n’a trouvé aucun article sur le reçu.",
+      "review_title": "Vérifie le reçu",
+      "items": "Articles",
+      "item_name": "Article",
+      "remove_item": "Supprimer l’article",
+      "no_category": "Sans catégorie",
+      "pick_category": "choisis une catégorie",
+      "all_removed": "Aucun article restant.",
+      "total": "Total",
+      "saved": "Terminé",
+      "save_error": "Impossible d’enregistrer les articles. Réessaie."
     }
   },
   "common": {

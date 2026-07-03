@@ -144,6 +144,23 @@
       "operations_detach_note": "Amallar o‘chirilmaydi — ular «Kategoriyasiz» bo‘ladi.",
       "hub_categories_title": "Kategoriyalar",
       "hub_categories_subtitle": "Xarajat va daromad kategoriyalaringiz"
+    },
+    "receipt": {
+      "scan": "Chekni skanerlash",
+      "reading": "Donna chekni oʻrganyapti…",
+      "error_generic": "Chekni aniqlab boʻlmadi. Yana urinib koʻr.",
+      "retry": "Qayta urinish",
+      "empty_items": "Donna chekda pozitsiyalarni topmadi.",
+      "review_title": "Chekni tekshir",
+      "items": "Pozitsiyalar",
+      "item_name": "Pozitsiya",
+      "remove_item": "Pozitsiyani oʻchirish",
+      "no_category": "Kategoriyasiz",
+      "pick_category": "kategoriya tanla",
+      "all_removed": "Pozitsiyalar qolmadi.",
+      "total": "Jami",
+      "saved": "Tayyor",
+      "save_error": "Pozitsiyalarni saqlab boʻlmadi. Yana urinib koʻr."
     }
   },
   "common": {

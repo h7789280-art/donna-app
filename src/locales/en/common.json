@@ -144,6 +144,23 @@
       "operations_detach_note": "Operations won’t be deleted — they’ll become “No category”.",
       "hub_categories_title": "Categories",
       "hub_categories_subtitle": "Your expense and income categories"
+    },
+    "receipt": {
+      "scan": "Scan receipt",
+      "reading": "Donna’s reading your receipt…",
+      "error_generic": "Couldn’t read the receipt. Try again.",
+      "retry": "Try again",
+      "empty_items": "Donna didn’t find any items on the receipt.",
+      "review_title": "Check the receipt",
+      "items": "Items",
+      "item_name": "Item",
+      "remove_item": "Remove item",
+      "no_category": "No category",
+      "pick_category": "pick a category",
+      "all_removed": "No items left.",
+      "total": "Total",
+      "saved": "Done",
+      "save_error": "Couldn’t save the items. Try again."
     }
   },
   "common": {

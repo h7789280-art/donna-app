@@ -8,6 +8,7 @@ import { getCurrency } from '../../lib/currencies'
 import Button from '../../components/ui/Button'
 import Card from '../../components/ui/Card'
 import Toast from '../../components/ui/Toast'
+import ReceiptScanner from './ReceiptScanner'
 
 // Local YYYY-MM-DD for the date input's default (today, in the user's timezone).
 function todayISO() {
@@ -25,8 +26,8 @@ export default function AddTransactionPage() {
   const navigate = useNavigate()
 
   const { wallets, loading: walletsLoading } = useWallets()
-  const { parents, children, loading: catsLoading } = useFinanceCategories()
-  const { addTransaction } = useTransactions()
+  const { categories, parents, children, loading: catsLoading } = useFinanceCategories()
+  const { addTransaction, addExpensesBatch } = useTransactions()
 
   const [kind, setKind] = useState('expense') // 'expense' | 'income'
   const [walletId, setWalletId] = useState('')
@@ -155,6 +156,21 @@ export default function AddTransactionPage() {
                 ))}
               </div>
             </div>
+
+            {/* Receipt scan — expenses only; complements the manual form below */}
+            {kind === 'expense' && (
+              <ReceiptScanner
+                categories={categories}
+                parents={parents}
+                children={children}
+                wallets={wallets}
+                defaultWalletId={walletId}
+                currency={currencyCode}
+                addExpensesBatch={addExpensesBatch}
+                onToast={setToast}
+                onSaved={() => setTimeout(() => navigate('/finance'), 600)}
+              />
+            )}
 
             {/* Wallet */}
             <label className="flex flex-col gap-1.5">

@@ -144,6 +144,23 @@
       "operations_detach_note": "Əməliyyatlar silinməyəcək — onlar “Kateqoriyasız” olacaq.",
       "hub_categories_title": "Kateqoriyalar",
       "hub_categories_subtitle": "Xərc və gəlir kateqoriyalarınız"
+    },
+    "receipt": {
+      "scan": "Qəbzi skan et",
+      "reading": "Donna qəbzi araşdırır…",
+      "error_generic": "Qəbz tanınmadı. Yenidən cəhd et.",
+      "retry": "Yenidən cəhd et",
+      "empty_items": "Donna qəbzdə maddə tapmadı.",
+      "review_title": "Qəbzi yoxla",
+      "items": "Maddələr",
+      "item_name": "Maddə",
+      "remove_item": "Maddəni sil",
+      "no_category": "Kateqoriyasız",
+      "pick_category": "kateqoriya seç",
+      "all_removed": "Maddə qalmadı.",
+      "total": "Cəmi",
+      "saved": "Hazır",
+      "save_error": "Maddələri yadda saxlamaq mümkün olmadı. Yenidən cəhd et."
     }
   },
   "common": {

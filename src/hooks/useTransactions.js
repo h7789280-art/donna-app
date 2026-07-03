@@ -83,6 +83,77 @@ export function useTransactions() {
     [userId]
   )
 
+  // Save a whole scanned receipt: one `expenses` row per line item, then a
+  // SINGLE wallet-balance write for the total (variant A — read fresh balance,
+  // subtract the sum, write back). We reuse the exact same read→delta→write
+  // shape as addTransaction so the balance logic lives in one place. Every item
+  // carries user_id + wallet_id on INSERT and we .select() to surface RLS errors.
+  const addExpensesBatch = useCallback(
+    async ({ walletId, currency, date, items }) => {
+      if (!userId) return { ok: false, error: 'no-user' }
+      if (!walletId) return { ok: false, error: 'no-wallet' }
+      if (!Array.isArray(items) || items.length === 0) {
+        return { ok: false, error: 'no-items' }
+      }
+
+      // Build the rows and the total in one pass. Skip any non-positive amount.
+      const rows = []
+      let total = 0
+      for (const it of items) {
+        const amt = parseFloat(it.amount)
+        if (!Number.isFinite(amt) || amt <= 0) continue
+        total += amt
+        rows.push({
+          user_id: userId,
+          wallet_id: walletId,
+          amount: amt,
+          currency,
+          category: it.categoryName ?? null,
+          category_id: it.categoryId ?? null,
+          description: it.description?.trim() ? it.description.trim() : null,
+          date,
+        })
+      }
+      if (rows.length === 0) return { ok: false, error: 'invalid-amount' }
+
+      // 1) Insert every line item at once. Balance stays untouched if this fails.
+      const { error: insertErr } = await supabase.from('expenses').insert(rows).select()
+      if (insertErr) {
+        console.error('[useTransactions] batch insert error:', insertErr)
+        return { ok: false, error: insertErr }
+      }
+
+      // 2) Read the fresh wallet balance (never trust stale client state).
+      const { data: walletRow, error: readErr } = await supabase
+        .from(WALLETS)
+        .select('balance')
+        .eq('id', walletId)
+        .eq('user_id', userId)
+        .single()
+      if (readErr) {
+        console.error('[useTransactions] batch balance read error:', readErr)
+        return { ok: false, error: readErr, balanceStale: true }
+      }
+
+      // 3) Subtract the whole receipt total once and write it back.
+      const current = Number(walletRow?.balance) || 0
+      const next = current - total
+      const { error: updateErr } = await supabase
+        .from(WALLETS)
+        .update({ balance: next })
+        .eq('id', walletId)
+        .eq('user_id', userId)
+        .select()
+      if (updateErr) {
+        console.error('[useTransactions] batch balance update error:', updateErr)
+        return { ok: false, error: updateErr, balanceStale: true }
+      }
+
+      return { ok: true, error: null, count: rows.length, total }
+    },
+    [userId]
+  )
+
   // Read the last operations from BOTH tables, tag each with `kind`, merge and
   // sort newest-first (by date, then created_at), keep the first `limit`.
   const listTransactions = useCallback(
@@ -203,6 +274,7 @@ export function useTransactions() {
 
   return {
     addTransaction,
+    addExpensesBatch,
     transactions,
     listLoading,
     listError,

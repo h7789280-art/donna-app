@@ -144,6 +144,23 @@
       "operations_detach_note": "İşlemler silinmez — “Kategorisiz” olur.",
       "hub_categories_title": "Kategoriler",
       "hub_categories_subtitle": "Gider ve gelir kategorilerin"
+    },
+    "receipt": {
+      "scan": "Fiş tara",
+      "reading": "Donna fişi inceliyor…",
+      "error_generic": "Fiş okunamadı. Tekrar dene.",
+      "retry": "Tekrar dene",
+      "empty_items": "Donna fişte kalem bulamadı.",
+      "review_title": "Fişi kontrol et",
+      "items": "Kalemler",
+      "item_name": "Kalem",
+      "remove_item": "Kalemi sil",
+      "no_category": "Kategorisiz",
+      "pick_category": "kategori seç",
+      "all_removed": "Kalem kalmadı.",
+      "total": "Toplam",
+      "saved": "Tamam",
+      "save_error": "Kalemler kaydedilemedi. Tekrar dene."
     }
   },
   "common": {

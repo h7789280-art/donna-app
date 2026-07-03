@@ -144,6 +144,23 @@
       "operations_detach_note": "Buchungen werden nicht gelöscht – sie werden „Ohne Kategorie“.",
       "hub_categories_title": "Kategorien",
       "hub_categories_subtitle": "Deine Ausgaben- und Einnahmenkategorien"
+    },
+    "receipt": {
+      "scan": "Beleg scannen",
+      "reading": "Donna liest deinen Beleg…",
+      "error_generic": "Beleg konnte nicht erkannt werden. Versuch es nochmal.",
+      "retry": "Erneut versuchen",
+      "empty_items": "Donna hat keine Positionen auf dem Beleg gefunden.",
+      "review_title": "Beleg prüfen",
+      "items": "Positionen",
+      "item_name": "Position",
+      "remove_item": "Position entfernen",
+      "no_category": "Ohne Kategorie",
+      "pick_category": "Kategorie wählen",
+      "all_removed": "Keine Positionen übrig.",
+      "total": "Gesamt",
+      "saved": "Fertig",
+      "save_error": "Positionen konnten nicht gespeichert werden. Versuch es nochmal."
     }
   },
   "common": {

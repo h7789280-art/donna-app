@@ -144,6 +144,23 @@
       "operations_detach_note": "As operações não serão excluídas — passarão a “Sem categoria”.",
       "hub_categories_title": "Categorias",
       "hub_categories_subtitle": "Suas categorias de despesas e receitas"
+    },
+    "receipt": {
+      "scan": "Escanear recibo",
+      "reading": "A Donna está analisando seu recibo…",
+      "error_generic": "Não foi possível ler o recibo. Tente de novo.",
+      "retry": "Tentar de novo",
+      "empty_items": "A Donna não encontrou itens no recibo.",
+      "review_title": "Confira o recibo",
+      "items": "Itens",
+      "item_name": "Item",
+      "remove_item": "Remover item",
+      "no_category": "Sem categoria",
+      "pick_category": "escolha uma categoria",
+      "all_removed": "Nenhum item restante.",
+      "total": "Total",
+      "saved": "Pronto",
+      "save_error": "Não foi possível salvar os itens. Tente de novo."
     }
   },
   "common": {

@@ -144,6 +144,23 @@
       "operations_detach_note": "Las operaciones no se eliminarán: pasarán a «Sin categoría».",
       "hub_categories_title": "Categorías",
       "hub_categories_subtitle": "Tus categorías de gastos e ingresos"
+    },
+    "receipt": {
+      "scan": "Escanear recibo",
+      "reading": "Donna está revisando tu recibo…",
+      "error_generic": "No se pudo leer el recibo. Inténtalo de nuevo.",
+      "retry": "Reintentar",
+      "empty_items": "Donna no encontró artículos en el recibo.",
+      "review_title": "Revisa el recibo",
+      "items": "Artículos",
+      "item_name": "Artículo",
+      "remove_item": "Eliminar artículo",
+      "no_category": "Sin categoría",
+      "pick_category": "elige una categoría",
+      "all_removed": "No quedan artículos.",
+      "total": "Total",
+      "saved": "Listo",
+      "save_error": "No se pudieron guardar los artículos. Inténtalo de nuevo."
     }
   },
   "common": {

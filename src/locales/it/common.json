@@ -144,6 +144,23 @@
       "operations_detach_note": "Le operazioni non verranno eliminate: diventeranno «Senza categoria».",
       "hub_categories_title": "Categorie",
       "hub_categories_subtitle": "Le tue categorie di spese ed entrate"
+    },
+    "receipt": {
+      "scan": "Scansiona scontrino",
+      "reading": "Donna sta esaminando lo scontrino…",
+      "error_generic": "Impossibile leggere lo scontrino. Riprova.",
+      "retry": "Riprova",
+      "empty_items": "Donna non ha trovato voci sullo scontrino.",
+      "review_title": "Controlla lo scontrino",
+      "items": "Voci",
+      "item_name": "Voce",
+      "remove_item": "Rimuovi voce",
+      "no_category": "Senza categoria",
+      "pick_category": "scegli una categoria",
+      "all_removed": "Nessuna voce rimasta.",
+      "total": "Totale",
+      "saved": "Fatto",
+      "save_error": "Impossibile salvare le voci. Riprova."
     }
   },
   "common": {
