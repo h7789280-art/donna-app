@@ -310,7 +310,7 @@ export default function ReportPage() {
 
                 {donnaState === 'success' && (
                   <Card className="p-5 bg-card-alt">
-                    <p className="font-serif italic text-md text-ink-soft leading-relaxed">
+                    <p className="font-serif italic text-md text-ink-soft leading-relaxed whitespace-pre-line break-words">
                       {insight}
                     </p>
                   </Card>
