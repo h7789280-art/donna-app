@@ -2,12 +2,14 @@ import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useWallets } from '../../hooks/useWallets'
 import { useFinanceReport, NO_CATEGORY } from '../../hooks/useFinanceReport'
+import { useExpenseTrends } from '../../hooks/useExpenseTrends'
 import { getCurrency } from '../../lib/currencies'
 import { analyzeExpenses } from '../../lib/gemini'
 import Card from '../../components/ui/Card'
 import Button from '../../components/ui/Button'
 import ReportDonut, { colorFor } from '../../components/finance/ReportDonut'
 import ReportRow from '../../components/finance/ReportRow'
+import ReportTrends from '../../components/finance/ReportTrends'
 
 // Local YYYY-MM-DD (user's timezone), so ranges line up with the date inputs.
 function toISO(d) {
@@ -30,6 +32,49 @@ function rangeFor(period) {
   // month
   const first = new Date(now.getFullYear(), now.getMonth(), 1)
   return { from: toISO(first), to: today }
+}
+
+// Previous period aligned to the current one: month → previous calendar month;
+// everything else → the same-length window immediately before [from, to]
+// (today→yesterday, week→prior 7 days, custom→same span before the start).
+function prevRangeFor(period, from, to) {
+  const start = new Date(`${from}T00:00:00`)
+  const end = new Date(`${to}T00:00:00`)
+  if (period === 'month') {
+    const first = new Date(start.getFullYear(), start.getMonth() - 1, 1)
+    const last = new Date(start.getFullYear(), start.getMonth(), 0)
+    return { from: toISO(first), to: toISO(last) }
+  }
+  const days = Math.round((end - start) / 86400000) + 1
+  const prevEnd = new Date(start)
+  prevEnd.setDate(prevEnd.getDate() - 1)
+  const prevStart = new Date(prevEnd)
+  prevStart.setDate(prevStart.getDate() - (days - 1))
+  return { from: toISO(prevStart), to: toISO(prevEnd) }
+}
+
+// First day of each of the last n calendar months, oldest first (incl. current).
+function lastMonths(n) {
+  const base = new Date()
+  const out = []
+  for (let i = n - 1; i >= 0; i--) {
+    out.push(new Date(base.getFullYear(), base.getMonth() - i, 1))
+  }
+  return out
+}
+
+// Continuous list of ISO days across [from, to] inclusive (capped for safety).
+function enumerateDays(from, to) {
+  const out = []
+  const cur = new Date(`${from}T00:00:00`)
+  const end = new Date(`${to}T00:00:00`)
+  let guard = 0
+  while (cur <= end && guard < 400) {
+    out.push(toISO(cur))
+    cur.setDate(cur.getDate() + 1)
+    guard += 1
+  }
+  return out
 }
 
 const PERIODS = ['today', 'week', 'month', 'custom']
@@ -81,7 +126,74 @@ export default function ReportPage() {
     return rangeFor(period)
   }, [period, customFrom, customTo])
 
-  const { total, parents, childrenOf, loading } = useFinanceReport({ currency, from, to })
+  const { total, parents, childrenOf, dailyTotals, loading } = useFinanceReport({ currency, from, to })
+
+  // --- Time-based analytics (general report only) --------------------------
+  const months = useMemo(() => lastMonths(6), [])
+  const prevRange = useMemo(() => prevRangeFor(period, from, to), [period, from, to])
+
+  // One extra, narrow query wide enough for BOTH the 6-month chart and the
+  // previous-period comparison — the current-period rows don't reach that far.
+  const trendsRange = useMemo(() => {
+    const monthsStart = toISO(months[0])
+    const today = todayISO()
+    const lo = monthsStart < prevRange.from ? monthsStart : prevRange.from
+    const hi = to > today ? to : today
+    return { from: lo, to: hi }
+  }, [months, prevRange, to])
+
+  const { rows: trendRows } = useExpenseTrends({
+    currency,
+    from: trendsRange.from,
+    to: trendsRange.to,
+  })
+
+  // Daily bars — reuse the current-period rows already loaded by the report hook.
+  const dailyData = useMemo(
+    () =>
+      enumerateDays(from, to).map((d) => ({
+        key: d,
+        label: String(Number(d.slice(8, 10))),
+        value: dailyTotals.get(d) || 0,
+      })),
+    [from, to, dailyTotals]
+  )
+
+  // Monthly bars — bucket the wide trend rows by 'YYYY-MM'.
+  const monthlyTotals = useMemo(() => {
+    const m = new Map()
+    for (const r of trendRows) {
+      const amount = Number(r.amount) || 0
+      if (!amount) continue
+      const key = String(r.date).slice(0, 7)
+      m.set(key, (m.get(key) || 0) + amount)
+    }
+    return m
+  }, [trendRows])
+
+  const monthFmt = useMemo(
+    () => new Intl.DateTimeFormat(i18n.language, { month: 'short' }),
+    [i18n.language]
+  )
+  const monthlyData = useMemo(
+    () =>
+      months.map((d) => {
+        const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`
+        return { key, label: monthFmt.format(d), value: monthlyTotals.get(key) || 0 }
+      }),
+    [months, monthlyTotals, monthFmt]
+  )
+
+  // Previous-period sum from the same wide trend rows (no division by zero).
+  const prevSum = useMemo(() => {
+    let s = 0
+    for (const r of trendRows) {
+      const d = String(r.date).slice(0, 10)
+      if (d >= prevRange.from && d <= prevRange.to) s += Number(r.amount) || 0
+    }
+    return s
+  }, [trendRows, prevRange])
+  const hasPrev = prevSum > 0
 
   // Reset drill-down + Donna's take whenever the filters change (the data shifts).
   useEffect(() => {
@@ -316,6 +428,18 @@ export default function ReportPage() {
                   </Card>
                 )}
               </div>
+            )}
+
+            {/* Time-based analytics — general report only, below the category donut */}
+            {!inDrill && (
+              <ReportTrends
+                dailyData={dailyData}
+                monthlyData={monthlyData}
+                current={total}
+                previous={prevSum}
+                hasPrev={hasPrev}
+                currencyCode={currencyCode}
+              />
             )}
           </>
         )}

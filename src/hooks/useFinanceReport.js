@@ -165,10 +165,25 @@ export function useFinanceReport({ currency, from, to }) {
 
   const childrenOf = useCallback((parentId) => subsMap.get(parentId) || [], [subsMap])
 
+  // Sum per calendar day for the CURRENT period, built from the SAME rows the
+  // category roll-up already uses (no extra query). Key = 'YYYY-MM-DD'.
+  // The screen fills the continuous day axis from its own [from, to].
+  const dailyTotals = useMemo(() => {
+    const m = new Map()
+    for (const r of rows) {
+      const amount = Number(r.amount) || 0
+      if (!amount) continue
+      const day = String(r.date).slice(0, 10)
+      m.set(day, (m.get(day) || 0) + amount)
+    }
+    return m
+  }, [rows])
+
   return {
     total,
     parents,
     childrenOf,
+    dailyTotals,
     loading: loading || catsLoading,
     error: error || catsError,
     reload: load,

@@ -123,7 +123,15 @@
       "hub_report_subtitle": "Dépenses par catégorie",
       "donna_button": "L'analyse de Donna",
       "donna_thinking": "Donna réfléchit…",
-      "donna_error": "Donna est perdue dans ses pensées, réessaie"
+      "donna_error": "Donna est perdue dans ses pensées, réessaie",
+      "by_days": "Par jour",
+      "vs_previous": "Comparaison avec la période précédente",
+      "by_months": "Par mois",
+      "previous_period": "Période précédente",
+      "no_previous_data": "Aucune donnée pour la période précédente",
+      "current": "Période actuelle",
+      "growth": "Hausse",
+      "decline": "Baisse"
     },
     "categories": {
       "title": "Catégories",

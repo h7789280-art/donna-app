@@ -123,7 +123,15 @@
       "hub_report_subtitle": "Kategoriye göre harcamalar",
       "donna_button": "Donna'nın yorumu",
       "donna_thinking": "Donna düşünüyor…",
-      "donna_error": "Donna dalıp gitti, tekrar dene"
+      "donna_error": "Donna dalıp gitti, tekrar dene",
+      "by_days": "Günlere göre",
+      "vs_previous": "Önceki dönemle karşılaştırma",
+      "by_months": "Aylara göre",
+      "previous_period": "Önceki dönem",
+      "no_previous_data": "Önceki dönem için veri yok",
+      "current": "Mevcut dönem",
+      "growth": "Artış",
+      "decline": "Azalış"
     },
     "categories": {
       "title": "Kategoriler",

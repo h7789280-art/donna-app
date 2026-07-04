@@ -123,7 +123,15 @@
       "hub_report_subtitle": "Kategoriya bo'yicha xarajatlar",
       "donna_button": "Donnaning tahlili",
       "donna_thinking": "Donna o'ylayapti…",
-      "donna_error": "Donna o'yga toldi, yana urinib ko'ring"
+      "donna_error": "Donna o'yga toldi, yana urinib ko'ring",
+      "by_days": "Kunlar bo‘yicha",
+      "vs_previous": "Oldingi davr bilan taqqoslash",
+      "by_months": "Oylar bo‘yicha",
+      "previous_period": "Oldingi davr",
+      "no_previous_data": "Oldingi davr uchun ma’lumot yo‘q",
+      "current": "Joriy davr",
+      "growth": "O‘sish",
+      "decline": "Kamayish"
     },
     "categories": {
       "title": "Kategoriyalar",

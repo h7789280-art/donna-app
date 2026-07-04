@@ -123,7 +123,15 @@
       "hub_report_subtitle": "Ausgaben nach Kategorie",
       "donna_button": "Donnas Analyse",
       "donna_thinking": "Donna denkt nach…",
-      "donna_error": "Donna ist in Gedanken versunken, versuch es nochmal"
+      "donna_error": "Donna ist in Gedanken versunken, versuch es nochmal",
+      "by_days": "Nach Tagen",
+      "vs_previous": "Vergleich zum Vorzeitraum",
+      "by_months": "Nach Monaten",
+      "previous_period": "Vorheriger Zeitraum",
+      "no_previous_data": "Keine Daten für den Vorzeitraum",
+      "current": "Aktueller Zeitraum",
+      "growth": "Anstieg",
+      "decline": "Rückgang"
     },
     "categories": {
       "title": "Kategorien",

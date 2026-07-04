@@ -123,7 +123,15 @@
       "hub_report_subtitle": "Spese per categoria",
       "donna_button": "L'analisi di Donna",
       "donna_thinking": "Donna sta pensando…",
-      "donna_error": "Donna si è persa nei pensieri, riprova"
+      "donna_error": "Donna si è persa nei pensieri, riprova",
+      "by_days": "Per giorno",
+      "vs_previous": "Confronto con il periodo precedente",
+      "by_months": "Per mese",
+      "previous_period": "Periodo precedente",
+      "no_previous_data": "Nessun dato per il periodo precedente",
+      "current": "Periodo attuale",
+      "growth": "Aumento",
+      "decline": "Diminuzione"
     },
     "categories": {
       "title": "Categorie",

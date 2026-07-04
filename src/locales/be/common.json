@@ -123,7 +123,15 @@
       "hub_report_subtitle": "Выдаткі па катэгорыях",
       "donna_button": "Разбор ад Донны",
       "donna_thinking": "Донна думае…",
-      "donna_error": "Донна задумалася, паспрабуй яшчэ раз"
+      "donna_error": "Донна задумалася, паспрабуй яшчэ раз",
+      "by_days": "Па днях",
+      "vs_previous": "Параўнанне з мінулым перыядам",
+      "by_months": "Па месяцах",
+      "previous_period": "Мінулы перыяд",
+      "no_previous_data": "Няма даных за мінулы перыяд",
+      "current": "Бягучы перыяд",
+      "growth": "Рост",
+      "decline": "Зніжэнне"
     },
     "categories": {
       "title": "Катэгорыі",

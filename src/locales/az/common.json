@@ -123,7 +123,15 @@
       "hub_report_subtitle": "Kateqoriya üzrə xərclər",
       "donna_button": "Donnanın təhlili",
       "donna_thinking": "Donna düşünür…",
-      "donna_error": "Donna fikrə getdi, yenidən cəhd et"
+      "donna_error": "Donna fikrə getdi, yenidən cəhd et",
+      "by_days": "Günlər üzrə",
+      "vs_previous": "Əvvəlki dövrlə müqayisə",
+      "by_months": "Aylar üzrə",
+      "previous_period": "Əvvəlki dövr",
+      "no_previous_data": "Əvvəlki dövr üçün məlumat yoxdur",
+      "current": "Cari dövr",
+      "growth": "Artım",
+      "decline": "Azalma"
     },
     "categories": {
       "title": "Kateqoriyalar",

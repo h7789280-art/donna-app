@@ -123,7 +123,15 @@
       "hub_report_subtitle": "Gastos por categoría",
       "donna_button": "El análisis de Donna",
       "donna_thinking": "Donna está pensando…",
-      "donna_error": "Donna se quedó pensando, inténtalo de nuevo"
+      "donna_error": "Donna se quedó pensando, inténtalo de nuevo",
+      "by_days": "Por día",
+      "vs_previous": "Comparación con el período anterior",
+      "by_months": "Por mes",
+      "previous_period": "Período anterior",
+      "no_previous_data": "Sin datos del período anterior",
+      "current": "Período actual",
+      "growth": "Aumento",
+      "decline": "Disminución"
     },
     "categories": {
       "title": "Categorías",
