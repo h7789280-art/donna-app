@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 // the finance hub glyphs. currentColor lets each tab inherit accent/muted.
 function HomeIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M4 11.5 12 4l8 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M6 10v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M10 20v-5h4v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -16,7 +16,7 @@ function HomeIcon() {
 
 function FinanceIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M3 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       <rect x="3" y="7" width="18" height="12" rx="2" stroke="currentColor" strokeWidth="1.5" />
       <path d="M16 12.5h3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -27,7 +27,7 @@ function FinanceIcon() {
 
 function ChildrenIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <circle cx="12" cy="6" r="2.5" stroke="currentColor" strokeWidth="1.5" />
       <path d="M12 8.5V15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       <path d="M12 10.5 8 12M12 10.5 16 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -38,7 +38,7 @@ function ChildrenIcon() {
 
 function HealthIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M12 20s-7-4.35-7-9.5A3.5 3.5 0 0 1 12 7a3.5 3.5 0 0 1 7 3.5C19 15.65 12 20 12 20z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
       <path d="M6.5 12.5H9l1.5-3 2 5 1.5-2h2.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
@@ -47,7 +47,7 @@ function HealthIcon() {
 
 function MoreIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <circle cx="5" cy="12" r="1.4" fill="currentColor" />
       <circle cx="12" cy="12" r="1.4" fill="currentColor" />
       <circle cx="19" cy="12" r="1.4" fill="currentColor" />
@@ -73,13 +73,13 @@ export default function BottomNav() {
           to={to}
           end={to === '/'}
           className={({ isActive }) =>
-            `flex flex-1 flex-col items-center justify-center gap-1 py-2.5 transition-colors ${
+            `flex flex-1 flex-col items-center justify-center gap-1.5 py-3.5 transition-colors ${
               isActive ? 'text-accent' : 'text-ink-muted'
             }`
           }
         >
           <Icon />
-          <span className="font-mono uppercase tracking-caps text-[10px] leading-none">
+          <span className="font-mono uppercase tracking-caps text-[11px] leading-none">
             {t(`nav.${key}`)}
           </span>
         </NavLink>
