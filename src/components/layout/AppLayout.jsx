@@ -8,7 +8,7 @@ import BottomNav from './BottomNav'
 export default function AppLayout() {
   return (
     <ProtectedRoute>
-      <div className="min-h-screen bg-canvas pb-[calc(76px+env(safe-area-inset-bottom))]">
+      <div className="min-h-screen bg-canvas pb-[calc(88px+env(safe-area-inset-bottom))]">
         <Outlet />
       </div>
       <BottomNav />
