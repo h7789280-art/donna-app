@@ -66,7 +66,7 @@ const tabs = [
 export default function BottomNav() {
   const { t } = useTranslation()
   return (
-    <nav className="fixed bottom-0 left-1/2 z-50 flex w-full max-w-md -translate-x-1/2 border-t border-line bg-card pb-[calc(env(safe-area-inset-bottom)+8px)]">
+    <nav className="fixed bottom-0 left-1/2 z-50 flex w-full max-w-md -translate-x-1/2 border-t border-line bg-card pb-[calc(env(safe-area-inset-bottom)+20px)]">
       {tabs.map(({ to, key, Icon }) => (
         <NavLink
           key={to}
