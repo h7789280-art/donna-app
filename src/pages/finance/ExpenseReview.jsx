@@ -145,7 +145,10 @@ export default function ExpenseReview({
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-canvas text-ink">
-      <div className="max-w-[430px] mx-auto px-gutter pt-10 pb-32">
+      {/* Bottom padding clears the fixed action bar (which itself sits above the
+          76px BottomNav band) + the iOS home-indicator, so the last row and
+          total stay scrollable into view and never hide under the buttons. */}
+      <div className="max-w-[430px] mx-auto px-gutter pt-10 pb-[calc(160px+env(safe-area-inset-bottom))]">
         <h1 className="font-serif italic text-3xl text-ink mb-6">
           {title || t('finance.receipt.review_title')}
         </h1>
@@ -299,8 +302,10 @@ export default function ExpenseReview({
         </div>
       </div>
 
-      {/* Sticky action bar */}
-      <div className="fixed inset-x-0 bottom-0 z-10 bg-canvas/95 backdrop-blur border-t border-line">
+      {/* Sticky action bar — anchored above the 76px BottomNav band (same
+          reservation AppLayout uses) plus the iOS safe-area, so Save/Cancel are
+          always fully visible above the bottom nav and the home-indicator. */}
+      <div className="fixed inset-x-0 bottom-[calc(76px+env(safe-area-inset-bottom))] z-10 bg-canvas/95 backdrop-blur border-t border-line">
         <div className="max-w-[430px] mx-auto px-gutter py-3 flex gap-2">
           <Button variant="secondary" className="flex-1" onClick={onClose} disabled={saving}>
             {t('common.cancel')}
