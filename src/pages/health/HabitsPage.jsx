@@ -6,6 +6,7 @@ import Card from '../../components/ui/Card'
 import Button from '../../components/ui/Button'
 import Modal from '../../components/ui/Modal'
 import WidgetHeader from '../../components/ui/WidgetHeader'
+import HabitIcon, { HABIT_ICON_KEYS } from '../../components/habits/HabitIcon'
 import { useHabits, HABIT_COLORS, DEFAULT_COLOR } from '../../hooks/useHabits'
 
 const fadeIn = {
@@ -28,11 +29,17 @@ const COLOR_BG = {
 }
 const bgFor = (key) => COLOR_BG[key] || COLOR_BG[DEFAULT_COLOR]
 
-// A small curated set of emoji for the icon picker.
-const ICON_CHOICES = [
-  '💧', '🏃', '📚', '🧘', '💊', '🥗', '😴', '🚶', '✍️', '🧹',
-  '🎯', '☀️', '🌙', '💪', '🧴', '🦷', '🌿', '☕', '🎨', '💰',
-]
+// Text-colour tokens per key — tints the line icon (currentColor) so the
+// glyph reads in the habit's chosen colour. Static classes to survive purge.
+const COLOR_TEXT = {
+  accent: 'text-accent',
+  success: 'text-success',
+  warning: 'text-warning',
+  error: 'text-error',
+  'decor-rose': 'text-decor-rose',
+  'decor-taupe': 'text-decor-taupe',
+}
+const textFor = (key) => COLOR_TEXT[key] || COLOR_TEXT[DEFAULT_COLOR]
 
 function weekdayInitial(iso, locale) {
   try {
@@ -79,10 +86,8 @@ function HabitRow({ habit, todayIso, locale, onToggle, onEdit, t }) {
           onClick={onEdit}
           className="min-w-0 flex-1 flex items-center gap-3 text-left"
         >
-          <span className="shrink-0 h-11 w-11 rounded-xl bg-card-alt flex items-center justify-center text-xl leading-none">
-            {habit.icon || (
-              <span className={`h-3 w-3 rounded-full ${bgFor(habit.color)}`} />
-            )}
+          <span className="shrink-0 h-11 w-11 rounded-xl bg-card-alt flex items-center justify-center">
+            <HabitIcon icon={habit.icon} size={22} className={textFor(habit.color)} />
           </span>
           <span className="min-w-0">
             <span className="block font-sans text-md font-medium text-ink truncate">
@@ -170,20 +175,26 @@ function HabitForm({ open, initial, onClose, onSubmit, onDelete, busy, t }) {
         <div>
           <WidgetHeader className="mb-2">{t('habits.icon')}</WidgetHeader>
           <div className="flex flex-wrap gap-2">
-            {ICON_CHOICES.map((em) => (
-              <button
-                key={em}
-                type="button"
-                onClick={() => setIcon(icon === em ? '' : em)}
-                className={`h-10 w-10 rounded-xl flex items-center justify-center text-xl transition ${
-                  icon === em
-                    ? 'bg-accent/10 border-2 border-accent'
-                    : 'bg-card-alt border border-line'
-                }`}
-              >
-                {em}
-              </button>
-            ))}
+            {HABIT_ICON_KEYS.map((key) => {
+              const selected = icon === key
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  aria-label={key}
+                  aria-pressed={selected}
+                  onClick={() => setIcon(selected ? '' : key)}
+                  className={`h-10 w-10 rounded-xl flex items-center justify-center transition ${
+                    selected
+                      ? 'bg-accent/10 border-2 border-accent'
+                      : 'bg-card-alt border border-line'
+                  }`}
+                >
+                  {/* Live preview in the chosen colour → icon + colour = one visual. */}
+                  <HabitIcon icon={key} size={20} className={textFor(color)} />
+                </button>
+              )
+            })}
           </div>
         </div>
 
