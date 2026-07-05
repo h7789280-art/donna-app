@@ -383,6 +383,31 @@
     "streak_empty": "Ancora nessuna serie",
     "streak_hint": "Giorni di fila con obiettivo raggiunto"
   },
+  "habits": {
+    "title": "Abitudini",
+    "card_subtitle": "Piccole spunte quotidiane",
+    "today": "Oggi",
+    "add": "Aggiungi abitudine",
+    "new": "Nuova abitudine",
+    "edit": "Modifica abitudine",
+    "delete": "Elimina",
+    "delete_confirm": "Eliminare questa abitudine e la sua cronologia?",
+    "name": "Nome",
+    "name_placeholder": "es. Leggere 10 pagine",
+    "icon": "Icona",
+    "color": "Colore",
+    "save": "Salva",
+    "cancel": "Annulla",
+    "mark_done": "Segna come fatto",
+    "mark_undone": "Rimuovi il segno",
+    "weekly": "Questa settimana",
+    "streak_none": "Ancora nessuna serie",
+    "empty": "Ancora nessuna abitudine",
+    "empty_hint": "Crea la tua prima abitudine e inizia una serie.",
+    "streak_days_one": "{{count}} giorno di fila",
+    "streak_days_many": "{{count}} giorni di fila",
+    "streak_days_other": "{{count}} giorni di fila"
+  },
   "health": {
     "subtitle": "L'acqua è attiva — altri moduli presto",
     "modules": {

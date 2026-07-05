@@ -20,6 +20,7 @@ import ChildrenPage from './pages/children/ChildrenPage'
 import PlannerPage from './pages/planner/PlannerPage'
 import HealthPage from './pages/health/HealthPage'
 import WaterPage from './pages/health/WaterPage'
+import HabitsPage from './pages/health/HabitsPage'
 import MorePage from './pages/more/MorePage'
 import MoreGroupPage from './pages/more/MoreGroupPage'
 
@@ -64,6 +65,7 @@ export default function App() {
           <Route path="/planner" element={<PlannerPage />} />
           <Route path="/health" element={<HealthPage />} />
           <Route path="/health/water" element={<WaterPage />} />
+          <Route path="/health/habits" element={<HabitsPage />} />
           <Route path="/more" element={<MorePage />} />
           <Route path="/more/:groupId" element={<MoreGroupPage />} />
         </Route>

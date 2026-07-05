@@ -384,6 +384,30 @@
     "streak_empty": "No streak yet",
     "streak_hint": "Days in a row you hit your goal"
   },
+  "habits": {
+    "title": "Habits",
+    "card_subtitle": "Small daily check-ins",
+    "today": "Today",
+    "add": "Add habit",
+    "new": "New habit",
+    "edit": "Edit habit",
+    "delete": "Delete",
+    "delete_confirm": "Delete this habit and its history?",
+    "name": "Name",
+    "name_placeholder": "e.g. Read 10 pages",
+    "icon": "Icon",
+    "color": "Color",
+    "save": "Save",
+    "cancel": "Cancel",
+    "mark_done": "Mark done",
+    "mark_undone": "Mark not done",
+    "weekly": "This week",
+    "streak_none": "No streak yet",
+    "empty": "No habits yet",
+    "empty_hint": "Create your first habit and start a streak.",
+    "streak_days_one": "{{count}} day in a row",
+    "streak_days_other": "{{count}} days in a row"
+  },
   "health": {
     "subtitle": "Water is live — more modules soon",
     "modules": {

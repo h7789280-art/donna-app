@@ -16,6 +16,52 @@ function WaterIcon() {
   )
 }
 
+function HabitsIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+      <path
+        d="M4 11.5 8.5 16 18 5.5"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+// A live health module: colored icon tile + title + subtitle + chevron.
+function LiveModuleCard({ to, icon, title, subtitle }) {
+  return (
+    <Link to={to} className="block mb-3">
+      <Card className="p-4 flex items-center gap-4 hover:bg-card-alt transition-colors cursor-pointer">
+        <span className="shrink-0 h-11 w-11 rounded-xl bg-accent text-accent-ink flex items-center justify-center">
+          {icon}
+        </span>
+        <div className="min-w-0 flex-1">
+          <h2 className="font-sans text-md font-medium text-ink">{title}</h2>
+          <p className="font-sans text-sm text-ink-soft mt-0.5">{subtitle}</p>
+        </div>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          className="text-ink-muted shrink-0"
+        >
+          <path
+            d="M6 3.5 10.5 8 6 12.5"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </Card>
+    </Link>
+  )
+}
+
 export default function HealthPage() {
   const { t } = useTranslation()
   return (
@@ -28,37 +74,19 @@ export default function HealthPage() {
           {t('health.subtitle')}
         </p>
 
-        {/* Live module: Water */}
-        <Link to="/health/water" className="block mb-3">
-          <Card className="p-4 flex items-center gap-4 hover:bg-card-alt transition-colors cursor-pointer">
-            <span className="shrink-0 h-11 w-11 rounded-xl bg-accent text-accent-ink flex items-center justify-center">
-              <WaterIcon />
-            </span>
-            <div className="min-w-0 flex-1">
-              <h2 className="font-sans text-md font-medium text-ink">
-                {t('water.title')}
-              </h2>
-              <p className="font-sans text-sm text-ink-soft mt-0.5">
-                {t('water.card_subtitle')}
-              </p>
-            </div>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              className="text-ink-muted shrink-0"
-            >
-              <path
-                d="M6 3.5 10.5 8 6 12.5"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Card>
-        </Link>
+        {/* Live modules */}
+        <LiveModuleCard
+          to="/health/water"
+          icon={<WaterIcon />}
+          title={t('water.title')}
+          subtitle={t('water.card_subtitle')}
+        />
+        <LiveModuleCard
+          to="/health/habits"
+          icon={<HabitsIcon />}
+          title={t('habits.title')}
+          subtitle={t('habits.card_subtitle')}
+        />
 
         {/* Coming soon */}
         <div className="grid grid-cols-2 gap-3">

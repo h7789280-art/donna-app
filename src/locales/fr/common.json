@@ -383,6 +383,31 @@
     "streak_empty": "Pas encore de série",
     "streak_hint": "Jours consécutifs avec l'objectif atteint"
   },
+  "habits": {
+    "title": "Habitudes",
+    "card_subtitle": "De petits gestes quotidiens",
+    "today": "Aujourd'hui",
+    "add": "Ajouter une habitude",
+    "new": "Nouvelle habitude",
+    "edit": "Modifier l'habitude",
+    "delete": "Supprimer",
+    "delete_confirm": "Supprimer cette habitude et son historique ?",
+    "name": "Nom",
+    "name_placeholder": "ex. Lire 10 pages",
+    "icon": "Icône",
+    "color": "Couleur",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "mark_done": "Marquer comme fait",
+    "mark_undone": "Retirer la marque",
+    "weekly": "Cette semaine",
+    "streak_none": "Pas encore de série",
+    "empty": "Pas encore d'habitudes",
+    "empty_hint": "Crée ta première habitude et lance une série.",
+    "streak_days_one": "{{count}} jour d'affilée",
+    "streak_days_many": "{{count}} jours d'affilée",
+    "streak_days_other": "{{count}} jours d'affilée"
+  },
   "health": {
     "subtitle": "L'eau est active — d'autres modules bientôt",
     "modules": {

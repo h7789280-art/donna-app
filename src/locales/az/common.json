@@ -380,6 +380,30 @@
     "streak_empty": "Hələ ardıcıllıq yoxdur",
     "streak_hint": "Hədəfə çatdığın ardıcıl günlər"
   },
+  "habits": {
+    "title": "Vərdişlər",
+    "card_subtitle": "Kiçik gündəlik qeydlər",
+    "today": "Bu gün",
+    "add": "Vərdiş əlavə et",
+    "new": "Yeni vərdiş",
+    "edit": "Vərdişi redaktə et",
+    "delete": "Sil",
+    "delete_confirm": "Bu vərdiş və onun tarixçəsi silinsin?",
+    "name": "Ad",
+    "name_placeholder": "məs. 10 səhifə oxu",
+    "icon": "İkon",
+    "color": "Rəng",
+    "save": "Yadda saxla",
+    "cancel": "Ləğv et",
+    "mark_done": "Edildi kimi işarələ",
+    "mark_undone": "İşarəni götür",
+    "weekly": "Bu həftə",
+    "streak_none": "Hələ seriya yoxdur",
+    "empty": "Hələ vərdiş yoxdur",
+    "empty_hint": "İlk vərdişini yarat və seriyaya başla.",
+    "streak_days_one": "ardıcıl {{count}} gün",
+    "streak_days_other": "ardıcıl {{count}} gün"
+  },
   "health": {
     "subtitle": "Su aktivdir — digər modullar tezliklə",
     "modules": {

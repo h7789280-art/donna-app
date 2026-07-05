@@ -380,6 +380,30 @@
     "streak_empty": "Henüz seri yok",
     "streak_hint": "Hedefe ulaştığın ardışık günler"
   },
+  "habits": {
+    "title": "Alışkanlıklar",
+    "card_subtitle": "Küçük günlük işaretlemeler",
+    "today": "Bugün",
+    "add": "Alışkanlık ekle",
+    "new": "Yeni alışkanlık",
+    "edit": "Alışkanlığı düzenle",
+    "delete": "Sil",
+    "delete_confirm": "Bu alışkanlık ve geçmişi silinsin mi?",
+    "name": "Ad",
+    "name_placeholder": "örn. 10 sayfa oku",
+    "icon": "Simge",
+    "color": "Renk",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "mark_done": "Yapıldı olarak işaretle",
+    "mark_undone": "İşareti kaldır",
+    "weekly": "Bu hafta",
+    "streak_none": "Henüz seri yok",
+    "empty": "Henüz alışkanlık yok",
+    "empty_hint": "İlk alışkanlığını oluştur ve seriye başla.",
+    "streak_days_one": "üst üste {{count}} gün",
+    "streak_days_other": "üst üste {{count}} gün"
+  },
   "health": {
     "subtitle": "Su yayında — diğer modüller yakında",
     "modules": {

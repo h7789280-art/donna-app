@@ -383,6 +383,31 @@
     "streak_empty": "Aún sin racha",
     "streak_hint": "Días seguidos cumpliendo la meta"
   },
+  "habits": {
+    "title": "Hábitos",
+    "card_subtitle": "Pequeñas marcas diarias",
+    "today": "Hoy",
+    "add": "Añadir hábito",
+    "new": "Nuevo hábito",
+    "edit": "Editar hábito",
+    "delete": "Eliminar",
+    "delete_confirm": "¿Eliminar este hábito y su historial?",
+    "name": "Nombre",
+    "name_placeholder": "p. ej. Leer 10 páginas",
+    "icon": "Icono",
+    "color": "Color",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "mark_done": "Marcar como hecho",
+    "mark_undone": "Quitar la marca",
+    "weekly": "Esta semana",
+    "streak_none": "Aún sin racha",
+    "empty": "Aún no hay hábitos",
+    "empty_hint": "Crea tu primer hábito y empieza una racha.",
+    "streak_days_one": "{{count}} día seguido",
+    "streak_days_many": "{{count}} días seguidos",
+    "streak_days_other": "{{count}} días seguidos"
+  },
   "health": {
     "subtitle": "El agua ya está activa — más módulos pronto",
     "modules": {

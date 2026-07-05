@@ -380,6 +380,30 @@
     "streak_empty": "Hozircha ketma-ketlik yoʻq",
     "streak_hint": "Maqsadga erishilgan ketma-ket kunlar"
   },
+  "habits": {
+    "title": "Odatlar",
+    "card_subtitle": "Kichik kunlik belgilar",
+    "today": "Bugun",
+    "add": "Odat qo'shish",
+    "new": "Yangi odat",
+    "edit": "Odatni tahrirlash",
+    "delete": "O'chirish",
+    "delete_confirm": "Bu odat va uning tarixi o'chirilsinmi?",
+    "name": "Nomi",
+    "name_placeholder": "mas. 10 bet o'qish",
+    "icon": "Belgi",
+    "color": "Rang",
+    "save": "Saqlash",
+    "cancel": "Bekor qilish",
+    "mark_done": "Bajarildi deb belgilash",
+    "mark_undone": "Belgini olib tashlash",
+    "weekly": "Shu hafta",
+    "streak_none": "Hozircha seriya yo'q",
+    "empty": "Hozircha odatlar yo'q",
+    "empty_hint": "Birinchi odatingizni yarating va seriyani boshlang.",
+    "streak_days_one": "ketma-ket {{count}} kun",
+    "streak_days_other": "ketma-ket {{count}} kun"
+  },
   "health": {
     "subtitle": "Suv ishga tushdi — boshqa modullar tez orada",
     "modules": {

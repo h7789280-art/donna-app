@@ -383,6 +383,31 @@
     "streak_empty": "Ainda sem sequência",
     "streak_hint": "Dias seguidos cumprindo a meta"
   },
+  "habits": {
+    "title": "Hábitos",
+    "card_subtitle": "Pequenas marcações diárias",
+    "today": "Hoje",
+    "add": "Adicionar hábito",
+    "new": "Novo hábito",
+    "edit": "Editar hábito",
+    "delete": "Excluir",
+    "delete_confirm": "Excluir este hábito e o seu histórico?",
+    "name": "Nome",
+    "name_placeholder": "ex. Ler 10 páginas",
+    "icon": "Ícone",
+    "color": "Cor",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "mark_done": "Marcar como feito",
+    "mark_undone": "Remover a marca",
+    "weekly": "Esta semana",
+    "streak_none": "Ainda sem sequência",
+    "empty": "Ainda sem hábitos",
+    "empty_hint": "Crie o seu primeiro hábito e comece uma sequência.",
+    "streak_days_one": "{{count}} dia seguido",
+    "streak_days_many": "{{count}} dias seguidos",
+    "streak_days_other": "{{count}} dias seguidos"
+  },
   "health": {
     "subtitle": "A água já está ativa — mais módulos em breve",
     "modules": {

@@ -380,6 +380,30 @@
     "streak_empty": "Noch keine Serie",
     "streak_hint": "Tage in Folge mit erreichtem Ziel"
   },
+  "habits": {
+    "title": "Gewohnheiten",
+    "card_subtitle": "Kleine tägliche Häkchen",
+    "today": "Heute",
+    "add": "Gewohnheit hinzufügen",
+    "new": "Neue Gewohnheit",
+    "edit": "Gewohnheit bearbeiten",
+    "delete": "Löschen",
+    "delete_confirm": "Diese Gewohnheit samt Verlauf löschen?",
+    "name": "Name",
+    "name_placeholder": "z. B. 10 Seiten lesen",
+    "icon": "Symbol",
+    "color": "Farbe",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "mark_done": "Als erledigt markieren",
+    "mark_undone": "Markierung entfernen",
+    "weekly": "Diese Woche",
+    "streak_none": "Noch keine Serie",
+    "empty": "Noch keine Gewohnheiten",
+    "empty_hint": "Erstelle deine erste Gewohnheit und starte eine Serie.",
+    "streak_days_one": "{{count}} Tag in Folge",
+    "streak_days_other": "{{count}} Tage in Folge"
+  },
   "health": {
     "subtitle": "Wasser ist live — weitere Module bald",
     "modules": {
