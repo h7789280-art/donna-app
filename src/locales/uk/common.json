@@ -293,7 +293,15 @@
     "years_old_one": "{{count}} рік",
     "years_old_few": "{{count}} роки",
     "years_old_many": "{{count}} років",
-    "years_old_other": "{{count}} років"
+    "years_old_other": "{{count}} років",
+    "widgets": {
+      "water": "Вода сьогодні",
+      "habits": "Звички",
+      "habits_empty": "Поки немає звичок",
+      "none": "Додай віджети — увімкни «На Головну» у Воді чи Звичках."
+    },
+    "pin_to_home": "На Головну",
+    "unpin_from_home": "Прибрати з Головної"
   },
   "more": {
     "subtitle": "Усі модулі Донни — карта застосунку",

@@ -297,7 +297,15 @@
     "years_old_one": "{{count}} год",
     "years_old_few": "{{count}} года",
     "years_old_many": "{{count}} лет",
-    "years_old_other": "{{count}} лет"
+    "years_old_other": "{{count}} лет",
+    "widgets": {
+      "water": "Вода сегодня",
+      "habits": "Привычки",
+      "habits_empty": "Пока нет привычек",
+      "none": "Добавь виджеты — включи «На Главную» в Воде или Привычках."
+    },
+    "pin_to_home": "На Главную",
+    "unpin_from_home": "Убрать с Главной"
   },
   "more": {
     "subtitle": "Все модули Донны — карта приложения",

@@ -287,7 +287,15 @@
     "donna_insight_placeholder_sassy": "Ich beobachte noch deine Muster. Gib mir eine Woche — dann kenne ich dich besser als du dich selbst.",
     "logout": "Abmelden",
     "years_old_one": "{{count}} Jahr",
-    "years_old_other": "{{count}} Jahre"
+    "years_old_other": "{{count}} Jahre",
+    "widgets": {
+      "water": "Wasser heute",
+      "habits": "Gewohnheiten",
+      "habits_empty": "Noch keine Gewohnheiten",
+      "none": "Widgets hinzufügen — aktiviere „Auf Startseite“ in Wasser oder Gewohnheiten."
+    },
+    "pin_to_home": "Auf Startseite",
+    "unpin_from_home": "Von Startseite entfernen"
   },
   "more": {
     "subtitle": "Alle Module von Donna — die App-Übersicht",

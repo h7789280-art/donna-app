@@ -287,7 +287,15 @@
     "donna_insight_placeholder_sassy": "Şimdilik alışkanlıklarını izliyorum. Bir hafta ver bana — seni senden daha iyi tanıyacağım.",
     "logout": "Çıkış yap",
     "years_old_one": "{{count}} yaşında",
-    "years_old_other": "{{count}} yaşında"
+    "years_old_other": "{{count}} yaşında",
+    "widgets": {
+      "water": "Bugün su",
+      "habits": "Alışkanlıklar",
+      "habits_empty": "Henüz alışkanlık yok",
+      "none": "Widget ekle — Su veya Alışkanlıklar’da “Ana ekrana”yı aç."
+    },
+    "pin_to_home": "Ana ekrana",
+    "unpin_from_home": "Ana ekrandan kaldır"
   },
   "more": {
     "subtitle": "Donna'nın tüm modülleri — uygulama haritası",

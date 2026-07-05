@@ -1,14 +1,14 @@
 import { useMemo } from 'react'
 import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '../../contexts/AuthContext'
 import Card from '../../components/ui/Card'
 import WidgetHeader from '../../components/ui/WidgetHeader'
 import ChildCard from '../../components/ui/ChildCard'
 import { useChildren } from '../../hooks/useChildren'
-import { useWaterToday } from '../../hooks/useWaterToday'
 import { useDailyQuote } from '../../hooks/useDailyQuote'
+import { useDashboardConfig } from '../../hooks/useDashboardConfig'
+import { WIDGET_MAP } from '../../widgets/registry'
 
 function getTimeOfDay(timezone) {
   const now = new Date()
@@ -57,7 +57,6 @@ const stagger = {
 export default function DashboardPage() {
   const { user, profile, signOut } = useAuth()
   const { t, i18n } = useTranslation()
-  const navigate = useNavigate()
 
   const displayName = profile?.name || (user?.email ? user.email.split('@')[0] : '')
   const initial = (displayName || '?').slice(0, 1).toUpperCase()
@@ -66,8 +65,14 @@ export default function DashboardPage() {
   const dateLabel = useMemo(() => formatDateUppercase(i18n.language), [i18n.language])
 
   const { children } = useChildren(user?.id)
-  const { cups, goal, adding, add } = useWaterToday()
   const { quote } = useDailyQuote(user?.id)
+  const { widgets } = useDashboardConfig()
+
+  // Render only enabled widgets that exist in the registry, in config order.
+  const enabledWidgets = useMemo(
+    () => widgets.map((key) => WIDGET_MAP[key]).filter(Boolean),
+    [widgets],
+  )
 
   const greetingRaw = t(`dashboard.greeting_${timeOfDay}_sassy`, { name: displayName })
   const [greetLead, greetHighlight] = greetingRaw.includes('|')
@@ -169,51 +174,20 @@ export default function DashboardPage() {
             </motion.section>
           )}
 
-          {/* Widget 3: Water */}
-          <motion.section variants={fadeIn}>
-            <WidgetHeader className="mb-3">{t('dashboard.water_label')}</WidgetHeader>
-            <Card
-              onClick={() => navigate('/health/water')}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault()
-                  navigate('/health/water')
-                }
-              }}
-              className="p-5 flex items-center justify-between hover:bg-card-alt transition-colors cursor-pointer"
-            >
-              <div>
-                <div className="font-serif text-2xl leading-none">
-                  <span className="text-accent">{cups}</span>
-                  <span className="text-ink-muted"> / {goal}</span>
-                </div>
-                <div className="font-sans text-xs text-ink-muted mt-1.5">
-                  {t('dashboard.water_subtitle')}
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  add()
-                }}
-                disabled={adding}
-                aria-label={t('dashboard.water_add_aria')}
-                className="w-12 h-12 rounded-full bg-accent text-accent-ink flex items-center justify-center shadow-card hover:opacity-90 active:scale-95 transition disabled:opacity-60"
-              >
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path
-                    d="M9 3.5v11M3.5 9h11"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </button>
-            </Card>
-          </motion.section>
+          {/* Customizable module widgets (from profiles.dashboard_config,
+              rendered via the widget registry in config order). Empty ⇒ a
+              soft hint pointing to the "Pin to home" toggle in modules. */}
+          {enabledWidgets.length > 0 ? (
+            enabledWidgets.map(({ key, Component }) => <Component key={key} />)
+          ) : (
+            <motion.section variants={fadeIn}>
+              <Card className="p-5 border-dashed">
+                <p className="font-sans text-sm text-ink-muted text-center leading-relaxed">
+                  {t('dashboard.widgets.none')}
+                </p>
+              </Card>
+            </motion.section>
+          )}
 
           {/* Widget 4: Quote */}
           <motion.section variants={fadeIn}>

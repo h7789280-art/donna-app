@@ -291,7 +291,15 @@
     "donna_insight_placeholder_sassy": "I'm still reading your patterns. Give me a week — I'll know you better than you know yourself.",
     "logout": "Sign out",
     "years_old_one": "{{count}} year",
-    "years_old_other": "{{count}} years"
+    "years_old_other": "{{count}} years",
+    "widgets": {
+      "water": "Water today",
+      "habits": "Habits",
+      "habits_empty": "No habits yet",
+      "none": "Add widgets — turn on “Pin to home” in Water or Habits."
+    },
+    "pin_to_home": "Pin to home",
+    "unpin_from_home": "Remove from home"
   },
   "more": {
     "subtitle": "All of Donna's modules — a map of the app",

@@ -289,7 +289,15 @@
     "logout": "Esci",
     "years_old_one": "{{count}} anno",
     "years_old_many": "{{count}} anni",
-    "years_old_other": "{{count}} anni"
+    "years_old_other": "{{count}} anni",
+    "widgets": {
+      "water": "Acqua oggi",
+      "habits": "Abitudini",
+      "habits_empty": "Ancora nessuna abitudine",
+      "none": "Aggiungi widget — attiva «In home» in Acqua o Abitudini."
+    },
+    "pin_to_home": "In home",
+    "unpin_from_home": "Rimuovi dalla home"
   },
   "more": {
     "subtitle": "Tutti i moduli di Donna — la mappa dell'app",

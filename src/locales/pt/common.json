@@ -289,7 +289,15 @@
     "logout": "Sair",
     "years_old_one": "{{count}} ano",
     "years_old_many": "{{count}} anos",
-    "years_old_other": "{{count}} anos"
+    "years_old_other": "{{count}} anos",
+    "widgets": {
+      "water": "Água hoje",
+      "habits": "Hábitos",
+      "habits_empty": "Ainda sem hábitos",
+      "none": "Adiciona widgets — ativa “Na página inicial” em Água ou Hábitos."
+    },
+    "pin_to_home": "Na inicial",
+    "unpin_from_home": "Remover da inicial"
   },
   "more": {
     "subtitle": "Todos os módulos da Donna — o mapa do app",

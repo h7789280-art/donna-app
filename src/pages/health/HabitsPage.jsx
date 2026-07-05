@@ -7,6 +7,7 @@ import Button from '../../components/ui/Button'
 import Modal from '../../components/ui/Modal'
 import WidgetHeader from '../../components/ui/WidgetHeader'
 import HabitIcon, { HABIT_ICON_KEYS } from '../../components/habits/HabitIcon'
+import PinToggle from '../../components/dashboard/PinToggle'
 import { useHabits, HABIT_COLORS, DEFAULT_COLOR } from '../../hooks/useHabits'
 
 const fadeIn = {
@@ -344,11 +345,12 @@ export default function HabitsPage() {
               />
             </svg>
           </button>
-          <div className="flex-1">
+          <div className="flex-1 min-w-0">
             <h1 className="font-serif italic text-3xl leading-none text-ink">
               {t('habits.title')}
             </h1>
           </div>
+          <PinToggle widgetKey="habits" />
         </motion.div>
 
         {loading && habits.length === 0 ? (

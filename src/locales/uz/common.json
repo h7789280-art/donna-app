@@ -287,7 +287,15 @@
     "donna_insight_placeholder_sassy": "Hozircha odatlaringni o'rganyapman. Menga bir hafta ber — seni o'zingdan ko'ra yaxshiroq bilaman.",
     "logout": "Chiqish",
     "years_old_one": "{{count}} yosh",
-    "years_old_other": "{{count}} yosh"
+    "years_old_other": "{{count}} yosh",
+    "widgets": {
+      "water": "Bugun suv",
+      "habits": "Odatlar",
+      "habits_empty": "Hozircha odatlar yo‘q",
+      "none": "Vidjet qo‘sh — Suv yoki Odatlarda “Bosh sahifaga”ni yoqing."
+    },
+    "pin_to_home": "Bosh sahifaga",
+    "unpin_from_home": "Bosh sahifadan olib tashlash"
   },
   "more": {
     "subtitle": "Donnaning barcha modullari — ilova xaritasi",

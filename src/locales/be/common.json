@@ -293,7 +293,15 @@
     "years_old_one": "{{count}} год",
     "years_old_few": "{{count}} гады",
     "years_old_many": "{{count}} гадоў",
-    "years_old_other": "{{count}} гадоў"
+    "years_old_other": "{{count}} гадоў",
+    "widgets": {
+      "water": "Вада сёння",
+      "habits": "Звычкі",
+      "habits_empty": "Пакуль няма звычак",
+      "none": "Дадай віджэты — уключы «На Галоўную» ў Вадзе ці Звычках."
+    },
+    "pin_to_home": "На Галоўную",
+    "unpin_from_home": "Прыбраць з Галоўнай"
   },
   "more": {
     "subtitle": "Усе модулі Донны — карта дадатку",

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import Card from '../../components/ui/Card'
 import WidgetHeader from '../../components/ui/WidgetHeader'
+import PinToggle from '../../components/dashboard/PinToggle'
 import { useWaterToday } from '../../hooks/useWaterToday'
 
 const fadeIn = {
@@ -123,11 +124,12 @@ export default function WaterPage() {
               />
             </svg>
           </button>
-          <div>
+          <div className="flex-1 min-w-0">
             <h1 className="font-serif italic text-3xl leading-none text-ink">
               {t('water.title')}
             </h1>
           </div>
+          <PinToggle widgetKey="water" />
         </motion.div>
 
         {/* Counter + glasses */}

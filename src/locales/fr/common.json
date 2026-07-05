@@ -289,7 +289,15 @@
     "logout": "Se déconnecter",
     "years_old_one": "{{count}} an",
     "years_old_many": "{{count}} ans",
-    "years_old_other": "{{count}} ans"
+    "years_old_other": "{{count}} ans",
+    "widgets": {
+      "water": "Eau aujourd’hui",
+      "habits": "Habitudes",
+      "habits_empty": "Pas encore d’habitudes",
+      "none": "Ajoute des widgets — active « Sur l’accueil » dans Eau ou Habitudes."
+    },
+    "pin_to_home": "Sur l’accueil",
+    "unpin_from_home": "Retirer de l’accueil"
   },
   "more": {
     "subtitle": "Tous les modules de Donna — la carte de l'appli",
