@@ -292,7 +292,8 @@
       "water": "Bugün su",
       "habits": "Alışkanlıklar",
       "habits_empty": "Henüz alışkanlık yok",
-      "none": "Widget ekle — Su veya Alışkanlıklar’da “Ana ekrana”yı aç."
+      "none": "Widget ekle — Su veya Alışkanlıklar’da “Ana ekrana”yı aç.",
+      "habits_summary": "bugün tamamlandı"
     },
     "pin_to_home": "Ana ekrana",
     "unpin_from_home": "Ana ekrandan kaldır"

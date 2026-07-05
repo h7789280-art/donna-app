@@ -292,7 +292,8 @@
       "water": "Wasser heute",
       "habits": "Gewohnheiten",
       "habits_empty": "Noch keine Gewohnheiten",
-      "none": "Widgets hinzufügen — aktiviere „Auf Startseite“ in Wasser oder Gewohnheiten."
+      "none": "Widgets hinzufügen — aktiviere „Auf Startseite“ in Wasser oder Gewohnheiten.",
+      "habits_summary": "heute erledigt"
     },
     "pin_to_home": "Auf Startseite",
     "unpin_from_home": "Von Startseite entfernen"

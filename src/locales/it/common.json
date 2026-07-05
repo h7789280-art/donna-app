@@ -294,7 +294,8 @@
       "water": "Acqua oggi",
       "habits": "Abitudini",
       "habits_empty": "Ancora nessuna abitudine",
-      "none": "Aggiungi widget — attiva «In home» in Acqua o Abitudini."
+      "none": "Aggiungi widget — attiva «In home» in Acqua o Abitudini.",
+      "habits_summary": "fatto oggi"
     },
     "pin_to_home": "In home",
     "unpin_from_home": "Rimuovi dalla home"

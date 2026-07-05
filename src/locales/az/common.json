@@ -292,7 +292,8 @@
       "water": "Bu gün su",
       "habits": "Vərdişlər",
       "habits_empty": "Hələ vərdiş yoxdur",
-      "none": "Vidjet əlavə et — Su və ya Vərdişlərdə “Ana səhifəyə”ni aç."
+      "none": "Vidjet əlavə et — Su və ya Vərdişlərdə “Ana səhifəyə”ni aç.",
+      "habits_summary": "bu gün tamamlandı"
     },
     "pin_to_home": "Ana səhifəyə",
     "unpin_from_home": "Ana səhifədən çıxar"

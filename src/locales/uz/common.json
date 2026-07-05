@@ -292,7 +292,8 @@
       "water": "Bugun suv",
       "habits": "Odatlar",
       "habits_empty": "Hozircha odatlar yo‘q",
-      "none": "Vidjet qo‘sh — Suv yoki Odatlarda “Bosh sahifaga”ni yoqing."
+      "none": "Vidjet qo‘sh — Suv yoki Odatlarda “Bosh sahifaga”ni yoqing.",
+      "habits_summary": "bugun bajarildi"
     },
     "pin_to_home": "Bosh sahifaga",
     "unpin_from_home": "Bosh sahifadan olib tashlash"

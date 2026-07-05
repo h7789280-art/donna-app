@@ -294,7 +294,8 @@
       "water": "Eau aujourd’hui",
       "habits": "Habitudes",
       "habits_empty": "Pas encore d’habitudes",
-      "none": "Ajoute des widgets — active « Sur l’accueil » dans Eau ou Habitudes."
+      "none": "Ajoute des widgets — active « Sur l’accueil » dans Eau ou Habitudes.",
+      "habits_summary": "fait aujourd'hui"
     },
     "pin_to_home": "Sur l’accueil",
     "unpin_from_home": "Retirer de l’accueil"

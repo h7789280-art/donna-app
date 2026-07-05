@@ -296,7 +296,8 @@
       "water": "Water today",
       "habits": "Habits",
       "habits_empty": "No habits yet",
-      "none": "Add widgets — turn on “Pin to home” in Water or Habits."
+      "none": "Add widgets — turn on “Pin to home” in Water or Habits.",
+      "habits_summary": "done today"
     },
     "pin_to_home": "Pin to home",
     "unpin_from_home": "Remove from home"

@@ -294,7 +294,8 @@
       "water": "Água hoje",
       "habits": "Hábitos",
       "habits_empty": "Ainda sem hábitos",
-      "none": "Adiciona widgets — ativa “Na página inicial” em Água ou Hábitos."
+      "none": "Adiciona widgets — ativa “Na página inicial” em Água ou Hábitos.",
+      "habits_summary": "feito hoje"
     },
     "pin_to_home": "Na inicial",
     "unpin_from_home": "Remover da inicial"
