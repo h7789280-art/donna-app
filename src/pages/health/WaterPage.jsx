@@ -57,7 +57,7 @@ export default function WaterPage() {
   const { cups, goal, weekly, loading, adding, add, removeCup, setGoal } =
     useWaterToday()
 
-  const todayIso = weekly.length ? weekly[weekly.length - 1].log_date : null
+  const todayIso = weekly.length ? weekly[weekly.length - 1].date : null
 
   const percent = goal > 0 ? Math.min(100, Math.round((cups / goal) * 100)) : 0
   const reached = cups >= goal && goal > 0
@@ -254,12 +254,12 @@ export default function WaterPage() {
               <>
                 <div className="flex items-end justify-between gap-2 h-28">
                   {weekly.map((w) => {
-                    const isToday = w.log_date === todayIso
+                    const isToday = w.date === todayIso
                     const h = Math.max(8, Math.round((w.glasses / weekMax) * 100))
                     const hit = w.glasses >= goal
                     return (
                       <div
-                        key={w.log_date}
+                        key={w.date}
                         className="flex-1 flex flex-col items-center gap-2 h-full justify-end"
                       >
                         <span className="font-mono text-[10px] text-ink-muted">
@@ -282,7 +282,7 @@ export default function WaterPage() {
                             isToday ? 'text-accent' : 'text-ink-muted'
                           }`}
                         >
-                          {weekdayInitial(w.log_date, i18n.language)}
+                          {weekdayInitial(w.date, i18n.language)}
                         </span>
                       </div>
                     )
