@@ -358,5 +358,35 @@
     "ui_demo_modal_title": "Beispiel-Modal",
     "ui_demo_modal_body": "Dies ist ein modales Fenster aus dem UI-Kit.",
     "ui_demo_toast_msg": "Fertig — das ist ein Toast."
+  },
+  "water": {
+    "title": "Wasser",
+    "card_subtitle": "Verfolge deine Gläser heute",
+    "glasses": "Gläser",
+    "goal": "Tagesziel",
+    "goal_hint": "Gläser pro Tag",
+    "goal_reached": "Ziel erreicht",
+    "goal_increase": "Ziel erhöhen",
+    "goal_decrease": "Ziel verringern",
+    "add": "Glas hinzufügen",
+    "remove": "Glas entfernen",
+    "weekly": "Diese Woche",
+    "average": "Durchschnitt",
+    "per_day": "pro Tag",
+    "streak": "Serie",
+    "streak_days_one": "{{count}} Tag in Folge",
+    "streak_days_other": "{{count}} Tage in Folge",
+    "streak_empty": "Noch keine Serie",
+    "streak_hint": "Tage in Folge mit erreichtem Ziel"
+  },
+  "health": {
+    "subtitle": "Wasser ist live — weitere Module bald",
+    "modules": {
+      "vitamins": "Vitamine",
+      "energy": "Energie",
+      "sleep": "Schlaf",
+      "cycle": "Zyklus",
+      "mood": "Stimmung"
+    }
   }
 }

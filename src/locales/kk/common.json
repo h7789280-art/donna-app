@@ -358,5 +358,35 @@
     "ui_demo_modal_title": "Модаль үлгісі",
     "ui_demo_modal_body": "Бұл — UI-жинақтан алынған модаль терезе.",
     "ui_demo_toast_msg": "Дайын — бұл тост."
+  },
+  "water": {
+    "title": "Су",
+    "card_subtitle": "Бүгін ішкен стакандарыңды қадағала",
+    "glasses": "стакан",
+    "goal": "Күнделікті мақсат",
+    "goal_hint": "Күніне стакан",
+    "goal_reached": "Мақсатқа жеттің",
+    "goal_increase": "Мақсатты арттыру",
+    "goal_decrease": "Мақсатты азайту",
+    "add": "Стакан қосу",
+    "remove": "Стаканды алу",
+    "weekly": "Апта бойы",
+    "average": "Орташа",
+    "per_day": "күніне",
+    "streak": "Тізбек",
+    "streak_days_one": "қатарынан {{count}} күн",
+    "streak_days_other": "қатарынан {{count}} күн",
+    "streak_empty": "Әзірге тізбек жоқ",
+    "streak_hint": "Мақсатқа жеткен қатарынан күндер"
+  },
+  "health": {
+    "subtitle": "Су қосылды — басқа модульдер жақында",
+    "modules": {
+      "vitamins": "Дәрумендер",
+      "energy": "Қуат",
+      "sleep": "Ұйқы",
+      "cycle": "Цикл",
+      "mood": "Көңіл-күй"
+    }
   }
 }

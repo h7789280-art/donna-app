@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '../../contexts/AuthContext'
 import Card from '../../components/ui/Card'
@@ -56,6 +57,7 @@ const stagger = {
 export default function DashboardPage() {
   const { user, profile, signOut } = useAuth()
   const { t, i18n } = useTranslation()
+  const navigate = useNavigate()
 
   const displayName = profile?.name || (user?.email ? user.email.split('@')[0] : '')
   const initial = (displayName || '?').slice(0, 1).toUpperCase()
@@ -170,7 +172,18 @@ export default function DashboardPage() {
           {/* Widget 3: Water */}
           <motion.section variants={fadeIn}>
             <WidgetHeader className="mb-3">{t('dashboard.water_label')}</WidgetHeader>
-            <Card className="p-5 flex items-center justify-between">
+            <Card
+              onClick={() => navigate('/health/water')}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  navigate('/health/water')
+                }
+              }}
+              className="p-5 flex items-center justify-between hover:bg-card-alt transition-colors cursor-pointer"
+            >
               <div>
                 <div className="font-serif text-2xl leading-none">
                   <span className="text-accent">{cups}</span>
@@ -182,7 +195,10 @@ export default function DashboardPage() {
               </div>
               <button
                 type="button"
-                onClick={add}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  add()
+                }}
                 disabled={adding}
                 aria-label={t('dashboard.water_add_aria')}
                 className="w-12 h-12 rounded-full bg-accent text-accent-ink flex items-center justify-center shadow-card hover:opacity-90 active:scale-95 transition disabled:opacity-60"

@@ -368,5 +368,37 @@
     "ui_demo_modal_title": "Пример модалки",
     "ui_demo_modal_body": "Это модальное окно из UI-кита.",
     "ui_demo_toast_msg": "Готово — это тост."
+  },
+  "water": {
+    "title": "Вода",
+    "card_subtitle": "Следи за стаканами воды сегодня",
+    "glasses": "стаканов",
+    "goal": "Дневная цель",
+    "goal_hint": "Стаканов в день",
+    "goal_reached": "Цель достигнута",
+    "goal_increase": "Увеличить цель",
+    "goal_decrease": "Уменьшить цель",
+    "add": "Добавить стакан",
+    "remove": "Убрать стакан",
+    "weekly": "За неделю",
+    "average": "В среднем",
+    "per_day": "в день",
+    "streak": "Серия",
+    "streak_days_one": "{{count}} день подряд",
+    "streak_days_few": "{{count}} дня подряд",
+    "streak_days_many": "{{count}} дней подряд",
+    "streak_days_other": "{{count}} дней подряд",
+    "streak_empty": "Пока без серии",
+    "streak_hint": "Дней подряд с достигнутой целью"
+  },
+  "health": {
+    "subtitle": "Вода уже работает — остальные модули скоро",
+    "modules": {
+      "vitamins": "Витамины",
+      "energy": "Энергия",
+      "sleep": "Сон",
+      "cycle": "Цикл",
+      "mood": "Настроение"
+    }
   }
 }

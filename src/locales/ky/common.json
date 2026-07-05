@@ -358,5 +358,35 @@
     "ui_demo_modal_title": "Модал үлгүсү",
     "ui_demo_modal_body": "Бул — UI топтомундагы модал терезе.",
     "ui_demo_toast_msg": "Даяр — бул тост."
+  },
+  "water": {
+    "title": "Суу",
+    "card_subtitle": "Бүгүнкү стакандарыңды көзөмөлдө",
+    "glasses": "стакан",
+    "goal": "Күнүмдүк максат",
+    "goal_hint": "Күнүнө стакан",
+    "goal_reached": "Максатка жетти",
+    "goal_increase": "Максатты көбөйтүү",
+    "goal_decrease": "Максатты азайтуу",
+    "add": "Стакан кошуу",
+    "remove": "Стаканды алып салуу",
+    "weekly": "Бул жума",
+    "average": "Орточо",
+    "per_day": "күнүнө",
+    "streak": "Тизмек",
+    "streak_days_one": "катары менен {{count}} күн",
+    "streak_days_other": "катары менен {{count}} күн",
+    "streak_empty": "Азырынча тизмек жок",
+    "streak_hint": "Максатка жеткен катар күндөр"
+  },
+  "health": {
+    "subtitle": "Суу иштеп жатат — башка модулдар жакында",
+    "modules": {
+      "vitamins": "Витаминдер",
+      "energy": "Энергия",
+      "sleep": "Уйку",
+      "cycle": "Цикл",
+      "mood": "Маанай"
+    }
   }
 }

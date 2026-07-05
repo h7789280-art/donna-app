@@ -362,5 +362,35 @@
     "ui_demo_modal_title": "Sample modal",
     "ui_demo_modal_body": "This is a modal window from the UI kit.",
     "ui_demo_toast_msg": "Done — this is a toast."
+  },
+  "water": {
+    "title": "Water",
+    "card_subtitle": "Track your glasses today",
+    "glasses": "glasses",
+    "goal": "Daily goal",
+    "goal_hint": "Glasses per day",
+    "goal_reached": "Goal reached",
+    "goal_increase": "Increase goal",
+    "goal_decrease": "Decrease goal",
+    "add": "Add a glass",
+    "remove": "Remove a glass",
+    "weekly": "This week",
+    "average": "Average",
+    "per_day": "per day",
+    "streak": "Streak",
+    "streak_days_one": "{{count}} day in a row",
+    "streak_days_other": "{{count}} days in a row",
+    "streak_empty": "No streak yet",
+    "streak_hint": "Days in a row you hit your goal"
+  },
+  "health": {
+    "subtitle": "Water is live — more modules soon",
+    "modules": {
+      "vitamins": "Vitamins",
+      "energy": "Energy",
+      "sleep": "Sleep",
+      "cycle": "Cycle",
+      "mood": "Mood"
+    }
   }
 }

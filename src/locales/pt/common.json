@@ -360,5 +360,36 @@
     "ui_demo_modal_title": "Modal de exemplo",
     "ui_demo_modal_body": "Esta é uma janela modal do kit de UI.",
     "ui_demo_toast_msg": "Pronto — isto é um toast."
+  },
+  "water": {
+    "title": "Água",
+    "card_subtitle": "Acompanhe seus copos de hoje",
+    "glasses": "copos",
+    "goal": "Meta diária",
+    "goal_hint": "Copos por dia",
+    "goal_reached": "Meta alcançada",
+    "goal_increase": "Aumentar meta",
+    "goal_decrease": "Diminuir meta",
+    "add": "Adicionar copo",
+    "remove": "Remover copo",
+    "weekly": "Esta semana",
+    "average": "Média",
+    "per_day": "por dia",
+    "streak": "Sequência",
+    "streak_days_one": "{{count}} dia seguido",
+    "streak_days_many": "{{count}} dias seguidos",
+    "streak_days_other": "{{count}} dias seguidos",
+    "streak_empty": "Ainda sem sequência",
+    "streak_hint": "Dias seguidos cumprindo a meta"
+  },
+  "health": {
+    "subtitle": "A água já está ativa — mais módulos em breve",
+    "modules": {
+      "vitamins": "Vitaminas",
+      "energy": "Energia",
+      "sleep": "Sono",
+      "cycle": "Ciclo",
+      "mood": "Humor"
+    }
   }
 }

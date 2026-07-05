@@ -358,5 +358,35 @@
     "ui_demo_modal_title": "Modal namunasi",
     "ui_demo_modal_body": "Bu — UI to‘plamidagi modal oyna.",
     "ui_demo_toast_msg": "Tayyor — bu toast."
+  },
+  "water": {
+    "title": "Suv",
+    "card_subtitle": "Bugungi stakanlaringni kuzat",
+    "glasses": "stakan",
+    "goal": "Kunlik maqsad",
+    "goal_hint": "Kuniga stakan",
+    "goal_reached": "Maqsadga erishildi",
+    "goal_increase": "Maqsadni oshirish",
+    "goal_decrease": "Maqsadni kamaytirish",
+    "add": "Stakan qoʻshish",
+    "remove": "Stakanni olib tashlash",
+    "weekly": "Bu hafta",
+    "average": "Oʻrtacha",
+    "per_day": "kuniga",
+    "streak": "Ketma-ketlik",
+    "streak_days_one": "ketma-ket {{count}} kun",
+    "streak_days_other": "ketma-ket {{count}} kun",
+    "streak_empty": "Hozircha ketma-ketlik yoʻq",
+    "streak_hint": "Maqsadga erishilgan ketma-ket kunlar"
+  },
+  "health": {
+    "subtitle": "Suv ishga tushdi — boshqa modullar tez orada",
+    "modules": {
+      "vitamins": "Vitaminlar",
+      "energy": "Energiya",
+      "sleep": "Uyqu",
+      "cycle": "Sikl",
+      "mood": "Kayfiyat"
+    }
   }
 }

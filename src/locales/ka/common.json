@@ -358,5 +358,35 @@
     "ui_demo_modal_title": "მოდალის ნიმუში",
     "ui_demo_modal_body": "ეს არის მოდალური ფანჯარა UI ნაკრებიდან.",
     "ui_demo_toast_msg": "მზადაა — ეს ტოსტია."
+  },
+  "water": {
+    "title": "წყალი",
+    "card_subtitle": "თვალი ადევნე დღევანდელ ჭიქებს",
+    "glasses": "ჭიქა",
+    "goal": "დღიური მიზანი",
+    "goal_hint": "ჭიქა დღეში",
+    "goal_reached": "მიზანი მიღწეულია",
+    "goal_increase": "მიზნის გაზრდა",
+    "goal_decrease": "მიზნის შემცირება",
+    "add": "ჭიქის დამატება",
+    "remove": "ჭიქის მოშორება",
+    "weekly": "ამ კვირაში",
+    "average": "საშუალოდ",
+    "per_day": "დღეში",
+    "streak": "სერია",
+    "streak_days_one": "{{count}} დღე ზედიზედ",
+    "streak_days_other": "{{count}} დღე ზედიზედ",
+    "streak_empty": "ჯერ სერია არ არის",
+    "streak_hint": "ზედიზედ დღეები მიზნის მიღწევით"
+  },
+  "health": {
+    "subtitle": "წყალი აქტიურია — სხვა მოდულები მალე",
+    "modules": {
+      "vitamins": "ვიტამინები",
+      "energy": "ენერგია",
+      "sleep": "ძილი",
+      "cycle": "ციკლი",
+      "mood": "განწყობა"
+    }
   }
 }

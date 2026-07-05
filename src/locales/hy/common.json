@@ -358,5 +358,35 @@
     "ui_demo_modal_title": "Մոդալի օրինակ",
     "ui_demo_modal_body": "Սա UI հավաքածուի մոդալ պատուհան է։",
     "ui_demo_toast_msg": "Պատրաստ է — սա թոստ է։"
+  },
+  "water": {
+    "title": "Ջուր",
+    "card_subtitle": "Հետևիր այսօրվա բաժակներիդ",
+    "glasses": "բաժակ",
+    "goal": "Օրական նպատակ",
+    "goal_hint": "Բաժակ օրական",
+    "goal_reached": "Նպատակը կատարված է",
+    "goal_increase": "Ավելացնել նպատակը",
+    "goal_decrease": "Նվազեցնել նպատակը",
+    "add": "Ավելացնել բաժակ",
+    "remove": "Հեռացնել բաժակ",
+    "weekly": "Այս շաբաթ",
+    "average": "Միջինում",
+    "per_day": "օրական",
+    "streak": "Շարք",
+    "streak_days_one": "{{count}} օր անընդմեջ",
+    "streak_days_other": "{{count}} օր անընդմեջ",
+    "streak_empty": "Դեռ շարք չկա",
+    "streak_hint": "Անընդմեջ օրեր՝ նպատակին հասնելով"
+  },
+  "health": {
+    "subtitle": "Ջուրն ակտիվ է — մյուս մոդուլները շուտով",
+    "modules": {
+      "vitamins": "Վիտամիններ",
+      "energy": "Էներգիա",
+      "sleep": "Քուն",
+      "cycle": "Ցիկլ",
+      "mood": "Տրամադրություն"
+    }
   }
 }

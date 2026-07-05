@@ -358,5 +358,35 @@
     "ui_demo_modal_title": "Örnek modal",
     "ui_demo_modal_body": "Bu, UI kitinden bir modal penceredir.",
     "ui_demo_toast_msg": "Tamam — bu bir toast."
+  },
+  "water": {
+    "title": "Su",
+    "card_subtitle": "Bugün içtiğin bardakları takip et",
+    "glasses": "bardak",
+    "goal": "Günlük hedef",
+    "goal_hint": "Günde bardak",
+    "goal_reached": "Hedefe ulaşıldı",
+    "goal_increase": "Hedefi artır",
+    "goal_decrease": "Hedefi azalt",
+    "add": "Bardak ekle",
+    "remove": "Bardağı çıkar",
+    "weekly": "Bu hafta",
+    "average": "Ortalama",
+    "per_day": "günde",
+    "streak": "Seri",
+    "streak_days_one": "üst üste {{count}} gün",
+    "streak_days_other": "üst üste {{count}} gün",
+    "streak_empty": "Henüz seri yok",
+    "streak_hint": "Hedefe ulaştığın ardışık günler"
+  },
+  "health": {
+    "subtitle": "Su yayında — diğer modüller yakında",
+    "modules": {
+      "vitamins": "Vitaminler",
+      "energy": "Enerji",
+      "sleep": "Uyku",
+      "cycle": "Döngü",
+      "mood": "Ruh hâli"
+    }
   }
 }

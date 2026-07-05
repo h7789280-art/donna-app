@@ -364,5 +364,37 @@
     "ui_demo_modal_title": "Прыклад мадалкі",
     "ui_demo_modal_body": "Гэта мадальнае акно з UI-кіту.",
     "ui_demo_toast_msg": "Гатова — гэта тост."
+  },
+  "water": {
+    "title": "Вада",
+    "card_subtitle": "Сачы за шклянкамі вады сёння",
+    "glasses": "шклянак",
+    "goal": "Дзённая мэта",
+    "goal_hint": "Шклянак на дзень",
+    "goal_reached": "Мэта дасягнута",
+    "goal_increase": "Павялічыць мэту",
+    "goal_decrease": "Паменшыць мэту",
+    "add": "Дадаць шклянку",
+    "remove": "Прыбраць шклянку",
+    "weekly": "За тыдзень",
+    "average": "У сярэднім",
+    "per_day": "на дзень",
+    "streak": "Серыя",
+    "streak_days_one": "{{count}} дзень запар",
+    "streak_days_few": "{{count}} дні запар",
+    "streak_days_many": "{{count}} дзён запар",
+    "streak_days_other": "{{count}} дзён запар",
+    "streak_empty": "Пакуль без серыі",
+    "streak_hint": "Дзён запар з дасягнутай мэтай"
+  },
+  "health": {
+    "subtitle": "Вада ўжо працуе — астатнія модулі хутка",
+    "modules": {
+      "vitamins": "Вітаміны",
+      "energy": "Энергія",
+      "sleep": "Сон",
+      "cycle": "Цыкл",
+      "mood": "Настрой"
+    }
   }
 }

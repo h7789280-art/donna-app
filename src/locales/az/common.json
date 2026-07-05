@@ -358,5 +358,35 @@
     "ui_demo_modal_title": "Nümunə modal",
     "ui_demo_modal_body": "Bu, UI dəstindən bir modal pəncərədir.",
     "ui_demo_toast_msg": "Hazırdır — bu bir toastdır."
+  },
+  "water": {
+    "title": "Su",
+    "card_subtitle": "Bugünkü stəkanlarını izlə",
+    "glasses": "stəkan",
+    "goal": "Gündəlik hədəf",
+    "goal_hint": "Gündə stəkan",
+    "goal_reached": "Hədəfə çatıldı",
+    "goal_increase": "Hədəfi artır",
+    "goal_decrease": "Hədəfi azalt",
+    "add": "Stəkan əlavə et",
+    "remove": "Stəkanı çıxar",
+    "weekly": "Bu həftə",
+    "average": "Orta",
+    "per_day": "gündə",
+    "streak": "Ardıcıllıq",
+    "streak_days_one": "ardıcıl {{count}} gün",
+    "streak_days_other": "ardıcıl {{count}} gün",
+    "streak_empty": "Hələ ardıcıllıq yoxdur",
+    "streak_hint": "Hədəfə çatdığın ardıcıl günlər"
+  },
+  "health": {
+    "subtitle": "Su aktivdir — digər modullar tezliklə",
+    "modules": {
+      "vitamins": "Vitaminlər",
+      "energy": "Enerji",
+      "sleep": "Yuxu",
+      "cycle": "Dövr",
+      "mood": "Əhval"
+    }
   }
 }

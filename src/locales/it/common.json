@@ -360,5 +360,36 @@
     "ui_demo_modal_title": "Modale di esempio",
     "ui_demo_modal_body": "Questa è una finestra modale del kit UI.",
     "ui_demo_toast_msg": "Fatto — questo è un toast."
+  },
+  "water": {
+    "title": "Acqua",
+    "card_subtitle": "Tieni d'occhio i bicchieri di oggi",
+    "glasses": "bicchieri",
+    "goal": "Obiettivo giornaliero",
+    "goal_hint": "Bicchieri al giorno",
+    "goal_reached": "Obiettivo raggiunto",
+    "goal_increase": "Aumenta obiettivo",
+    "goal_decrease": "Riduci obiettivo",
+    "add": "Aggiungi bicchiere",
+    "remove": "Togli bicchiere",
+    "weekly": "Questa settimana",
+    "average": "Media",
+    "per_day": "al giorno",
+    "streak": "Serie",
+    "streak_days_one": "{{count}} giorno di fila",
+    "streak_days_many": "{{count}} giorni di fila",
+    "streak_days_other": "{{count}} giorni di fila",
+    "streak_empty": "Ancora nessuna serie",
+    "streak_hint": "Giorni di fila con obiettivo raggiunto"
+  },
+  "health": {
+    "subtitle": "L'acqua è attiva — altri moduli presto",
+    "modules": {
+      "vitamins": "Vitamine",
+      "energy": "Energia",
+      "sleep": "Sonno",
+      "cycle": "Ciclo",
+      "mood": "Umore"
+    }
   }
 }
