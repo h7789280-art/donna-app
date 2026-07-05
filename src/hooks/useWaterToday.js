@@ -9,11 +9,24 @@ export function useWaterToday() {
   const userId = user?.id
 
   const [cups, setCups] = useState(0)
-  const [goal, applyGoal] = useState(DEFAULT_GOAL)
+  const [goal, setGoalState] = useState(DEFAULT_GOAL)
   const [weekly, setWeekly] = useState([]) // [{ date, glasses, goal }]
   const [loading, setLoading] = useState(true)
   const [adding, setAdding] = useState(false)
+  const [goalSaved, setGoalSaved] = useState(false)
   const isMutating = useRef(false)
+
+  // goalRef mirrors `goal` synchronously so rapid +/− taps accumulate
+  // correctly even before React re-renders (avoids stale-closure reads).
+  const goalRef = useRef(DEFAULT_GOAL)
+  const goalTimer = useRef(null)
+  const savedTimer = useRef(null)
+
+  // Set the goal in both state (for render) and ref (for logic) at once.
+  const applyGoal = useCallback((n) => {
+    goalRef.current = n
+    setGoalState(n)
+  }, [])
 
   const loadFromView = useCallback(async () => {
     if (!userId) {
@@ -151,26 +164,26 @@ export function useWaterToday() {
     loadWeekly()
   }, [userId, loadWeekly])
 
-  // NEW: менять цель воды через RPC set_water_goal (пишет в water_log.goal
-  // на сегодня). Оптимистично + откат при ошибке.
-  const setGoal = useCallback(
-    async (n) => {
+  // Записать цель в БД (debounced). Оптимистично уже применено в UI —
+  // здесь только пишем в water_log.goal и даём фидбек «сохранено».
+  const persistGoal = useCallback(
+    async (value) => {
       if (!userId) return
-      const next = Math.max(1, Math.min(30, Math.round(Number(n) || 0)))
-      const prev = goal
-      if (next === prev) return
-      applyGoal(next)
-
-      const { error } = await supabase.rpc('set_water_goal', { p_goal: next })
-      console.log('[useWaterToday] set_water_goal RPC:', { next, error })
+      const { error } = await supabase.rpc('set_water_goal', { p_goal: value })
+      console.log('[useWaterToday] set_water_goal RPC:', { value, error })
 
       if (error) {
         console.error('[useWaterToday] setGoal error:', error)
-        applyGoal(prev) // откат
+        // Откат: перечитать реальную цель из БД.
+        const { data } = await supabase
+          .from('v_water_today')
+          .select('glasses, goal')
+          .maybeSingle()
+        if (data?.goal) applyGoal(Number(data.goal))
         return
       }
 
-      // Перечитать сегодняшнюю вьюху, чтобы цель совпала с БД.
+      // Пересинхронизировать сегодняшнюю вьюху и недельную статистику.
       const { data } = await supabase
         .from('v_water_today')
         .select('glasses, goal')
@@ -180,9 +193,47 @@ export function useWaterToday() {
         if (data.goal) applyGoal(Number(data.goal))
       }
       loadWeekly()
+
+      // Мягкий фидбек «Цель обновлена» на ~1.5с.
+      setGoalSaved(true)
+      if (savedTimer.current) clearTimeout(savedTimer.current)
+      savedTimer.current = setTimeout(() => setGoalSaved(false), 1500)
     },
-    [userId, goal, loadWeekly],
+    [userId, applyGoal, loadWeekly],
   )
 
-  return { cups, goal, weekly, loading, adding, add, removeCup, setGoal }
+  // Изменить цель на delta (±1). Мгновенно в UI, запись в БД — debounce,
+  // чтобы быстрый +/+/+ ушёл одним запросом. goalRef убирает stale-closure.
+  const nudgeGoal = useCallback(
+    (delta) => {
+      if (!userId) return
+      const next = Math.max(1, Math.min(20, goalRef.current + delta))
+      if (next === goalRef.current) return
+      applyGoal(next)
+
+      if (goalTimer.current) clearTimeout(goalTimer.current)
+      goalTimer.current = setTimeout(() => persistGoal(next), 500)
+    },
+    [userId, applyGoal, persistGoal],
+  )
+
+  // Очистить таймеры при размонтировании.
+  useEffect(() => {
+    return () => {
+      if (goalTimer.current) clearTimeout(goalTimer.current)
+      if (savedTimer.current) clearTimeout(savedTimer.current)
+    }
+  }, [])
+
+  return {
+    cups,
+    goal,
+    weekly,
+    loading,
+    adding,
+    goalSaved,
+    add,
+    removeCup,
+    nudgeGoal,
+  }
 }

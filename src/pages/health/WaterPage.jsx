@@ -54,7 +54,7 @@ function weekdayInitial(iso, locale) {
 export default function WaterPage() {
   const { t, i18n } = useTranslation()
   const navigate = useNavigate()
-  const { cups, goal, weekly, loading, adding, add, removeCup, setGoal } =
+  const { cups, goal, weekly, loading, adding, goalSaved, add, removeCup, nudgeGoal } =
     useWaterToday()
 
   const todayIso = weekly.length ? weekly[weekly.length - 1].date : null
@@ -199,13 +199,34 @@ export default function WaterPage() {
         <motion.section variants={fadeIn} className="mt-6">
           <WidgetHeader className="mb-3">{t('water.goal')}</WidgetHeader>
           <Card className="p-5 flex items-center justify-between">
-            <div className="font-sans text-md text-ink-soft">
-              {t('water.goal_hint')}
+            <div className="min-w-0">
+              <div className="font-sans text-md text-ink-soft">
+                {t('water.goal_hint')}
+              </div>
+              {/* Мягкий фидбек: цель сохранена */}
+              <motion.div
+                initial={false}
+                animate={{ opacity: goalSaved ? 1 : 0 }}
+                transition={{ duration: 0.2 }}
+                className="flex items-center gap-1 mt-1 h-4 text-success"
+                aria-live="polite"
+              >
+                <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+                  <path
+                    d="M2.5 7.5 6 11l5.5-7.5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span className="font-sans text-xs">{t('water.goal_saved')}</span>
+              </motion.div>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 shrink-0">
               <button
                 type="button"
-                onClick={() => setGoal(goal - 1)}
+                onClick={() => nudgeGoal(-1)}
                 disabled={goal <= 1}
                 aria-label={t('water.goal_decrease')}
                 className="h-9 w-9 rounded-full bg-card-alt text-ink border border-line flex items-center justify-center active:scale-95 transition disabled:opacity-40"
@@ -224,8 +245,8 @@ export default function WaterPage() {
               </span>
               <button
                 type="button"
-                onClick={() => setGoal(goal + 1)}
-                disabled={goal >= 30}
+                onClick={() => nudgeGoal(1)}
+                disabled={goal >= 20}
                 aria-label={t('water.goal_increase')}
                 className="h-9 w-9 rounded-full bg-accent text-accent-ink flex items-center justify-center active:scale-95 transition disabled:opacity-40"
               >
