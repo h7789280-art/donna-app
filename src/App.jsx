@@ -17,6 +17,7 @@ import CategoriesPage from './pages/finance/CategoriesPage'
 import PinSetup from './pages/finance/PinSetup'
 import PinEnter from './pages/finance/PinEnter'
 import ChildrenPage from './pages/children/ChildrenPage'
+import PlannerPage from './pages/planner/PlannerPage'
 import HealthPage from './pages/health/HealthPage'
 import MorePage from './pages/more/MorePage'
 
@@ -58,6 +59,7 @@ export default function App() {
             <Route path="categories" element={<CategoriesPage />} />
           </Route>
           <Route path="/children" element={<ChildrenPage />} />
+          <Route path="/planner" element={<PlannerPage />} />
           <Route path="/health" element={<HealthPage />} />
           <Route path="/more" element={<MorePage />} />
         </Route>

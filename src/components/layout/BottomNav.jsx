@@ -25,13 +25,13 @@ function FinanceIcon() {
   )
 }
 
-function ChildrenIcon() {
+function PlannerIcon() {
   return (
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="6" r="2.5" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M12 8.5V15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M12 10.5 8 12M12 10.5 16 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M12 15l-2.5 5M12 15l2.5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M4 9h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M8 3v3M16 3v3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M8.5 13h3M8.5 16.5h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   )
 }
@@ -58,7 +58,7 @@ function MoreIcon() {
 const tabs = [
   { to: '/', key: 'home', Icon: HomeIcon },
   { to: '/finance', key: 'finance', Icon: FinanceIcon },
-  { to: '/children', key: 'children', Icon: ChildrenIcon },
+  { to: '/planner', key: 'planner', Icon: PlannerIcon },
   { to: '/health', key: 'health', Icon: HealthIcon },
   { to: '/more', key: 'more', Icon: MoreIcon },
 ]
