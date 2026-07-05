@@ -20,6 +20,7 @@ import ChildrenPage from './pages/children/ChildrenPage'
 import PlannerPage from './pages/planner/PlannerPage'
 import HealthPage from './pages/health/HealthPage'
 import MorePage from './pages/more/MorePage'
+import MoreGroupPage from './pages/more/MoreGroupPage'
 
 export default function App() {
   useEffect(() => {
@@ -62,6 +63,7 @@ export default function App() {
           <Route path="/planner" element={<PlannerPage />} />
           <Route path="/health" element={<HealthPage />} />
           <Route path="/more" element={<MorePage />} />
+          <Route path="/more/:groupId" element={<MoreGroupPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
