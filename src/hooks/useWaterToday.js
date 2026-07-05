@@ -49,10 +49,12 @@ export function useWaterToday() {
     }
     if (data) {
       setCups(Number(data.glasses) || 0)
-      if (data.goal) applyGoal(Number(data.goal))
+      // Применяем цель всегда, когда БД её вернула (!= null), чтобы свежее
+      // значение из v_water_today не оставалось на DEFAULT_GOAL=8.
+      if (data.goal != null) applyGoal(Number(data.goal))
     }
     setLoading(false)
-  }, [userId])
+  }, [userId, applyGoal])
 
   const loadWeekly = useCallback(async () => {
     if (!userId) return
@@ -92,6 +94,27 @@ export function useWaterToday() {
     loadWeekly()
   }, [authLoading, userId, loadFromView, loadWeekly])
 
+  // Перечитывать свежие glasses/goal из v_water_today при возврате на экран:
+  // фокус окна и разворачивание PWA (visibilitychange). React не перемонтирует
+  // уже открытое приложение при resume, поэтому без этого на экране остаются
+  // старые значения (напр. DEFAULT_GOAL=8), даже если в БД уже 9/11.
+  // Тихий рефетч (без setLoading), чтобы не мигал спиннер; loadFromView сам
+  // пропускает загрузку, если идёт мутация (isMutating).
+  useEffect(() => {
+    if (!userId) return
+    const resync = () => {
+      if (document.visibilityState === 'hidden') return
+      loadFromView()
+      loadWeekly()
+    }
+    window.addEventListener('focus', resync)
+    document.addEventListener('visibilitychange', resync)
+    return () => {
+      window.removeEventListener('focus', resync)
+      document.removeEventListener('visibilitychange', resync)
+    }
+  }, [userId, loadFromView, loadWeekly])
+
   const add = useCallback(async () => {
     if (!userId || isMutating.current) return
     isMutating.current = true
@@ -117,13 +140,13 @@ export function useWaterToday() {
 
     if (data) {
       setCups(Number(data.glasses) || 0)
-      if (data.goal) applyGoal(Number(data.goal))
+      if (data.goal != null) applyGoal(Number(data.goal))
     }
 
     isMutating.current = false
     setAdding(false)
     loadWeekly()
-  }, [userId, loadWeekly])
+  }, [userId, loadWeekly, applyGoal])
 
   // NEW: убрать стакан (−1), не уходя ниже нуля. Оптимистично + откат.
   const removeCup = useCallback(async () => {
@@ -156,13 +179,13 @@ export function useWaterToday() {
       .maybeSingle()
     if (data) {
       setCups(Number(data.glasses) || 0)
-      if (data.goal) applyGoal(Number(data.goal))
+      if (data.goal != null) applyGoal(Number(data.goal))
     }
 
     isMutating.current = false
     setAdding(false)
     loadWeekly()
-  }, [userId, loadWeekly])
+  }, [userId, loadWeekly, applyGoal])
 
   // Записать цель в БД (debounced). Оптимистично уже применено в UI —
   // здесь только пишем в water_log.goal и даём фидбек «сохранено».
@@ -179,7 +202,7 @@ export function useWaterToday() {
           .from('v_water_today')
           .select('glasses, goal')
           .maybeSingle()
-        if (data?.goal) applyGoal(Number(data.goal))
+        if (data?.goal != null) applyGoal(Number(data.goal))
         return
       }
 
@@ -190,7 +213,7 @@ export function useWaterToday() {
         .maybeSingle()
       if (data) {
         setCups(Number(data.glasses) || 0)
-        if (data.goal) applyGoal(Number(data.goal))
+        if (data.goal != null) applyGoal(Number(data.goal))
       }
       loadWeekly()
 
