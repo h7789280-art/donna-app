@@ -14,10 +14,10 @@ const fadeIn = {
 
 const ROUTE = '/health/habits'
 
-// Compact habits widget — a square dashboard tile showing today's SUMMARY
-// (N / M done). A full check-off list won't fit a tile, so ticking happens
-// in the module: tap the tile → open /health/habits. Reuses useHabits (same
-// list + todayDone as the module, no duplication). No habits → prompt to add.
+// Compact habits widget — a short, wide dashboard tile (h-28) showing today's
+// SUMMARY (N / M done). A full check-off list won't fit a tile, so ticking
+// happens in the module: tap the tile → open /health/habits. Reuses useHabits
+// (same list + todayDone as the module, no duplication). No habits → prompt.
 export default function HabitsWidget() {
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -34,7 +34,7 @@ export default function HabitsWidget() {
   const isEmpty = !loading && total === 0
 
   return (
-    <motion.section variants={fadeIn} className="aspect-square">
+    <motion.section variants={fadeIn} className="h-28">
       <Card
         onClick={open}
         role="button"
@@ -45,14 +45,14 @@ export default function HabitsWidget() {
             open()
           }
         }}
-        className="h-full p-4 flex flex-col justify-between hover:bg-card-alt transition-colors cursor-pointer"
+        className="h-full p-3.5 flex flex-col justify-between hover:bg-card-alt transition-colors cursor-pointer"
       >
         {/* Top: label + target glyph */}
         <div className="flex items-start justify-between">
           <WidgetHeader>{t('dashboard.widgets.habits')}</WidgetHeader>
           <svg
-            width="20"
-            height="20"
+            width="18"
+            height="18"
             viewBox="0 0 24 24"
             fill="none"
             className="text-accent shrink-0"
@@ -66,24 +66,22 @@ export default function HabitsWidget() {
 
         {isEmpty ? (
           /* Empty state — tap opens the module to create habits. */
-          <div className="flex-1 flex items-center">
-            <p className="font-sans text-sm text-ink-muted">
-              {t('dashboard.widgets.habits_empty')}
-            </p>
-          </div>
+          <p className="font-sans text-sm text-ink-muted">
+            {t('dashboard.widgets.habits_empty')}
+          </p>
         ) : (
           /* Summary: N / M done today + a small progress ring. */
           <div className="flex items-end justify-between gap-2">
-            <div>
+            <div className="min-w-0">
               <div className="font-serif leading-none">
-                <span className="text-accent text-4xl">{done}</span>
-                <span className="text-ink-muted text-2xl"> / {total}</span>
+                <span className="text-accent text-3xl">{done}</span>
+                <span className="text-ink-muted text-xl"> / {total}</span>
               </div>
-              <div className="font-sans text-xs text-ink-muted mt-1.5">
+              <div className="font-sans text-[11px] text-ink-muted mt-1 truncate">
                 {t('dashboard.widgets.habits_summary')}
               </div>
             </div>
-            <ProgressRing value={pct} size={48} strokeWidth={5} className="shrink-0" />
+            <ProgressRing value={pct} size={44} strokeWidth={5} className="shrink-0" />
           </div>
         )}
       </Card>

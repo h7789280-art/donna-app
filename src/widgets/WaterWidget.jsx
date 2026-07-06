@@ -12,8 +12,8 @@ const fadeIn = {
 
 const ROUTE = '/health/water'
 
-// Compact, working water widget — a square dashboard tile. Reuses
-// useWaterToday (same counter/goal/+1 logic as the Water module, no
+// Compact, working water widget — a short, wide dashboard tile (h-28).
+// Reuses useWaterToday (same counter/goal/+1 logic as the Water module, no
 // duplication). Tap the body → open the full module; +1 acts right from home.
 export default function WaterWidget() {
   const { t } = useTranslation()
@@ -23,7 +23,7 @@ export default function WaterWidget() {
   const open = () => navigate(ROUTE)
 
   return (
-    <motion.section variants={fadeIn} className="aspect-square">
+    <motion.section variants={fadeIn} className="h-28">
       <Card
         onClick={open}
         role="button"
@@ -34,14 +34,14 @@ export default function WaterWidget() {
             open()
           }
         }}
-        className="h-full p-4 flex flex-col justify-between hover:bg-card-alt transition-colors cursor-pointer"
+        className="h-full p-3.5 flex flex-col justify-between hover:bg-card-alt transition-colors cursor-pointer"
       >
         {/* Top: label + water drop glyph */}
         <div className="flex items-start justify-between">
           <WidgetHeader>{t('dashboard.widgets.water')}</WidgetHeader>
           <svg
-            width="20"
-            height="20"
+            width="18"
+            height="18"
             viewBox="0 0 24 24"
             fill="none"
             className="text-accent shrink-0"
@@ -57,19 +57,17 @@ export default function WaterWidget() {
           </svg>
         </div>
 
-        {/* Middle: big counter */}
-        <div>
-          <div className="font-serif leading-none">
-            <span className="text-accent text-4xl">{cups}</span>
-            <span className="text-ink-muted text-2xl"> / {goal}</span>
+        {/* Bottom: counter (left) + working +1 button (right) */}
+        <div className="flex items-end justify-between gap-2">
+          <div className="min-w-0">
+            <div className="font-serif leading-none">
+              <span className="text-accent text-3xl">{cups}</span>
+              <span className="text-ink-muted text-xl"> / {goal}</span>
+            </div>
+            <div className="font-sans text-[11px] text-ink-muted mt-1 truncate">
+              {t('dashboard.water_subtitle')}
+            </div>
           </div>
-          <div className="font-sans text-xs text-ink-muted mt-1.5">
-            {t('dashboard.water_subtitle')}
-          </div>
-        </div>
-
-        {/* Bottom: +1 button */}
-        <div className="flex justify-end">
           <button
             type="button"
             onClick={(e) => {
@@ -78,7 +76,7 @@ export default function WaterWidget() {
             }}
             disabled={adding}
             aria-label={t('dashboard.water_add_aria')}
-            className="w-11 h-11 rounded-full bg-accent text-accent-ink flex items-center justify-center shadow-card hover:opacity-90 active:scale-95 transition disabled:opacity-60"
+            className="w-10 h-10 shrink-0 rounded-full bg-accent text-accent-ink flex items-center justify-center shadow-card hover:opacity-90 active:scale-95 transition disabled:opacity-60"
           >
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
               <path

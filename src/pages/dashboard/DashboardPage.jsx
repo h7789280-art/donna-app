@@ -176,8 +176,8 @@ export default function DashboardPage() {
 
           {/* Customizable module widgets (from profiles.dashboard_config,
               rendered via the widget registry in config order) as a 2-column
-              grid of square tiles. Each widget renders its own aspect-square
-              tile; an odd last widget keeps one cell (no full-width stretch).
+              grid of short, wide tiles (each widget renders its own h-28 tile).
+              An odd last widget keeps one cell (no full-width stretch).
               Empty ⇒ a soft hint pointing to the "Pin to home" toggle. */}
           {enabledWidgets.length > 0 ? (
             <motion.div variants={stagger} className="grid grid-cols-2 gap-3">
